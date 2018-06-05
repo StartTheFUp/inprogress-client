@@ -3,12 +3,16 @@ import {actions} from './actions/file.js'
 import {reducer} from './reducers/index.js'
 
 const initialState = {
-  blocs: []
+  blocks: []
 }
 
 export const store = createStore(reducer, initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-fetch('/blocs')
+fetch('/blocks')
   .then(res => res.json())
-  .then(blocs => actions.loadBlocs(blocs))
+  .then(blocks => {
+    console.log(blocks)
+
+    actions.loadBlocks(blocks)
+  })

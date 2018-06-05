@@ -1,7 +1,7 @@
 export const reducer = (state, action) => {
-  if (action.type === 'LOAD_BLOCS') {
+  if (action.type === 'LOAD_BLOCKS') {
     return {
-      blocs: action.blocs
+      blocks: action.blocks
     }
   }
   return state

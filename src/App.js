@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { store } from './store'
 import 'semantic-ui-css/semantic.min.css'
-import Blocs from './components/Blocs.js'
+import Blocks from './components/Blocks.js'
 
 class App extends Component {
   constructor () {
@@ -16,7 +16,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        {this.state.blocs.map(Blocs)}
+        {this.state.blocks.map(Blocks)}
       </div>
     )
   }

@@ -2,6 +2,6 @@ import {store} from '../store.js'
 
 export const actions = {
 
-  loadBlocs: blocs => store.dispatch({ type: 'LOAD_BLOCS', blocs })
+  loadBlocks: blocks => store.dispatch({ type: 'LOAD_BLOCKS', blocks })
 
 }
