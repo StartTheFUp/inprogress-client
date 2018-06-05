@@ -14,16 +14,13 @@ class App extends Component {
   }
 
   render () {
-    if(this.state.blocs[0])
+  
     return (
       <div>
-      {this.state.blocs[0]._id}
+      {this.state.blocs.map(bloc => `${bloc._id}---`)}
       </div>
     )
-    else 
-    return (
-      <div>Loading</div>
-    )
+  
     
   }
 }
