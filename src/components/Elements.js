@@ -2,7 +2,7 @@ import React from 'react'
 
 const Elements = elem => {
   return (
-    <div key={elem._id}>
+    <div key={elem.createdAt}>
       <p>{elem.content}</p>
     </div>
   )

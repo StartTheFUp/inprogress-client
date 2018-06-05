@@ -3,7 +3,7 @@ import Elements from './Elements.js'
 
 const Sections = (section) => {
   return (
-    <div key={section._id}>
+    <div key={section.title}>
       <h2>{section.title}</h2>
       <div>{section.elements.map(Elements)}</div>
 
