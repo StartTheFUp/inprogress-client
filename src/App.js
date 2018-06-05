@@ -14,10 +14,17 @@ class App extends Component {
   }
 
   render () {
+    if(this.state.blocs[0])
     return (
-      <div className="App">
+      <div>
+      {this.state.blocs[0]._id}
       </div>
     )
+    else 
+    return (
+      <div>Loading</div>
+    )
+    
   }
 }
 

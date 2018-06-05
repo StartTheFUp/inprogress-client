@@ -35,5 +35,6 @@
     "eslint-plugin-standard": "^3.1.0",
     "stylelint": "^9.2.1",
     "stylelint-config-recommended": "^2.1.0"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
