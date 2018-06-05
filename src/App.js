@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { store } from './store'
 import 'semantic-ui-css/semantic.min.css'
+import Blocs from './components/Blocs.js'
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
   
     return (
       <div>
-      {this.state.blocs.map(bloc => `${bloc._id}---`)}
+      {this.state.blocs.map(Blocs)}
       </div>
     )
   
