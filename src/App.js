@@ -4,8 +4,7 @@ import 'semantic-ui-css/semantic.min.css'
 import Blocs from './components/Blocs.js'
 
 class App extends Component {
-
-  constructor() {
+  constructor () {
     super()
     this.state = store.getState()
 
@@ -15,14 +14,11 @@ class App extends Component {
   }
 
   render () {
-  
     return (
       <div>
-      {this.state.blocs.map(Blocs)}
+        {this.state.blocs.map(Blocs)}
       </div>
     )
-  
-    
   }
 }
 
