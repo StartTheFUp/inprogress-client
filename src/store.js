@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import {actions} from './action/index.js'
+import {actions} from './action/file.js'
 import {reducer} from './reducers/index.js'
 
 const initialState = {
