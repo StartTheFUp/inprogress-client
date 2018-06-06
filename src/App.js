@@ -3,6 +3,8 @@ import { store } from './store'
 import 'semantic-ui-css/semantic.min.css'
 import DisplayBlocks from './components/DisplayBlocks'
 
+import HeaderDashboard from './components/HeaderDashboard'
+
 class App extends Component {
   constructor () {
     super()
@@ -15,7 +17,8 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className="App">
+        <HeaderDashboard />
         <DisplayBlocks blocks={this.state.blocks}/>
       </div>
     )
