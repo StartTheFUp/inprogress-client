@@ -6,7 +6,6 @@ const Sections = (section) => {
     <div key={section.title}>
       <h2>{section.title}</h2>
       <div>{section.elements.map(Elements)}</div>
-
     </div>
   )
 }
