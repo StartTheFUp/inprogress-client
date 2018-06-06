@@ -11,8 +11,4 @@ export const store = createStore(reducer, initialState,
 
 fetch('/blocks')
   .then(res => res.json())
-  .then(blocks => {
-    console.log(blocks)
-
-    actions.loadBlocks(blocks)
-  })
+  .then(blocks => actions.loadBlocks(blocks))
