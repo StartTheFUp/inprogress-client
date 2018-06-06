@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { store } from './store'
 import 'semantic-ui-css/semantic.min.css'
-import Blocks from './components/Blocks.js'
+import DisplayBlocks from './components/DisplayBlocks'
 
 import HeaderDashboard from './components/HeaderDashboard'
 
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderDashboard />
-        {this.state.blocks.map(Blocks)}
+        <DisplayBlocks blocks={this.state.blocks}/>
       </div>
     )
   }
