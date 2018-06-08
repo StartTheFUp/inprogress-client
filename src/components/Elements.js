@@ -7,7 +7,7 @@ const checkBoxTodos = (propertiesCheck) => {
   return <input className="checkBoxTodo" type="checkbox" onChange={() => console.log("checkbox qui n'était pas checké : CHECK")}/>
 }
 
-const Elements = elem => {
+const Elements = ({elem}) => {
   return (
     <div key={elem.createdAt} className="allElem">
       <div className="ui checkbox" style={{display: (elem.type === 'todos' ? 'block' : 'none')}}>

@@ -19,18 +19,21 @@ const DisplayBlocks = (props) => {
             <div className='Blocks'>
               <div className='otherBlocks'>
                 <div className='Billets'>
-                  {typeBlocks(props.blocks, 'billets').map(Blocks)}
+                  {typeBlocks(props.blocks, 'billets').map(block => 
+                    <Blocks key={block._id} block={block}/>)}
                 </div>
 
                 <div className='Ressources'>
-                  {typeBlocks(props.blocks, 'ressources').map(Blocks)}
+                  {typeBlocks(props.blocks, 'ressources').map(block => 
+                    <Blocks key={block._id} block={block}/>)}
                 </div>
               </div>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className='todos'>
-              {typeBlocks(props.blocks, 'todos').map(Blocks)}
+              {typeBlocks(props.blocks, 'todos').map(block => 
+                    <Blocks key={block._id} block={block}/>)}
             </div>
           </Grid.Column>
         </Grid.Row>
