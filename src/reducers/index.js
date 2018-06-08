@@ -4,5 +4,10 @@ export const reducer = (state, action) => {
       blocks: action.blocks
     }
   }
+  if (action.type === 'LOAD_COMMENTS') {
+    return {
+      comments: action.comments
+    }
+  }
   return state
 }

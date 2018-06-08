@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderDashboard />
-        <DisplayBlocks blocks={this.state.blocks}/>
+        <DisplayBlocks blocks={this.state.blocks} comments ={this.state.comments}/>
       </div>
     )
   }
