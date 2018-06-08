@@ -2,9 +2,9 @@ import React from 'react'
 
 const checkBoxTodos = (propertiesCheck) => {
   if (propertiesCheck) {
-    return  <input className="checkBoxTodo" type="checkbox" defaultChecked/>
+    return  <input className="checkBoxTodo" type="checkbox" defaultChecked onChange={() => console.log('hello',this) }/>
   }
-  return <input className="checkBoxTodo" type="checkbox" />
+  return <input className="checkBoxTodo" type="checkbox" onChange={() => console.log("checkbox qui n'était pas checké : CHECK")}/>
 
 }
 
