@@ -1,7 +1,5 @@
 import React from 'react'
-import Element from './Element.js'
-
-const Section = ({section, indexBlock, indexSection, children}) => {
+const DisplaySection = ({section, indexBlock, indexSection, children}) => {
   return (
     <div key={section.title}>
       <h2>{section.title}</h2>
@@ -10,4 +8,4 @@ const Section = ({section, indexBlock, indexSection, children}) => {
   )
 }
 
-export default Section
+export default DisplaySection

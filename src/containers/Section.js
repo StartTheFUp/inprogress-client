@@ -1,11 +1,10 @@
+import React from 'react'
 import Element from './Element.js'
-import DisplaySection from '../components/Section.js'
-
-
+import DisplaySection from '../components/DisplaySection.js'
 const Section = ({ section, indexBlock, indexSection }) =>
-  <DisplaySection>
+  <DisplaySection section={section}>
     {section.elements.map((element, index) => {
-      /*console.log("element", element)*/
-    return <Element key={element.id} elem={element} indexBlock={indexBlock} indexSection={indexSection} indexElement={index}/>
+      return <Element key={element.id} elem={element} indexBlock={indexBlock} indexSection={indexSection} indexElement={index}/>
     })}
   </DisplaySection>
+export default Section

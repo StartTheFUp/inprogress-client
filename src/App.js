@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { store } from './store'
 import 'semantic-ui-css/semantic.min.css'
-import DisplayBlocks from './components/DisplayBlocks'
+import Blocks from './containers/Blocks.js'
 
 import HeaderDashboard from './components/HeaderDashboard'
 
@@ -11,16 +11,16 @@ class App extends Component {
     this.state = store.getState()
 
     store.subscribe(() => {
+      console.log('jai change', store.getState())
       this.setState(store.getState())
     })
   }
 
   render () {
-    console.log("blockRender : ", this.state.blocks)
     return (
       <div className="App">
         <HeaderDashboard />
-        <DisplayBlocks blocks={this.state.blocks}/>
+        <Blocks blocks={this.state.blocks}/>
       </div>
     )
   }
