@@ -3,7 +3,8 @@ import {actions} from './actions/file.js'
 import {reducer} from './reducers/index.js'
 
 const initialState = {
-  blocks: []
+  blocks: [],
+  comments: []
 }
 
 export const store = createStore(reducer, initialState,
@@ -12,3 +13,7 @@ export const store = createStore(reducer, initialState,
 fetch('/blocks')
   .then(res => res.json())
   .then(blocks => actions.loadBlocks(blocks))
+
+fetch('/comments')
+  .then(res => res.json())
+  .then(comments => actions.loadComments(comments))
