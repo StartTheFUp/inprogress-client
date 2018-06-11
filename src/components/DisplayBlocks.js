@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
-import Blocks from './Blocks.js'
+
 import './DisplayBlocks.css'
 import Comments from './Comments'
 
@@ -9,9 +9,8 @@ import Comments from './Comments'
 // const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
 // const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
 
-const typeBlocks = (blocks, Type) => blocks.filter(block => block.type === Type)
-
-const DisplayBlocks = (props) => {
+const DisplayBlocks = ({blocks, children, comments}) => {
+  console.log('children', children)
   return (
     <div className="AllBlocks">
       <Grid divided='vertically'>
@@ -20,23 +19,24 @@ const DisplayBlocks = (props) => {
             <div className='Blocks'>
               <div className='otherBlocks'>
                 <div className='Billets'>
-                  {typeBlocks(props.blocks, 'billets').map(Blocks)}
+                  {children.filter(({ props }) => props.block.type === 'billets')}
+                  {console.log('coucou', children.filter(({ props }) => props.block.type === 'billets'))}
                 </div>
 
                 <div className='Ressources'>
-                  {typeBlocks(props.blocks, 'ressources').map(Blocks)}
+                  {children.filter(({ props }) => props.block.type === 'ressources')}
                 </div>
               </div>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className='todos'>
-              {typeBlocks(props.blocks, 'todos').map(Blocks)}
+              {children.filter(({ props }) => props.block.type === 'todos')}
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className='comments'>
-              {props.comments.map(Comments)}
+              {comments.map(Comments)}
             </div>
           </Grid.Column>
         </Grid.Row>
