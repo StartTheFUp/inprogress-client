@@ -3,7 +3,7 @@ import {store} from '../store.js'
 export const actions = {
 
   loadBlocks: blocks => store.dispatch({ type: 'LOAD_BLOCKS', blocks }),
-  updateTodo: (indexBlock, indexSection, indexElement) => store.dispatch({ type: 'UPDATE_TODOS', indexBlock, indexSection, indexElement }),
+  updateTodo: (idBlock, idSection, idElement) => store.dispatch({ type: 'UPDATE_TODOS', idBlock, idSection, idElement }),
   loadComments: comments => store.dispatch({ type: 'LOAD_COMMENTS', comments })
 
 }

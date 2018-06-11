@@ -1,9 +1,9 @@
 import React from 'react'
-/* console.log('defaultChecked', indexBlock, indexSection, indexElement) */
-// les indexBlock... sont faux car il y a des filter dans DisplayBlock par ex !
+/* console.log('defaultChecked', idBlock, idSection, idElement) */
+
 
 const checkBoxTodos = ({ propertiesCheck, updateTodo }) => {
-  /* console.log("checkboxTodos : " , indexBlock, indexSection, indexElement) */
+  /* console.log("checkboxTodos : " , idBlock, idSection, idElement) */
   if (propertiesCheck) {
     return <input className="checkBoxTodo" type="checkbox" defaultChecked onChange={updateTodo}/>
   }
