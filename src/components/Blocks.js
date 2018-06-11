@@ -2,15 +2,16 @@ import React from 'react'
 import Sections from './Sections.js'
 import { Segment, Divider } from 'semantic-ui-react'
 
-const Blocks = ({block}) => {
-  console.log("block", block)
+const Blocks = ({block,indexBlock}) => {
+ /* console.log("block", block)
+  console.log("indexblock", indexBlock)*/
   return (
     <div /*key={block._id}*/ className="AllBlocks">
       <Segment>
         <h1>{block.title}</h1>
         <Divider section />
-        <div>{block.sections.map(section =>
-          <Sections key={section.title} section={section}/>)}</div>
+        <div>{block.sections.map((section, index) =>
+          <Sections key={section.title} section={section} indexBlock={indexBlock} indexSection={index}/>)}</div>
       </Segment>
 
     </div>
@@ -19,4 +20,3 @@ const Blocks = ({block}) => {
 
 export default Blocks
 
-/* */

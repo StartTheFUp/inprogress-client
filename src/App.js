@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   render () {
+    console.log("blockRender : ", this.state.blocks)
     return (
       <div className="App">
         <HeaderDashboard />
