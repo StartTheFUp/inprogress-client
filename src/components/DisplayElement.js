@@ -10,13 +10,13 @@ const checkBoxTodos = ({ propertiesCheck, updateTodo }) => {
   return <input className="checkBoxTodo" type="checkbox" onChange={updateTodo}/>
 }
 
-const DisplayElement = ({elem, indexBlock, indexSection, indexElement, elementAction}) => {
+const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction}) => {
   return (
     <div key={elem.createdAt} className="allElem">
       <div className="ui checkbox" style={{display: (elem.type === 'todos' ? 'block' : 'none')}}>
         {checkBoxTodos({
           propertiesCheck: elem.properties.checked,
-          updateTodo: () => elementAction({ type: elem.type, indexBlock, indexSection, indexElement })
+          updateTodo: () => elementAction({ type: elem.type, idBlock, idSection, idElement })
         })}
         <label>  <p>{elem.content}</p>   </label>
       </div>
