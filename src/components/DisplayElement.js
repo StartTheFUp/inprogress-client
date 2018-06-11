@@ -20,7 +20,7 @@ const DisplayElement = ({elem, indexBlock, indexSection, indexElement, elementAc
         })}
         <label>  <p>{elem.content}</p>   </label>
       </div>
-      <p style={{display: (elem.properties.archive === false ? 'block' : 'none')}}>{elem.content}</p>
+      <p style={{display: (elem.type === 'todos' ? 'none' : 'block')}}>{elem.content}</p>
     </div>
   )
 }

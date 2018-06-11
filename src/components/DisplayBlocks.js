@@ -9,7 +9,8 @@ import Comments from './Comments'
 // const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
 // const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
 
-const DisplayBlocks = ({blocks, children}) => {console.log('children', children)
+const DisplayBlocks = ({blocks, children, comments}) => {
+  console.log('children', children)
   return (
     <div className="AllBlocks">
       <Grid divided='vertically'>
@@ -35,7 +36,7 @@ const DisplayBlocks = ({blocks, children}) => {console.log('children', children)
           </Grid.Column>
           <Grid.Column>
             <div className='comments'>
-              {props.comments.map(Comments)}
+              {comments.map(Comments)}
             </div>
           </Grid.Column>
         </Grid.Row>
