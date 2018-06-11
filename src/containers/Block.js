@@ -4,7 +4,7 @@ import Section from './Section.js'
 const Block = ({block, indexBlock}) =>
   <DisplayBlock block={block}>
     {block.sections.map((section, index) => {
-      return <Section key={section.title} section={section} indexBlock={indexBlock} indexSection={index}/>
+      return <Section key={section.id} section={section} indexBlock={indexBlock} indexSection={index}/>
     })}
   </DisplayBlock>
 

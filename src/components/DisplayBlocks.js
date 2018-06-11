@@ -8,7 +8,7 @@ import './DisplayBlocks.css'
 // const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
 // const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
 
-const DisplayBlocks = ({blocks, children}) => {
+const DisplayBlocks = ({blocks, children}) => {console.log('children', children)
   return (
     <div className="AllBlocks">
       <Grid divided='vertically'>
@@ -18,6 +18,7 @@ const DisplayBlocks = ({blocks, children}) => {
               <div className='otherBlocks'>
                 <div className='Billets'>
                   {children.filter(({ props }) => props.block.type === 'billets')}
+                  {console.log('coucou', children.filter(({ props }) => props.block.type === 'billets'))}
                 </div>
 
                 <div className='Ressources'>
