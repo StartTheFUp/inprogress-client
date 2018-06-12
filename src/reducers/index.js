@@ -24,5 +24,11 @@ export const reducer = (state, action) => {
       comments: action.comments
     }
   }
+  if (action.type === 'LOAD_HEADER') {
+    return {
+      ...state,
+      dataHeader: action.dataHeader
+    }
+  }
   return state
 }
