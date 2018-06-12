@@ -5,7 +5,7 @@ const DisplayBlock = ({block, children, processedTickets, action}) => {
     <div key={block._id} className="AllBlocks">
       <Segment>
         <h1>{block.title}</h1>
-        <button onClick={() => action(processedTickets)} style={{display: (block.type === 'billets' ? 'block' : 'none')}}>Billets traité</button>
+        <div onClick={() => action(processedTickets)} style={{display: (block.type === 'billets' ? 'block' : 'none')}}>Billets traité</div>
         <Divider section />
         <div>{children}</div>
       </Segment>
