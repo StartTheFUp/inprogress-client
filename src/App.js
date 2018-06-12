@@ -5,7 +5,7 @@ import HeaderDashboard from './components/HeaderDashboard'
 import { Grid } from 'semantic-ui-react'
 import DisplayComments from './components/DisplayComments'
 import 'semantic-ui-css/semantic.min.css'
-import './App.css'
+import './style/App.css'
 
 class App extends Component {
   constructor() {

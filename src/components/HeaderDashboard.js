@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
-import './HeaderDashboard.css'
+import '../style/HeaderDashboard.css'
 
 const HeaderDashboard = ({data}) => {
   return (

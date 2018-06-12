@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
-import './DisplayBlocks.css'
+import './../style/DisplayBlocks.css'
 
 // const todoBlocks = (blocks) => blocks.filter(block => block.type === 'todos')
 // const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
