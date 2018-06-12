@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderDashboard data={this.state.dataHeader}/>
-        <Blocks blocks={this.state.blocks} />
+        <Blocks blocks={this.state.blocks} processedTickets={this.state.processedTickets}/>
       </div>
     )
   }

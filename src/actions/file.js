@@ -6,5 +6,5 @@ export const actions = {
   updateTodo: (idBlock, idSection, idElement) => store.dispatch({ type: 'UPDATE_TODOS', idBlock, idSection, idElement }),
   loadComments: comments => store.dispatch({ type: 'LOAD_COMMENTS', comments }),
   loadHeaderData: dataHeader => store.dispatch({ type: 'LOAD_HEADER', dataHeader }),
-  showProcessedTickets: processedTickets => store.dispatch({ type: 'SHOW_PROCESSED_TICKETS', processedTickets: !processedTickets })
+  showProcessedTickets: (processedTickets) => store.dispatch({ type: 'SHOW_PROCESSED_TICKETS', processedTickets: !processedTickets })
 }

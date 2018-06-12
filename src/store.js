@@ -5,7 +5,8 @@ import {reducer} from './reducers/index.js'
 const initialState = {
   blocks: [],
   comments: [],
-  dataHeader: {}
+  dataHeader: {},
+  processedTickets: false
 }
 
 export const store = createStore(reducer, initialState,

@@ -30,5 +30,11 @@ export const reducer = (state, action) => {
       dataHeader: action.dataHeader
     }
   }
+  if (action.type === 'SHOW_PROCESSED_TICKETS') {
+    return {
+      ...state,
+      processedTickets: action.processedTickets
+    }
+  }
   return state
 }
