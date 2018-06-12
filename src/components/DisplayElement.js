@@ -1,7 +1,6 @@
 import React from 'react'
 /* console.log('defaultChecked', idBlock, idSection, idElement) */
 
-
 const checkBoxTodos = ({ propertiesCheck, updateTodo }) => {
   /* console.log("checkboxTodos : " , idBlock, idSection, idElement) */
   if (propertiesCheck) {

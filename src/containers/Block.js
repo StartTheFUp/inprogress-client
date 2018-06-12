@@ -3,9 +3,9 @@ import DisplayBlock from '../components/DisplayBlock.js'
 import Section from './Section.js'
 const Block = ({block, idBlock}) =>
 
- <DisplayBlock block={block}>
+  <DisplayBlock block={block}>
     {block.sections.map((section) => {
-      console.log("idSection", idBlock)
+      console.log('idSection', idBlock)
       return <Section key={section.id} section={section} idBlock={idBlock} idSection={section.id}/>
     })}
   </DisplayBlock>
