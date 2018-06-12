@@ -5,7 +5,7 @@ import {reducer} from './reducers/index.js'
 const initialState = {
   blocks: [],
   comments: [],
-  dataHeader: []
+  dataHeader: {}
 }
 
 export const store = createStore(reducer, initialState,
@@ -19,6 +19,6 @@ fetch('/comments')
   .then(res => res.json())
   .then(comments => actions.loadComments(comments))
 
-fetch('/project/5b1f7d9895aa581c12512ec3')
+fetch('/project/1')
   .then(res => res.json())
   .then(dataHeader => actions.loadHeaderData(dataHeader))
