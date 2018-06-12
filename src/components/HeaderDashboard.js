@@ -11,7 +11,7 @@ const HeaderDashboard = ({data}) => {
         </Grid.Column>
         <Grid.Column width={14}>
           <h1 className="project-name">{data.name}</h1>
-          <a className="project-link" href="www.projetsite.com">{data.websiteURL}</a>
+          <a className="project-link" href={data.websiteURL}>{data.websiteURL}</a>
         </Grid.Column>
       </Grid.Row>
     </Grid>
