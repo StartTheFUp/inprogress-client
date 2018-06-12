@@ -1,5 +1,5 @@
 import React from 'react'
-const DisplaySection = ({section, indexBlock, indexSection, children}) => {
+const DisplaySection = ({section, idBlock, idSection, children}) => {
   return (
     <div key={section.title}>
       <h2>{section.title}</h2>
