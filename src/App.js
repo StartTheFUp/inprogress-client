@@ -9,7 +9,6 @@ class App extends Component {
   constructor () {
     super()
     this.state = store.getState()
-
     store.subscribe(() => {
       console.log('jai change', store.getState())
       this.setState(store.getState())
@@ -19,7 +18,7 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <HeaderDashboard />
+        <HeaderDashboard data={this.state.dataHeader}/>
         <Blocks blocks={this.state.blocks} comments={this.state.comments}/>
       </div>
     )
