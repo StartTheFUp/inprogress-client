@@ -33,7 +33,13 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_PROCESSED_TICKETS') {
     return {
       ...state,
-      processedTickets: action.processedTickets
+      processedTickets: true
+    }
+  }
+  if (action.type === 'SHOW_UNPROCESSED_TICKETS') {
+    return {
+      ...state,
+      processedTickets: false
     }
   }
   return state
