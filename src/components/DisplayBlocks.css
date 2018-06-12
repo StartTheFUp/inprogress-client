@@ -2,11 +2,20 @@ body {
     background-color: #efefef;
 }
 
-.AllBlocks, .Billets, .Ressources {
-    margin: 6px -12px 6px 6px;
+.block{
+    padding : 5px 10px;
 }
-
-.allElem {
+.block.billets, 
+.block.ressources{
+    padding-right: 5px;
+}
+.block.todos{
+    padding-left: 5px;
+}
+.all-elements {
     padding: 7px;
     font-size: 16px;
+}
+.all-elements .column{
+    padding : 0 8px;
 }

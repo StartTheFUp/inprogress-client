@@ -7,39 +7,26 @@ import './DisplayBlocks.css'
 // const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
 // const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
 
-const DisplayBlocks = ({blocks, children, comments}) => {
+const DisplayBlocks = ({ blocks, children, comments }) => {
   console.log('comments', children, comments)
   return (
-    <div className="AllBlocks">
-      <Grid divided='vertically'>
-        <Grid.Row columns={3}>
-          <Grid.Column>
-            <div className='Blocks'>
-              <div className='otherBlocks'>
-                <div className='Billets'>
-                  {children.filter(({ props }) => props.block.type === 'billets')}
-                  {console.log('coucou', children.filter(({ props }) => props.block.type === 'billets'))}
-                </div>
-
-                <div className='Ressources'>
-                  {children.filter(({ props }) => props.block.type === 'ressources')}
-                </div>
-              </div>
-            </div>
-          </Grid.Column>
-          <Grid.Column>
-            <div className='todos'>
-              {children.filter(({ props }) => props.block.type === 'todos')}
-            </div>
-          </Grid.Column>
-          <Grid.Column>
-            <div className='comments'>
-
-            </div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </div>
+    <Grid divided='vertically' className="all-elements">
+      <Grid.Row columns={2}>
+        <Grid.Column>
+          <div className='block billets'>
+            {children.filter(({ props }) => props.block.type === 'billets')}
+          </div>
+          <div className='block ressources'>
+            {children.filter(({ props }) => props.block.type === 'ressources')}
+          </div>
+        </Grid.Column>
+        <Grid.Column>
+          <div className='block todos'>
+            {children.filter(({ props }) => props.block.type === 'todos')}
+          </div>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   )
 }
 

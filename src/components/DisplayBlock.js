@@ -1,16 +1,14 @@
 import React from 'react'
 import { Segment, Divider } from 'semantic-ui-react'
+import './DisplayBlock.css'
 
-const DisplayBlock = ({block, children}) => {
+const DisplayBlock = ({ block, children }) => {
   return (
-    <div key={block._id} className="AllBlocks">
-      <Segment>
-        <h1>{block.title}</h1>
-        <Divider section />
-        <div>{children}</div>
-      </Segment>
-
-    </div>
+    <Segment key={block._id}>
+      <h1>{block.title}</h1>
+      <Divider section />
+      <div>{children}</div>
+    </Segment>
   )
 }
 

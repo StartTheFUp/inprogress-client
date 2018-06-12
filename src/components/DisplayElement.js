@@ -11,7 +11,7 @@ const checkBoxTodos = ({ propertiesCheck, updateTodo }) => {
 
 const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction}) => {
   return (
-    <div key={elem.createdAt} className="allElem">
+    <div key={elem.createdAt} className="all-elements">
       <div className="ui checkbox" style={{display: (elem.type === 'todos' ? 'block' : 'none')}}>
         {checkBoxTodos({
           propertiesCheck: elem.properties.checked,
