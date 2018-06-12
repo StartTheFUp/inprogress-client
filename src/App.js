@@ -8,7 +8,7 @@ import 'semantic-ui-css/semantic.min.css'
 import './style/App.css'
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = store.getState()
     store.subscribe(() => {
@@ -17,7 +17,7 @@ class App extends Component {
     })
   }
 
-  render() {
+  render () {
     return (
       <div className="App">
         <Grid>
