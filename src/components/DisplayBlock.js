@@ -6,6 +6,7 @@ const DisplayBlock = ({block, children}) => {
     <div key={block._id} className="AllBlocks">
       <Segment>
         <h1>{block.title}</h1>
+        <button style={{display: (block.type === 'billets' ? 'block' : 'none')}}>Billets traité</button>
         <Divider section />
         <div>{children}</div>
       </Segment>
