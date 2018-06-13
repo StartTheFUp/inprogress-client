@@ -8,7 +8,7 @@ import './../style/DisplayBlocks.css'
 // const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
 
 const DisplayBlocks = ({ children, comments }) => {
-  console.log('comments', children, comments)
+  console.log('CHILDREN', children)
   return (
     <Grid divided='vertically' className="all-elements">
       <Grid.Row columns={2}>
