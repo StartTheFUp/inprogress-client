@@ -1,4 +1,5 @@
 import React from 'react'
+import '../style/DisplayElement.css'
 
 /* console.log('defaultChecked', idBlock, idSection, idElement) */
 
@@ -18,7 +19,7 @@ const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction, sho
           propertiesCheck: elem.properties.checked,
           updateTodo: () => elementAction({ type: elem.type, idBlock, idSection, idElement })
         })}
-        <label>  <p onClick={() => showComments(elem.threadId, elem.content)}>{elem.content}</p>   </label>
+        <label>  <p className={(elem.properties.checked === true ? 'checked' : 'notchecked')}onClick={() => showComments(elem.threadId, elem.content)}>{elem.content}</p>   </label>
       </div>
       <p onClick={() => showComments(elem.threadId, elem.content)} style={{display: (elem.type !== 'todos' ? 'block' : 'none')}}>{elem.content}</p>
     </div>
