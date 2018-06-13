@@ -7,11 +7,18 @@ const DisplaySection = ({section, children, blockType, processedTickets}) => {
         <div>{children.filter(({props}) => props.elem.properties.archive === true)}</div>
       </div>
     )
-  } else {
+  } else if (processedTickets === false && blockType === 'billets') {
     return (
       <div key={section.title}>
         <h2>{section.title}</h2>
         <div>{children.filter(({props}) => props.elem.properties.archive === false)}</div>
+      </div>
+    )
+  } else {
+    return (
+      <div key={section.title}>
+        <h2>{section.title}</h2>
+        <div>{children}</div>
       </div>
     )
   }
