@@ -10,7 +10,8 @@ export const reducer = (state, action) => {
       if (block._id !== action.idParams.idBlock) {
         return block
       }
-      return {...block,
+      return {
+        ...block,
         sections: [
           ...block.sections.map(section => {
             if (section.id !== action.idParams.idSection) {
@@ -23,9 +24,12 @@ export const reducer = (state, action) => {
                   if (elt.id !== action.idParams.idElement) {
                     return elt
                   }
-                  return { ...elt,
-                    properties: { archive: false,
-                      checked: !elt.properties.checked}
+                  return {
+                    ...elt,
+                    properties: {
+                      archive: false,
+                      checked: !elt.properties.checked
+                    }
                   }
                 })
               ]
@@ -63,6 +67,30 @@ export const reducer = (state, action) => {
     return {
       ...state,
       processedTickets: false
+    }
+  }
+
+  if (action.type === 'ADD_NEW_BILLET') {
+    return {
+      ...state,
+      blocks: [...state.blocks.map((block) => {
+        if (block.type !== 'billets') {
+          return block
+        }
+        return {
+          ...block,
+          sections: [...block.sections.map((section) => {
+            if (section.id !== action.idParams.idSection) {
+              return section
+            }
+
+            return {
+              ...section,
+              elements: [...section.elements, action.billet]
+            }
+          })]
+        }
+      })]
     }
   }
   return state
