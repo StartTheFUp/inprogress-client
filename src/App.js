@@ -6,15 +6,26 @@ import { Grid } from 'semantic-ui-react'
 import DisplayComments from './components/DisplayComments'
 import 'semantic-ui-css/semantic.min.css'
 import './style/App.css'
+import {loadBlocks, loadComments, loadHeaderData} from './actions/file.js'
 
 class App extends Component {
   constructor () {
     super()
     this.state = store.getState()
     store.subscribe(() => {
-      console.log('jai change', store.getState())
       this.setState(store.getState())
     })
+  }
+  componentDidMount () {
+    fetch('/blocks')
+      .then(res => res.json())
+      .then(blocks => loadBlocks(blocks))
+    fetch('/comments')
+      .then(res => res.json())
+      .then(comments => loadComments(comments))
+    fetch('/project/1')
+      .then(res => res.json())
+      .then(dataHeader => loadHeaderData(dataHeader))
   }
 
   render () {
