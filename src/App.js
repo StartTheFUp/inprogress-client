@@ -7,6 +7,7 @@ import DisplayComments from './components/DisplayComments'
 import 'semantic-ui-css/semantic.min.css'
 import './style/App.css'
 import {loadBlocks, loadComments, loadHeaderData} from './actions/file.js'
+import api from './api.js'
 
 class App extends Component {
   constructor () {
@@ -16,16 +17,16 @@ class App extends Component {
       this.setState(store.getState())
     })
   }
+
   componentDidMount () {
-    fetch('/blocks')
-      .then(res => res.json())
-      .then(blocks => loadBlocks(blocks))
-    fetch('/comments')
-      .then(res => res.json())
-      .then(comments => loadComments(comments))
-    fetch('/project/1')
-      .then(res => res.json())
-      .then(dataHeader => loadHeaderData(dataHeader))
+    api.getProjectById(1)
+      .then(loadHeaderData)
+
+    api.getBlocks()
+      .then(loadBlocks)
+
+    api.getComments()
+      .then(loadComments)
   }
 
   render () {
