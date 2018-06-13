@@ -19,7 +19,7 @@ const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction}) =>
         })}
         <label>  <p>{elem.content}</p>   </label>
       </div>
-      <p style={{display: (elem.type === 'todos' ? 'none' : 'block')}}>{elem.content}</p>
+      <p style={{display: (elem.type !== 'todos' ? 'block' : 'none')}}>{elem.content}</p>
     </div>
   )
 }

@@ -7,7 +7,7 @@ import './../style/DisplayBlocks.css'
 // const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
 // const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
 
-const DisplayBlocks = ({ blocks, children, comments }) => {
+const DisplayBlocks = ({ children, comments }) => {
   console.log('comments', children, comments)
   return (
     <Grid divided='vertically' className="all-elements">

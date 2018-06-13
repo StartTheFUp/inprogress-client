@@ -1,3 +1,13 @@
 .block .ui.segment{
     padding : 1.5em;
 }
+.unprocessed-ticket{
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.processed-ticket{
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: normal;
+}

@@ -24,7 +24,7 @@ class App extends Component {
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <HeaderDashboard data={this.state.dataHeader} />
-              <Blocks blocks={this.state.blocks} />
+              <Blocks blocks={this.state.blocks} processedTickets={this.state.processedTickets} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments />
