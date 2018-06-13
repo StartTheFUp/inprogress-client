@@ -93,5 +93,12 @@ export const reducer = (state, action) => {
       })]
     }
   }
+  if (action.type === 'SHOW_COMMENTS') {
+    return {
+      ...state,
+      threadId: action.threadId,
+      activeElement: action.activeElement
+    }
+  }
   return state
 }

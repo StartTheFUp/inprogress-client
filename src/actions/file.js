@@ -7,7 +7,8 @@ const actions = {
   loadHeaderData: dataHeader => ({ type: 'LOAD_HEADER', dataHeader }),
   showProcessedTickets: () => ({ type: 'SHOW_PROCESSED_TICKETS' }),
   showUnprocessedTickets: () => ({ type: 'SHOW_UNPROCESSED_TICKETS' }),
-  addNewBillet: (idParams) => ({ type: 'ADD_NEW_BILLET', idParams, billet: { type: 'billet', content: 'Hello', properties: { checked: false, archive: false } } })
+  addNewBillet: (idParams) => ({ type: 'ADD_NEW_BILLET', idParams, billet: { type: 'billet', content: 'Hello', properties: { checked: false, archive: false } } }),
+  showComments: (threadId, activeElement) => ({ type: 'SHOW_COMMENTS', threadId, activeElement })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -19,6 +20,7 @@ export const loadHeaderData = dispatch(actions.loadHeaderData)
 export const showProcessedTickets = dispatch(actions.showProcessedTickets)
 export const showUnprocessedTickets = dispatch(actions.showUnprocessedTickets)
 export const addNewBillet = dispatch(actions.addNewBillet)
+export const showComments = dispatch(actions.showComments)
 
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)
