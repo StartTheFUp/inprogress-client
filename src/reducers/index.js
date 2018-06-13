@@ -75,7 +75,7 @@ export const reducer = (state, action) => {
       ...state,
       blocks: [...state.blocks.map((block) => {
         if (block.type !== 'billets') {
-          return block;
+          return block
         }
         return {
           ...block,
@@ -90,9 +90,7 @@ export const reducer = (state, action) => {
             }
           })]
         }
-
       })]
-
     }
   }
   return state
