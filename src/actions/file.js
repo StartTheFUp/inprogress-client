@@ -2,7 +2,7 @@ import { store } from '../store.js'
 
 const actions = {
   loadBlocks: blocks => ({ type: 'LOAD_BLOCKS', blocks }),
-  updateTodo: (idBlock, idSection, idElement) => ({ type: 'UPDATE_TODOS', idBlock, idSection, idElement }),
+  updateTodo: (idParams) => ({ type: 'UPDATE_TODOS', idParams }),
   loadComments: comments => ({ type: 'LOAD_COMMENTS', comments }),
   loadHeaderData: dataHeader => ({ type: 'LOAD_HEADER', dataHeader }),
   showProcessedTickets: () => ({ type: 'SHOW_PROCESSED_TICKETS' }),
