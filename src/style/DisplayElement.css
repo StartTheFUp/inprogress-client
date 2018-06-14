@@ -1,6 +1,10 @@
 .checked{
     color: grey;
+
 }
 .notchecked{
     color: black;
+}
+.element {
+    cursor: pointer;
 }
