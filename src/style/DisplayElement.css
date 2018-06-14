@@ -8,3 +8,6 @@
 .element {
     cursor: pointer;
 }
+.element_activ {
+    margin-bottom: 30px;
+}
