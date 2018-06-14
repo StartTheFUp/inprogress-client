@@ -3,7 +3,6 @@ import DisplayBlock from '../components/DisplayBlock.js'
 import Section from './Section.js'
 import {showUnprocessedTickets, showProcessedTickets, changeDisplayCheck} from '../actions/file.js'
 
-
 const Block = ({block, idBlock, processedTickets, showCheck}) =>
   <DisplayBlock block={block} showUnprocessedTickets={showUnprocessedTickets} showProcessedTickets={showProcessedTickets} processedTickets={processedTickets} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck}>
     {block.sections.map((section) => {

@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   render () {
-    console.log("render App Blocks", this.state)
+    console.log('render App Blocks', this.state)
     return (
       <div className="App">
         <Grid>
