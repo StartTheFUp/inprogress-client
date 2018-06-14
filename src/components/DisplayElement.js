@@ -22,8 +22,8 @@ const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction, sho
         <label>  <p className={(elem.properties.checked === true ? 'checked element' : 'notchecked element')} onClick={() => showComments(elem.threadId, elem.content)}>{elem.content}</p>   </label>
       </div>
       <p className='element' onClick={() => showComments(elem.threadId, elem.content)} style={{display: (elem.type !== 'todos' ? 'block' : 'none')}}>{elem.content}</p>
-      <span className='archive' style={{display: (elem.type === 'billets' && elem.properties.archive === false ? 'block' : 'none')}} onClick={ () => archiveElement(idBlock, idSection, idElement) }>v Archive</span>
-      <span className='archive' style={{display: (elem.type === 'billets' && elem.properties.archive === true ? 'block' : 'none')}} onClick={ () => archiveElement(idBlock, idSection, idElement) }>v Désarchive</span>
+      <p className='archive' style={{display: (elem.type === 'billets' && elem.properties.archive === false ? 'inline-block' : 'none')}} onClick={ () => archiveElement(idBlock, idSection, idElement) }>v Archive</p>
+      <p className='archive' style={{display: (elem.type === 'billets' && elem.properties.archive === true ? 'inline-block' : 'none')}} onClick={ () => archiveElement(idBlock, idSection, idElement) }>v Désarchive</p>
     </div>
   )
 }
