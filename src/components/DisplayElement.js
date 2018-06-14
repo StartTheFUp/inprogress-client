@@ -11,7 +11,7 @@ const checkBoxTodos = ({ propertiesCheck, updateTodo }) => {
   return <input className="checkBoxTodo" type="checkbox" onChange={updateTodo}/>
 }
 
-const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction, showComments}) => {
+const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction, showComments, archiveElement}) => {
   return (
     <div key={elem.createdAt} className="all-elements">
       <div className="ui checkbox" style={{display: (elem.type === 'todos' ? 'block' : 'none')}}>
@@ -22,6 +22,8 @@ const DisplayElement = ({elem, idBlock, idSection, idElement, elementAction, sho
         <label>  <p className={(elem.properties.checked === true ? 'checked element' : 'notchecked element')} onClick={() => showComments(elem.threadId, elem.content)}>{elem.content}</p>   </label>
       </div>
       <p className='element' onClick={() => showComments(elem.threadId, elem.content)} style={{display: (elem.type !== 'todos' ? 'block' : 'none')}}>{elem.content}</p>
+      <button style={{display: (elem.type === 'billets' && elem.properties.archive === false ? 'block' : 'none')}} onClick={ () => archiveElement(idBlock, idSection, idElement) }>archive</button>
+      <button style={{display: (elem.type === 'billets' && elem.properties.archive === true ? 'block' : 'none')}} onClick={ () => archiveElement(idBlock, idSection, idElement) }>Désarchive</button>
     </div>
   )
 }

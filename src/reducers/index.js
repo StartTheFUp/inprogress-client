@@ -100,5 +100,44 @@ export const reducer = (state, action) => {
       activeElement: action.activeElement
     }
   }
+  if (action.type === 'ARCHIVE_TICKET') {
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.idBlock) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          ...block.sections.map(section => {
+            if (section.id !== action.idSection) {
+              return section
+            }
+            return {
+              ...section,
+              elements: [
+                ...section.elements.map(elt => {
+                  if (elt.id !== action.idElement) {
+                    return elt
+                  }
+                  return {
+                    ...elt,
+                    properties: {
+                      archive: !elt.properties.archive,
+                      checked: false
+                    }
+                  }
+                })
+              ]
+            }
+          })
+        ]
+      }
+    })
+    console.log(action.idParams, 'newBlocks', newBlocks)
+    return {
+      ...state,
+      blocks: newBlocks
+    }
+  }
   return state
 }
