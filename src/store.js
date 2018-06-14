@@ -6,7 +6,9 @@ const initialState = {
   comments: [],
   dataHeader: {},
   processedTickets: false,
-  showCheck: []
+  showCheck: [],
+  threadId: '',
+  activeElement: ''
 }
 
 export const store = createStore(reducer, initialState,

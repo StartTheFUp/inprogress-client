@@ -125,5 +125,13 @@ export const reducer = (state, action) => {
       showCheck: updateState
     }
   }
+  if (action.type === 'SHOW_COMMENTS') {
+    return {
+      ...state,
+      threadId: action.threadId,
+      activeElement: action.activeElement
+
+  }
+}
   return state
 }

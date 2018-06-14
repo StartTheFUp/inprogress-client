@@ -40,7 +40,8 @@ class App extends Component {
               <Blocks blocks={this.state.blocks} processedTickets={this.state.processedTickets} showCheck={this.state.showCheck} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments />
+              <DisplayComments comments={this.state.comments} threadId={this.state.threadId} activeElement={this.state.activeElement} />
+
             </Grid.Column>
           </Grid.Row>
         </Grid>
