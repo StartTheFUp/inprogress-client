@@ -6,6 +6,7 @@ const initialState = {
   comments: [],
   dataHeader: {},
   processedTickets: false,
+  showCheck: [],
   threadId: '',
   activeElement: ''
 }

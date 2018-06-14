@@ -93,11 +93,44 @@ export const reducer = (state, action) => {
       })]
     }
   }
+
+  if (action.type === 'CHANGE_DISPLAY_CHECK') {
+    console.log('change check :', action)
+
+    let updateState = []
+
+    // test si idBlock deja present dans showCheck
+    let testId = false
+    state.showCheck.forEach(object => {
+      if (object.idBlock === action.params.idBlock) {
+        testId = true
+      }
+    })
+
+    if (testId) {
+      updateState = state.showCheck.map(stateBlock => {
+        if (stateBlock.idBlock === action.params.idBlock) {
+          return {
+            ...stateBlock,
+            show: !stateBlock.show
+          }
+        }
+        return stateBlock
+      })
+    } else updateState = [...state.showCheck, {idBlock: action.params.idBlock, show: true}]
+
+    console.log('CHANGE_DISPLAY_CHECK', updateState)
+    return {
+      ...state,
+      showCheck: updateState
+    }
+  }
   if (action.type === 'SHOW_COMMENTS') {
     return {
       ...state,
       threadId: action.threadId,
       activeElement: action.activeElement
+
     }
   }
   if (action.type === 'ARCHIVE_TICKET') {

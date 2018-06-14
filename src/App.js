@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { store } from './store'
+import { store } from './store.js'
 import Blocks from './containers/Blocks.js'
 import HeaderDashboard from './components/HeaderDashboard'
 import { Grid } from 'semantic-ui-react'
@@ -30,13 +30,14 @@ class App extends Component {
   }
 
   render () {
+    console.log('render App Blocks', this.state)
     return (
       <div className="App">
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <HeaderDashboard data={this.state.dataHeader} />
-              <Blocks blocks={this.state.blocks} processedTickets={this.state.processedTickets} />
+              <Blocks blocks={this.state.blocks} processedTickets={this.state.processedTickets} showCheck={this.state.showCheck} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={this.state.comments} threadId={this.state.threadId} activeElement={this.state.activeElement} />
