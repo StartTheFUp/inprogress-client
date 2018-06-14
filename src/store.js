@@ -5,7 +5,8 @@ const initialState = {
   blocks: [],
   comments: [],
   dataHeader: {},
-  processedTickets: false
+  processedTickets: false,
+  showCheck:[]
 }
 
 export const store = createStore(reducer, initialState,
