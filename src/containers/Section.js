@@ -6,7 +6,7 @@ import { addNewBillet } from '../actions/file.js'
 const Section = ({ section, idBlock, idSection, processedTickets, blockType, showCheck }) =>
   <DisplaySection addNewBillet={addNewBillet} idBlock={idBlock} idSection={idSection} section={section} processedTickets={processedTickets} blockType={blockType} showCheck={showCheck}>
     {section.elements.map((element) => {
-      return <Element key={element.id} elem={element} idBlock={idBlock} idSection={idSection} idElement={element.id} />
+      return <Element key={element.id} elem={element} idBlock={idBlock} idSection={idSection} idElement={element.id} showCheck={showCheck}/>
     })}
   </DisplaySection>
 
