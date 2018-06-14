@@ -131,7 +131,7 @@ export const reducer = (state, action) => {
       threadId: action.threadId,
       activeElement: action.activeElement
 
+    }
   }
-}
   return state
 }
