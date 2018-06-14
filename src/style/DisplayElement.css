@@ -1,0 +1,13 @@
+.checked{
+    color: grey;
+
+}
+.notchecked{
+    color: black;
+}
+.element {
+    cursor: pointer;
+}
+.element_activ {
+    margin-bottom: 30px;
+}
