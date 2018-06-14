@@ -11,3 +11,9 @@
 .element_activ {
     margin-bottom: 30px;
 }
+
+.archive {
+    color: #C0C0C0;
+    cursor: pointer;
+    width: 70px;
+}
