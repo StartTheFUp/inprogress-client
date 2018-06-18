@@ -100,7 +100,6 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'CHANGE_DISPLAY_CHECK') {
-
     let updateState = []
 
     // test si blockId deja present dans showCheck

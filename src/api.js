@@ -1,4 +1,4 @@
-const path = route => process.env.NODE_ENV === "development" ? route + '.json' : route
+const path = route => process.env.NODE_ENV === 'development' ? route + '.json' : route
 
 const getBlocks = () => fetch(path('/blocks'))
   .then(res => res.json())

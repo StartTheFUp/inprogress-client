@@ -1,10 +1,6 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
-
-import { Button, Welcome } from '@storybook/react/demo'
 
 import ProjectHeader from '../components/ProjectHeader'
 import mockedProjectData from '../mocks/projects/1.json'
@@ -63,7 +59,6 @@ storiesOf('Resource/Block', module)
 
 storiesOf('Resource/Element', module)
   .add('mocked', () => <ResourceElement element={mockedResourceElement} blockId={0} sectionId={0} />)
-
 
 // BlocksContainer
 
