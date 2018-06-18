@@ -60,13 +60,13 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_PROCESSED_TICKETS') {
     return {
       ...state,
-      processedTickets: true
+      shouldDisplayArchivedTickets: true
     }
   }
   if (action.type === 'SHOW_UNPROCESSED_TICKETS') {
     return {
       ...state,
-      processedTickets: false
+      shouldDisplayArchivedTickets: false
     }
   }
 

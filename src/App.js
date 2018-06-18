@@ -39,8 +39,8 @@ class App extends Component {
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
-              <Blocks blocks={state.blocks} processedTickets={state.processedTickets} showCheck={state.showCheck} />
               <ProjectHeader data={state.dataHeader} />
+              <Blocks blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />

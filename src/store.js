@@ -5,7 +5,7 @@ const initialState = {
   blocks: [],
   comments: [],
   dataHeader: {},
-  processedTickets: false,
+  shouldDisplayArchivedTickets: false,
   showCheck: [],
   threadId: '',
   activeElement: ''
