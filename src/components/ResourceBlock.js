@@ -1,5 +1,4 @@
 import React from 'react'
-import Section from '../containers/Section.js'
 import ButtonCheck from './ButtonCheck.js'
 import { changeDisplayCheck } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'

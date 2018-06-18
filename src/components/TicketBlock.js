@@ -1,5 +1,4 @@
 import React from 'react'
-import Section from '../containers/Section.js'
 import TicketElement from './TicketElement'
 import { addNewBillet, showProcessedTickets, showUnprocessedTickets } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'

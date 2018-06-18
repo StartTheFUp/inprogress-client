@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Blocks from './containers/Blocks.js'
 import BlocksContainer from './containers/BlocksContainer.js'
 import ProjectHeader from './components/ProjectHeader'
 import DisplayComments from './components/DisplayComments'
