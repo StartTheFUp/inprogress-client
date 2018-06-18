@@ -8,10 +8,10 @@ const actions = {
   showProcessedTickets: () => ({ type: 'SHOW_PROCESSED_TICKETS' }),
   showUnprocessedTickets: () => ({ type: 'SHOW_UNPROCESSED_TICKETS' }),
   addNewBillet: (idParams) => ({ type: 'ADD_NEW_BILLET', idParams, billet: { type: 'billet', content: 'Hello', properties: { checked: false, archive: false } } }),
-  archiveElement: (idBlock, idSection, idElement) => ({ type: 'ARCHIVE_TICKET', idBlock, idSection, idElement }),
+  archiveElement: (blockId, sectionId, elementId) => ({ type: 'ARCHIVE_TICKET', blockId, sectionId, elementId }),
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
   showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
-  changeElementContent: (idBlock, idSection, idElement, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', idBlock, idSection, idElement, rawContent }),
+  changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement })
 }
 
@@ -38,7 +38,7 @@ const toCamelCase = str => str.toLowerCase().replace(/_([a-z])/g, (_, l) => l.to
 
 const funkyActions = map({
   LOAD_BLOCKS: [ 'blocks' ],
-  UPDATE_TODOS: [ 'idBlock', 'idSection', 'idElement' ]
+  UPDATE_TODOS: [ 'blockId', 'sectionId', 'elementId' ]
 }, ([ type, argNames ]) => [
   toCamelCase(type),
   (...args) => store.dispatch(argNames

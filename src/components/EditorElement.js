@@ -20,7 +20,7 @@ class EditorElement extends React.Component {
     const currentContent = editorState.getCurrentContent()
     const rawData = convertToRaw(currentContent)
     console.log({ currentContent, rawData }, 'coucou', this.props.rawContent)
-    this.props.changeElementContent(this.props.idBlock, this.props.idSection, this.props.idElement, rawData)
+    this.props.changeElementContent(this.props.blockId, this.props.sectionId, this.props.elementId, rawData)
 
     this.setState({editorState})
     this.props.showActiveElement(rawData.blocks[0].text)

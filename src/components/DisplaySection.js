@@ -1,10 +1,10 @@
 import React from 'react'
-const DisplaySection = ({ addNewBillet, idBlock, idSection, section, children, blockType, processedTickets, showCheck }) => {
+const DisplaySection = ({ addNewBillet, blockId, sectionId, section, children, blockType, processedTickets, showCheck }) => {
   console.log('DISPLAY SECTION showCheck', showCheck)
-  // test si idBlock est present dans showCheck et egal à true
+  // test si blockId est present dans showCheck et egal à true
   let testShowCheck = false
   showCheck.forEach(object => {
-    if (object.idBlock === idBlock && object.show) {
+    if (object.blockId === blockId && object.show) {
       testShowCheck = true
     }
   })
@@ -18,7 +18,7 @@ const DisplaySection = ({ addNewBillet, idBlock, idSection, section, children, b
   } else if (processedTickets === false && blockType === 'billets') {
     return (
       <div key={section.title}>
-        <button onClick={() => addNewBillet({ idSection })}> New Billet</button>
+        <button onClick={() => addNewBillet({ sectionId })}> New Billet</button>
         <h2>{section.title}</h2>
         <div>{children.filter(({ props }) => props.elem.properties.archive === false)}</div>
       </div>

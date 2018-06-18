@@ -3,10 +3,10 @@ import Element from './Element.js'
 import DisplaySection from '../components/DisplaySection.js'
 import { addNewBillet } from '../actions/file.js'
 
-const Section = ({ section, idBlock, idSection, processedTickets, blockType, showCheck }) =>
-  <DisplaySection addNewBillet={addNewBillet} idBlock={idBlock} idSection={idSection} section={section} processedTickets={processedTickets} blockType={blockType} showCheck={showCheck}>
+const Section = ({ section, blockId, sectionId, processedTickets, blockType, showCheck }) =>
+  <DisplaySection addNewBillet={addNewBillet} blockId={blockId} sectionId={sectionId} section={section} processedTickets={processedTickets} blockType={blockType} showCheck={showCheck}>
     {section.elements.map((element) => {
-      return <Element key={element.id} elem={element} idBlock={idBlock} idSection={idSection} idElement={element.id} showCheck={showCheck}/>
+      return <Element key={element.id} elem={element} blockId={blockId} sectionId={sectionId} elementId={element.id} showCheck={showCheck}/>
     })}
   </DisplaySection>
 

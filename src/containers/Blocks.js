@@ -4,7 +4,7 @@ import DisplayBlocks from '../components/DisplayBlocks.js'
 const Blocks = ({blocks, comments, processedTickets, showCheck}) => {
   return <DisplayBlocks comments={comments} processedTickets={processedTickets} >
     {blocks.map((block) => {
-      return <Block key={block._id} block={block} idBlock={block._id} processedTickets={processedTickets} showCheck={showCheck}/>
+      return <Block key={block._id} block={block} blockId={block._id} processedTickets={processedTickets} showCheck={showCheck}/>
     })}
   </DisplayBlocks>
 }
