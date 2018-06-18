@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
-import '../style/HeaderDashboard.css'
+import '../style/ProjectHeader.css'
 
-const HeaderDashboard = ({data}) => {
+const ProjectHeader = ({ data }) => {
   return (
     <Grid as="header" className="header-wrapper">
       <Grid.Row columns={2}>
@@ -18,4 +18,4 @@ const HeaderDashboard = ({data}) => {
   )
 }
 
-export default HeaderDashboard
+export default ProjectHeader
