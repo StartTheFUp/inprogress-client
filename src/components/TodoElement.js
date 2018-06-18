@@ -1,6 +1,6 @@
 import React from 'react'
 import EditorElement from './EditorElement.js'
-import { updateTodo, showComments, archiveElement, changeElementContent, showActiveElement } from '../actions/file.js'
+import { updateTodo, showComments, changeElementContent, showActiveElement } from '../actions/file.js'
 
 const TodoElement = ({ element, blockId, sectionId }) => {
   return (

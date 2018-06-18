@@ -7,7 +7,6 @@ const archived = element => element.properties.archive
 const notArchived = element => !element.properties.archive
 
 const TicketBlock = ({ block, shouldDisplayArchivedTickets }) => {
-
   const sections = block.sections.map(section => {
     const processedTicketsElements = section.elements.filter(archived)
     const unprocessedTicketsElements = section.elements.filter(notArchived)

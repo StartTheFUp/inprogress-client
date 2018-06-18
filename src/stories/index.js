@@ -64,7 +64,6 @@ storiesOf('Resource/Block', module)
 storiesOf('Resource/Element', module)
   .add('mocked', () => <ResourceElement element={mockedResourceElement} blockId={0} sectionId={0} />)
 
-
 // BlocksContainer
 
 storiesOf('BlocksContainer', module)
