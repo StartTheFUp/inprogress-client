@@ -1,4 +1,4 @@
-import { updateTodo, showComments, archiveElement, changeElementContent, showActiveElement } from '../actions/file.js'
+import { showComments, archiveElement, changeElementContent, showActiveElement } from '../actions/file.js'
 import React from 'react'
 import EditorElement from './EditorElement.js'
 
