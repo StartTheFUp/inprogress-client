@@ -1,0 +1,38 @@
+import React from 'react'
+import Section from '../containers/Section.js'
+import TicketElement from './TicketElement'
+import { addNewBillet, showProcessedTickets, showUnprocessedTickets } from '../actions/file.js'
+import { Segment, Divider } from 'semantic-ui-react'
+
+const archived = element => element.properties.archive
+const notArchived = element => !element.properties.archive
+
+const TicketBlock = ({ block, shouldDisplayArchivedTickets }) => {
+
+  const sections = block.sections.map(section => {
+    const processedTicketsElement = section.elements.filter(archived)
+    const unprocessedTicketsElement = section.elements.filter(notArchived)
+
+    const elements = (shouldDisplayArchivedTickets ? processedTicketsElement : unprocessedTicketsElement)
+      .map(element => <TicketElement key={element.id} element={element} blockId={block._id} sectionId={section.id} />)
+
+    return (
+      <div key={section.id}>
+        <button className={shouldDisplayArchivedTickets ? 'hidden' : ''} onClick={() => addNewBillet({ sectionId: section.id })}>Nouveau</button>
+        <h2>{section.title}</h2>
+        {elements}
+      </div>
+    )
+  })
+
+  return (
+    <Segment key={block._id}>
+      <h1 className={shouldDisplayArchivedTickets ? 'processed-ticket' : 'unprocessed-ticket'} onClick={() => showUnprocessedTickets()}>{block.title}</h1>
+      <div className={(shouldDisplayArchivedTickets ? 'unprocessed-ticket' : 'processed-ticket')} onClick={() => showProcessedTickets()} >Billets traité</div>
+      <Divider section />
+      {sections}
+    </Segment>
+  )
+}
+
+export default TicketBlock
