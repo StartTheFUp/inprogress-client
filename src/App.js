@@ -1,24 +1,17 @@
 import React, { Component } from 'react'
-import { store } from './store.js'
 import Blocks from './containers/Blocks.js'
 import HeaderDashboard from './components/HeaderDashboard'
-import { Grid } from 'semantic-ui-react'
 import DisplayComments from './components/DisplayComments'
-import 'semantic-ui-css/semantic.min.css'
-import './style/App.css'
-import {loadBlocks, loadComments, loadHeaderData} from './actions/file.js'
+import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
+import { store } from './store.js'
 import api from './api.js'
 
-class App extends Component {
-  constructor () {
-    super()
-    this.state = store.getState()
-    store.subscribe(() => {
-      this.setState(store.getState())
-    })
-  }
+import { Grid } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
+import './style/App.css'
 
-  componentDidMount () {
+class App extends Component {
+  syncDatas = () => {
     api.getProjectById(1)
       .then(loadHeaderData)
 
@@ -29,19 +22,28 @@ class App extends Component {
       .then(loadComments)
   }
 
+  componentDidMount () {
+    this.unsubscribe = store.subscribe(() => this.forceUpdate())
+    this.syncDatas()
+  }
+
+  componentWillUnmount () {
+    this.unsubscribe()
+  }
+
   render () {
-    console.log('render App Blocks', this.state)
+    const state = store.getState()
+
     return (
       <div className="App">
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
-              <HeaderDashboard data={this.state.dataHeader} />
-              <Blocks blocks={this.state.blocks} processedTickets={this.state.processedTickets} showCheck={this.state.showCheck} />
+              <HeaderDashboard data={state.dataHeader} />
+              <Blocks blocks={state.blocks} processedTickets={state.processedTickets} showCheck={state.showCheck} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={this.state.comments} threadId={this.state.threadId} activeElement={this.state.activeElement} />
-
+              <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
