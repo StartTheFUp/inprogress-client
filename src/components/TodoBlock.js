@@ -14,9 +14,11 @@ const TodoBlock = ({ block, showCheck }) => {
 
   const testFilter = (elt) => {
     if (testShowCheck === false) {
-      return true
-    } else {
       return !(elt.properties.checked)
+
+    } else {
+      return true
+
     }
   }
 

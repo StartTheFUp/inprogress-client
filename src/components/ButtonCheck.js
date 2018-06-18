@@ -1,10 +1,10 @@
 import React from 'react'
 
 const ButtonCheck = ({ blockId, typeBlock, showCheck, changeDisplayCheck }) => {
-  let textButton = 'Masquer les todos checkées'
+  let textButton = 'afficher toutes les todos'
   showCheck.forEach(object => {
     if (object.blockId === blockId && object.show) {
-      textButton = 'afficher toutes les todos'
+      textButton = 'Masquer les todos checkées'
     }
   })
   if (typeBlock === 'todos') {
