@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Blocks from './containers/Blocks.js'
+import BlocksContainer from './containers/BlocksContainer.js'
 import ProjectHeader from './components/ProjectHeader'
 import DisplayComments from './components/DisplayComments'
 import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
@@ -40,7 +41,7 @@ class App extends Component {
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <ProjectHeader data={state.dataHeader} />
-              <Blocks blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} />
+              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />

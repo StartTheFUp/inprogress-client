@@ -6,7 +6,7 @@ const TodoElement = ({ element, blockId, sectionId }) => {
   return (
     <div key={element.id} className="element todo">
       <div className="ui checkbox">
-        <input className="checkBoxTodo" type="checkbox" defaultChecked={element.properties.checked} onChange={() => updateTodo({ type: element.type, blockId, sectionId, elementId })}/>
+        <input className="checkBoxTodo" type="checkbox" defaultChecked={element.properties.checked} onChange={() => updateTodo({ type: element.type, blockId, sectionId, elementId: element.id })}/>
         <label>
           <div className={element.properties.checked ? 'checked' : 'notchecked'} onClick={() => showComments(element.threadId)}>
             <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />

@@ -10,10 +10,10 @@ const notArchived = element => !element.properties.archive
 const TicketBlock = ({ block, shouldDisplayArchivedTickets }) => {
 
   const sections = block.sections.map(section => {
-    const processedTicketsElement = section.elements.filter(archived)
-    const unprocessedTicketsElement = section.elements.filter(notArchived)
+    const processedTicketsElements = section.elements.filter(archived)
+    const unprocessedTicketsElements = section.elements.filter(notArchived)
 
-    const elements = (shouldDisplayArchivedTickets ? processedTicketsElement : unprocessedTicketsElement)
+    const elements = (shouldDisplayArchivedTickets ? processedTicketsElements : unprocessedTicketsElements)
       .map(element => <TicketElement key={element.id} element={element} blockId={block._id} sectionId={section.id} />)
 
     return (

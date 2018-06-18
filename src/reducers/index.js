@@ -1,4 +1,6 @@
 export const reducer = (state, action) => {
+  console.log(action.type, {state, action})
+
   if (action.type === 'LOAD_BLOCKS') {
     return {
       ...state,

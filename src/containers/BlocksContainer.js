@@ -6,10 +6,10 @@ import TodoBlock from '../components/TodoBlock'
 
 const filterByType = (blocks, type) => blocks.filter(block => block.type === type)
 
-const BlocksContainer = ({ blocks, comments, processedTickets, showCheck }) => {
+const BlocksContainer = ({ blocks, comments, shouldDisplayArchivedTickets, showCheck }) => {
 
   const ticketBlocks = filterByType(blocks, 'billets')
-    .map(block => <TicketBlock key={block._id} block={block} processedTickets={processedTickets} />)
+    .map(block => <TicketBlock key={block._id} block={block} shouldDisplayArchivedTickets={shouldDisplayArchivedTickets} />)
 
   const resourceBlocks = filterByType(blocks, 'ressources')
     .map(block => <ResourceBlock key={block._id} block={block} />)
