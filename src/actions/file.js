@@ -29,21 +29,3 @@ export const showComments = dispatch(actions.showComments)
 export const archiveElement = dispatch(actions.archiveElement)
 export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
-/* on demande de l'aide a clement et ca tourne mal
-const map = (src, fn) => Object.entries(src)
-  .map(fn)
-  .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
-
-const toCamelCase = str => str.toLowerCase().replace(/_([a-z])/g, (_, l) => l.toUpperCase())
-
-const funkyActions = map({
-  LOAD_BLOCKS: [ 'blocks' ],
-  UPDATE_TODOS: [ 'blockId', 'sectionId', 'elementId' ]
-}, ([ type, argNames ]) => [
-  toCamelCase(type),
-  (...args) => store.dispatch(argNames
-    .reduce((acc, key, i) => ({ ...acc, [key]: args[i] }), { type }))
-])
-
-map(actions, dispatch)
-*/

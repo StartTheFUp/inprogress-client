@@ -5,6 +5,7 @@ export const reducer = (state, action) => {
       blocks: action.blocks
     }
   }
+
   if (action.type === 'UPDATE_TODOS') {
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.idParams.blockId) {
@@ -38,7 +39,6 @@ export const reducer = (state, action) => {
         ]
       }
     })
-    console.log(action.idParams, 'newBlocks', newBlocks)
     return {
       ...state,
       blocks: newBlocks
@@ -51,18 +51,21 @@ export const reducer = (state, action) => {
       comments: action.comments
     }
   }
+
   if (action.type === 'LOAD_HEADER') {
     return {
       ...state,
       dataHeader: action.dataHeader
     }
   }
+
   if (action.type === 'SHOW_PROCESSED_TICKETS') {
     return {
       ...state,
       shouldDisplayArchivedTickets: true
     }
   }
+
   if (action.type === 'SHOW_UNPROCESSED_TICKETS') {
     return {
       ...state,
@@ -95,7 +98,6 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'CHANGE_DISPLAY_CHECK') {
-    console.log('change check :', action)
 
     let updateState = []
 
@@ -119,18 +121,19 @@ export const reducer = (state, action) => {
       })
     } else updateState = [...state.showCheck, {blockId: action.params.blockId, show: true}]
 
-    console.log('CHANGE_DISPLAY_CHECK', updateState)
     return {
       ...state,
       showCheck: updateState
     }
   }
+
   if (action.type === 'SHOW_COMMENTS') {
     return {
       ...state,
       threadId: action.threadId
     }
   }
+
   if (action.type === 'ARCHIVE_TICKET') {
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
@@ -164,12 +167,12 @@ export const reducer = (state, action) => {
         ]
       }
     })
-    console.log(action.idParams, 'newBlocks', newBlocks)
     return {
       ...state,
       blocks: newBlocks
     }
   }
+
   if (action.type === 'CHANGE_ELEMENT_CONTENT') {
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
@@ -206,11 +209,13 @@ export const reducer = (state, action) => {
       blocks: newBlocks
     }
   }
+
   if (action.type === 'SHOW_ACTIVE_ELEMENT') {
     return {
       ...state,
       activeElement: action.activeElement
     }
   }
+
   return state
 }

@@ -8,6 +8,7 @@ const DisplaySection = ({ addNewBillet, blockId, sectionId, section, children, b
       testShowCheck = true
     }
   })
+
   if (processedTickets === true && blockType === 'billets') {
     return (
       <div key={section.title}>

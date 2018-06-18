@@ -3,12 +3,13 @@ import { Grid } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import './../style/DisplayBlocks.css'
 
-// const todoBlocks = (blocks) => blocks.filter(block => block.type === 'todos')
-// const billetBlocks = (blocks) => blocks.filter(block => block.type === 'billets')
-// const ressourceBlocks = (blocks) => blocks.filter(block => block.type === 'ressources')
+const filterByType = (blocks, type) => blocks.filter(block => block.type === type)
 
 const DisplayBlocks = ({ children }) => {
-  console.log('CHILDREN', children)
+  // const todoBlocks = filterByType(blocks, 'todos')
+  // const billetBlocks = filterByType(blocks, 'billets')
+  // const ressourceBlocks = filterByType(blocks, 'ressources')
+
   return (
     <Grid divided='vertically' className="all-elements">
       <Grid.Row columns={2}>
