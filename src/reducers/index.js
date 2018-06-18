@@ -128,9 +128,7 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_COMMENTS') {
     return {
       ...state,
-      threadId: action.threadId,
-      activeElement: action.activeElement
-
+      threadId: action.threadId
     }
   }
   if (action.type === 'ARCHIVE_TICKET') {
@@ -170,6 +168,48 @@ export const reducer = (state, action) => {
     return {
       ...state,
       blocks: newBlocks
+    }
+  }
+  if (action.type === 'CHANGE_ELEMENT_CONTENT') {
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.idBlock) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          ...block.sections.map(section => {
+            if (section.id !== action.idSection) {
+              return section
+            }
+            return {
+              ...section,
+              elements: [
+                ...section.elements.map(elt => {
+                  if (elt.id !== action.idElement) {
+                    return elt
+                  }
+                  return {
+                    ...elt,
+                    content: action.rawContent
+                  }
+                })
+              ]
+            }
+          })
+        ]
+      }
+    })
+
+    return {
+      ...state,
+      blocks: newBlocks
+    }
+  }
+  if (action.type === 'SHOW_ACTIVE_ELEMENT') {
+    return {
+      ...state,
+      activeElement: action.activeElement
     }
   }
   return state

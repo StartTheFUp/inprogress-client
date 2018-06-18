@@ -10,7 +10,9 @@ const actions = {
   addNewBillet: (idParams) => ({ type: 'ADD_NEW_BILLET', idParams, billet: { type: 'billet', content: 'Hello', properties: { checked: false, archive: false } } }),
   archiveElement: (idBlock, idSection, idElement) => ({ type: 'ARCHIVE_TICKET', idBlock, idSection, idElement }),
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
-  showComments: (threadId, activeElement) => ({ type: 'SHOW_COMMENTS', threadId, activeElement })
+  showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
+  changeElementContent: (idBlock, idSection, idElement, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', idBlock, idSection, idElement, rawContent }),
+  showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -25,7 +27,8 @@ export const addNewBillet = dispatch(actions.addNewBillet)
 export const changeDisplayCheck = dispatch(actions.changeDisplayCheck)
 export const showComments = dispatch(actions.showComments)
 export const archiveElement = dispatch(actions.archiveElement)
-
+export const changeElementContent = dispatch(actions.changeElementContent)
+export const showActiveElement = dispatch(actions.showActiveElement)
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)
   .map(fn)
