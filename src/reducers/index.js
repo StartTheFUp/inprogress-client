@@ -7,21 +7,21 @@ export const reducer = (state, action) => {
   }
   if (action.type === 'UPDATE_TODOS') {
     const newBlocks = state.blocks.map(block => {
-      if (block._id !== action.idParams.idBlock) {
+      if (block._id !== action.idParams.blockId) {
         return block
       }
       return {
         ...block,
         sections: [
           ...block.sections.map(section => {
-            if (section.id !== action.idParams.idSection) {
+            if (section.id !== action.idParams.sectionId) {
               return section
             }
             return {
               ...section,
               elements: [
                 ...section.elements.map(elt => {
-                  if (elt.id !== action.idParams.idElement) {
+                  if (elt.id !== action.idParams.elementId) {
                     return elt
                   }
                   return {
@@ -80,7 +80,7 @@ export const reducer = (state, action) => {
         return {
           ...block,
           sections: [...block.sections.map((section) => {
-            if (section.id !== action.idParams.idSection) {
+            if (section.id !== action.idParams.sectionId) {
               return section
             }
 
@@ -99,17 +99,17 @@ export const reducer = (state, action) => {
 
     let updateState = []
 
-    // test si idBlock deja present dans showCheck
+    // test si blockId deja present dans showCheck
     let testId = false
     state.showCheck.forEach(object => {
-      if (object.idBlock === action.params.idBlock) {
+      if (object.blockId === action.params.blockId) {
         testId = true
       }
     })
 
     if (testId) {
       updateState = state.showCheck.map(stateBlock => {
-        if (stateBlock.idBlock === action.params.idBlock) {
+        if (stateBlock.blockId === action.params.blockId) {
           return {
             ...stateBlock,
             show: !stateBlock.show
@@ -117,7 +117,7 @@ export const reducer = (state, action) => {
         }
         return stateBlock
       })
-    } else updateState = [...state.showCheck, {idBlock: action.params.idBlock, show: true}]
+    } else updateState = [...state.showCheck, {blockId: action.params.blockId, show: true}]
 
     console.log('CHANGE_DISPLAY_CHECK', updateState)
     return {
@@ -128,28 +128,26 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_COMMENTS') {
     return {
       ...state,
-      threadId: action.threadId,
-      activeElement: action.activeElement
-
+      threadId: action.threadId
     }
   }
   if (action.type === 'ARCHIVE_TICKET') {
     const newBlocks = state.blocks.map(block => {
-      if (block._id !== action.idBlock) {
+      if (block._id !== action.blockId) {
         return block
       }
       return {
         ...block,
         sections: [
           ...block.sections.map(section => {
-            if (section.id !== action.idSection) {
+            if (section.id !== action.sectionId) {
               return section
             }
             return {
               ...section,
               elements: [
                 ...section.elements.map(elt => {
-                  if (elt.id !== action.idElement) {
+                  if (elt.id !== action.elementId) {
                     return elt
                   }
                   return {
@@ -170,6 +168,48 @@ export const reducer = (state, action) => {
     return {
       ...state,
       blocks: newBlocks
+    }
+  }
+  if (action.type === 'CHANGE_ELEMENT_CONTENT') {
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.blockId) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          ...block.sections.map(section => {
+            if (section.id !== action.sectionId) {
+              return section
+            }
+            return {
+              ...section,
+              elements: [
+                ...section.elements.map(elt => {
+                  if (elt.id !== action.elementId) {
+                    return elt
+                  }
+                  return {
+                    ...elt,
+                    content: action.rawContent
+                  }
+                })
+              ]
+            }
+          })
+        ]
+      }
+    })
+
+    return {
+      ...state,
+      blocks: newBlocks
+    }
+  }
+  if (action.type === 'SHOW_ACTIVE_ELEMENT') {
+    return {
+      ...state,
+      activeElement: action.activeElement
     }
   }
   return state
