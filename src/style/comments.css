@@ -9,3 +9,13 @@
 .comment{
     margin: 20px;
 }
+
+.segment .ui.comments .comment .avatar{
+    margin: 0 10px 0 0; 
+}
+.segment .ui.comments .comment .metadata{
+    margin-left:0px;
+}
+.segment {
+    height : 100%;
+}

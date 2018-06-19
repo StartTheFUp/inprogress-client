@@ -37,7 +37,7 @@ const TodoBlock = ({ block, showCheck }) => {
 
   return (
     <Segment key={block._id}>
-      <div class="titles-segment">
+      <div className="titles-segment">
         <h2 className="todos-unchecked-title">{block.title}</h2>
         <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
       </div>
