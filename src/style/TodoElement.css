@@ -1,6 +1,8 @@
+.element_todo{
+margin-bottom : 15px;    
+}
 .checked{
     color: grey;
-
 }
 .notchecked{
     color: black;

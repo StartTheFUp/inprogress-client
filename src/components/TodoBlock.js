@@ -3,7 +3,7 @@ import ButtonCheck from './ButtonCheck.js'
 import { changeDisplayCheck } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'
 import TodoElement from './TodoElement'
-import '../style/TicketBlock.css'
+import '../style/TodosBlock.css'
 
 const TodoBlock = ({ block, showCheck }) => {
   let testShowCheck = false
@@ -26,7 +26,7 @@ const TodoBlock = ({ block, showCheck }) => {
       .map(element => <TodoElement key={element.id} element={element} blockId={block._id} sectionId={section.id} />)
     return (
       <div key={section.id}>
-        <h2>{section.title}</h2>
+        <h3>{section.title}</h3>
         {elements}
       </div>
     )
@@ -37,8 +37,10 @@ const TodoBlock = ({ block, showCheck }) => {
 
   return (
     <Segment key={block._id}>
-      <h1>{block.title}</h1>
-      <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
+      <div class="titles-segment">
+        <h2 className="todos-unchecked-title">{block.title}</h2>
+        <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
+      </div>
       <Divider section />
       {sections}
     </Segment>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Comment } from 'semantic-ui-react'
 import './../style/comments.css'
 
 const DisplayComments = ({comments, threadId, activeElement}) => {

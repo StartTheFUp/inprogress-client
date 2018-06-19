@@ -5,11 +5,11 @@ import '../style/TicketElement.css'
 
 const TicketElement = ({ element, blockId, sectionId }) => {
   return (
-    <div key={element.id} className="element ticket">
+    <div key={element.id} className="element_ticket">
       <div onClick={() => showComments(element.threadId)}>
         <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />
       </div>
-      <p className='archive' onClick={() => archiveElement(blockId, sectionId, element.id)}>{element.properties.archive ? 'desarchiver' : 'archiver'}</p>
+      <p className='archive' onClick={() => archiveElement(blockId, sectionId, element.id)}>{element.properties.archive ? 'Desarchiver' : 'Archiver'}</p>
     </div>
   )
 }

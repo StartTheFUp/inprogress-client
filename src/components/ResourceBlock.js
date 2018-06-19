@@ -17,7 +17,7 @@ const ResourceBlock = ({ block }) => {
 
   return (
     <Segment key={block._id}>
-      <h1>{block.title}</h1>
+      <h2>{block.title}</h2>
       <Divider section />
       {sections}
     </Segment>

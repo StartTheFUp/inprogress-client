@@ -5,7 +5,7 @@ import { updateTodo, showComments, changeElementContent, showActiveElement } fro
 
 const TodoElement = ({ element, blockId, sectionId }) => {
   return (
-    <div key={element.id} className="element todo">
+    <div key={element.id} className="element_todo">
       <div className="ui checkbox">
         <input className="checkBoxTodo" type="checkbox" defaultChecked={element.properties.checked} onChange={() => updateTodo({ type: element.type, blockId, sectionId, elementId: element.id })}/>
         <label>

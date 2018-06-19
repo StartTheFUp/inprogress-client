@@ -29,7 +29,7 @@ class EditorElement extends React.Component {
   handleFocus = () => this.refs.editor.focus()
   render () {
     return (
-      <div onClick={this.handleFocus}>
+      <div onClick={this.handleFocus} className="editor">
         <Editor
           placeholder='Votre texte'
           editorState={this.state.editorState}
