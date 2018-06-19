@@ -11,7 +11,7 @@ const ButtonAddSection = ({blockId, showAddSection, addSection, addSectionActive
         <form className="add-section-form" onSubmit={()=>addSection({blockId})} style={{ display: (addSectionActive === blockId ? 'block' : 'none'  )} }>
         <div onClick = {()=>showAddSection(blockId) }> X </div>
           <input id="add-bloc-title-form" type="text" placeholder="titre" name="title" />
-          <input type="submit"  value = "Ajouter une section" />
+          <input type="submit"  value = "Ajouter la section" />
         </form>
       </div>
     )
