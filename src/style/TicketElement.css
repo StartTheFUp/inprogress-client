@@ -1,0 +1,10 @@
+.archive {
+    color: #C0C0C0;
+    cursor: pointer;
+}
+.element {
+    cursor: pointer;
+}
+.element_activ {
+    margin-bottom: 30px;
+}

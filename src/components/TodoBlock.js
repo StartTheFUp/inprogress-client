@@ -3,6 +3,7 @@ import ButtonCheck from './ButtonCheck.js'
 import { changeDisplayCheck } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'
 import TodoElement from './TodoElement'
+import '../style/TicketBlock.css'
 
 const TodoBlock = ({ block, showCheck }) => {
   let testShowCheck = false

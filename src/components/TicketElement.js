@@ -1,6 +1,7 @@
 import { showComments, archiveElement, changeElementContent, showActiveElement } from '../actions/file.js'
 import React from 'react'
 import EditorElement from './EditorElement.js'
+import '../style/TicketElement.css'
 
 const TicketElement = ({ element, blockId, sectionId }) => {
   return (
