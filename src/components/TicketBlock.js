@@ -1,6 +1,6 @@
 import React from 'react'
 import TicketElement from './TicketElement'
-import { addNewBillet, showProcessedTickets, showUnprocessedTickets, addSection } from '../actions/file.js'
+import { addNewBillet, showProcessedTickets, showUnprocessedTickets, showAddSection } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'
 import ButtonAddSection from './ButtonAddSection.js'
 
@@ -28,7 +28,7 @@ const TicketBlock = ({ block, shouldDisplayArchivedTickets }) => {
     <Segment key={block._id}>
       <h1 className={shouldDisplayArchivedTickets ? 'processed-ticket' : 'unprocessed-ticket'} onClick={() => showUnprocessedTickets()}>{block.title}</h1>
       <div className={(shouldDisplayArchivedTickets ? 'unprocessed-ticket' : 'processed-ticket')} onClick={() => showProcessedTickets()} >Billets traité</div>
-      <ButtonAddSection blockId={block._id}  addSection = {addSection} />
+      <ButtonAddSection blockId={block._id}  showAddSection = {showAddSection} />
       <Divider section />
       {sections}
     </Segment>

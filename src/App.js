@@ -40,7 +40,10 @@ class App extends Component {
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <ProjectHeader data={state.dataHeader} />
-              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} />
+              <BlocksContainer blocks={state.blocks}
+                shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
+                showCheck={state.showCheck}
+                addSectionActive={state.addSectionActive}/>
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />

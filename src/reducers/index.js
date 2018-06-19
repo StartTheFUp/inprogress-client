@@ -213,7 +213,7 @@ export const reducer = (state, action) => {
 
   if (action.type === 'ADD_SECTION') {
     console.log("ADD section", action)
-    const newSection = {id : '46468', title : 'hDGQD'}
+   /* const newSection = {id : '46468', title : 'hDGQD', elements:[],createdBy:'gaelle'}
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
         return block
@@ -225,9 +225,23 @@ export const reducer = (state, action) => {
           newSection
         ]
       }
-    })
+    })*/
 
     return {...state}
+  }
+
+  if (action.type === 'SHOW_ADD_SECTION') {
+    console.log("SHOW ADDDDDDDDDDDDDDDDDDDDDDDD", state.addSectionActive)
+    if (action.blockId === state.addSectionActive) {
+      return {
+        ...state,
+        addSectionActive: ''
+      }
+    }
+    return {
+      ...state,
+      addSectionActive: action.blockId
+    }
   }
 
   if (action.type === 'SHOW_ACTIVE_ELEMENT') {
