@@ -1,9 +1,8 @@
 import React from 'react'
-import { Segment, Comment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import './../style/comments.css'
 
 const DisplayComments = ({comments, threadId, activeElement}) => {
-  console.log('activ', activeElement)
   return <Segment className="comments">
 
     <div style={{display: (activeElement === '' ? 'none' : 'block')}}className='element_active'>{activeElement}</div>
