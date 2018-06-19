@@ -1,6 +1,8 @@
 import React from 'react'
 import { Segment, Divider } from 'semantic-ui-react'
 import ResourceElement from './ResourceElement'
+import ButtonAddSection from './ButtonAddSection.js'
+import { addSection } from '../actions/file.js'
 
 const ResourceBlock = ({ block }) => {
   const sections = block.sections.map(section => {
@@ -18,6 +20,7 @@ const ResourceBlock = ({ block }) => {
   return (
     <Segment key={block._id}>
       <h1>{block.title}</h1>
+      <ButtonAddSection blockId={block._id}  addSection = {addSection} />
       <Divider section />
       {sections}
     </Segment>

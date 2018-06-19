@@ -211,6 +211,25 @@ export const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'ADD_SECTION') {
+    console.log("ADD section", action)
+    const newSection = {id : '46468', title : 'hDGQD'}
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.blockId) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          ...block.sections,
+          newSection
+        ]
+      }
+    })
+
+    return {...state}
+  }
+
   if (action.type === 'SHOW_ACTIVE_ELEMENT') {
     return {
       ...state,
