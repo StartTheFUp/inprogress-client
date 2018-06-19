@@ -1,5 +1,6 @@
 import React from 'react'
 import EditorElement from './EditorElement.js'
+import '../style/TodoElement.css'
 import { updateTodo, showComments, changeElementContent, showActiveElement } from '../actions/file.js'
 
 const TodoElement = ({ element, blockId, sectionId }) => {
