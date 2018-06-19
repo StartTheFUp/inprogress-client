@@ -10,3 +10,7 @@
 .ui.grid>.row>.column{
     padding : 0;
 }
+.ui.segment span, 
+.ui.segments .segment span{
+    font-size : 1.1rem;
+}

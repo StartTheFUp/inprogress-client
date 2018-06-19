@@ -1,0 +1,19 @@
+.block .ui.segment{
+    padding : 1.5em;
+}
+
+.titles-segment{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-segment h2{
+    margin : 0
+}
+.todos-unchecked-title{
+    font-weight: bold;
+}
+.todos-checked-title{
+    cursor: pointer;
+    font-weight: normal;
+}

@@ -1,0 +1,11 @@
+.archive {
+    color: #C0C0C0;
+    cursor: pointer;
+}
+.element_ticket {
+    cursor: pointer;
+    margin-bottom : 15px;
+}
+.element_activ {
+    margin-bottom: 30px;
+}
