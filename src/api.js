@@ -1,4 +1,6 @@
-const path = route => process.env.NODE_ENV === 'development' ? route + '.json' : route
+const path = route => process.env.REACT_APP_MOCKS ? route + '.json' : route
+
+console.log("process env", process.env )
 
 const getBlocks = () => fetch(path('/blocks'))
   .then(res => res.json())
