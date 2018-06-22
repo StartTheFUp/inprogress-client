@@ -71,6 +71,9 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'ADD_NEW_BILLET') {
+    console.log(state.blocks[2].sections[0].elements)
+    console.log(action.billet)
+    console.log(action)
     return {
       ...state,
       blocks: [...state.blocks.map((block) => {
@@ -117,7 +120,7 @@ export const reducer = (state, action) => {
         }
         return stateBlock
       })
-    } else updateState = [...state.showCheck, {blockId: action.params.blockId, show: true}]
+    } else updateState = [...state.showCheck, { blockId: action.params.blockId, show: true }]
 
     console.log('CHANGE_DISPLAY_CHECK', updateState)
     return {

@@ -1,5 +1,5 @@
 import React from 'react'
-const DisplaySection = ({ addNewBillet, blockId, sectionId, section, children, blockType, processedTickets, showCheck }) => {
+const DisplaySection = ({ addNewBilletAndSave, blockId, sectionId, section, children, blockType, processedTickets, showCheck }) => {
   console.log('DISPLAY SECTION showCheck', showCheck)
   // test si blockId est present dans showCheck et egal à true
   let testShowCheck = false
@@ -18,7 +18,7 @@ const DisplaySection = ({ addNewBillet, blockId, sectionId, section, children, b
   } else if (processedTickets === false && blockType === 'billets') {
     return (
       <div key={section.title}>
-        <button onClick={() => addNewBillet({ sectionId })}> New Billet</button>
+        <button onClick={() => addNewBilletAndSave({ sectionId })}> New Billet</button>
         <h2>{section.title}</h2>
         <div>{children.filter(({ props }) => props.elem.properties.archive === false)}</div>
       </div>
