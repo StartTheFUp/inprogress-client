@@ -12,7 +12,7 @@ const actions = {
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
   showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
   changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
-  addSection: (blockId) => ({ type: 'ADD_SECTION', blockId }),
+  addSection: (blockId, title) => ({ type: 'ADD_SECTION', blockId, title }),
   showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement })
 }

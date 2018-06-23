@@ -1,18 +1,20 @@
 import React from 'react'
 
 const ButtonAddSection = ({blockId, showAddSection, addSection, addSectionActive }) => {
-  console.log("BUTTON SECTION : " , showAddSection)
+  // console.log("BUTTON SECTION : " , showAddSection)
+
+  let title=''
 
     return (
       <div className="addSection">
         <button onClick={() => showAddSection(blockId)}  style={{ display: (addSectionActive !== blockId ?  'block' : 'none' )} }>
           ajouter une section
         </button>
-        <form className="add-section-form" onSubmit={()=>addSection({blockId})} style={{ display: (addSectionActive === blockId ? 'block' : 'none'  )} }>
-        <div onClick = {()=>showAddSection(blockId) }> X </div>
-          <input id="add-bloc-title-form" type="text" placeholder="titre" name="title" />
-          <input type="submit"  value = "Ajouter la section" />
-        </form>
+        <div className="add-section-form" style={{ display: (addSectionActive === blockId ? 'block' : 'none'  )} }>
+          <div onClick = {()=>showAddSection(blockId) }> X </div>
+          <input id="add-bloc-title-form" type="text" placeholder="titre" name="title" onChange={(event) => title = event.target.value} />
+          <input type="submit"  value = "Ajouter la section" onClick={() => addSection( blockId, title )} />
+        </div>
       </div>
     )
 }

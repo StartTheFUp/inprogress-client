@@ -212,8 +212,11 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'ADD_SECTION') {
-    console.log("ADD section", action)
-    const newSection = {id : '46468', title : 'hDGQD', elements:[], createdBy:'gaelle'}
+
+    // generer un id aleatoire
+    const randomId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
+    const newSection = {id : randomId, title : action.title, elements:[], createdBy:'gaelle'};
+    console.log("ADD section", action, "state : ", state)
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
         return block
@@ -229,12 +232,13 @@ export const reducer = (state, action) => {
 
     return {
       ...state,
+      addSectionActive: '',
       blocks: newBlocks
       }
   }
 
   if (action.type === 'SHOW_ADD_SECTION') {
-    console.log("SHOW ADDDDDDDDDDDDDDDDDDDDDDDD", state.addSectionActive)
+    console.log("SHOW AD", state.addSectionActive)
     if (action.blockId === state.addSectionActive) {
       return {
         ...state,
