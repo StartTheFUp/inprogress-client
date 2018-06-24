@@ -14,20 +14,20 @@ const actions = {
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement }),
   addNewBillet: (idParams) => ({
     type: 'ADD_NEW_BILLET',
-    idParams, billet: {
+    idParams,
+    billet: {
       type: 'billet',
       content: 'Veuillez écrire votre billet ici',
-      createdAt: "2018-05-28T00:00:00.000Z",
-      createdBy: "userId_1zezghozzge",
+      createdAt: '2018-05-28T00:00:00.000Z',
+      createdBy: 'userId_1zezghozzge',
       id: 'To be set',
       properties: {
         checked: false,
         archive: false
       },
-      threadId: "commentID_7488950",
-      type: "billets",
-      updatedAt: "2018-05-29T00:00:00.000Z",
-      updatedBy: "userId_1zezghozzge"
+      threadId: 'commentID_7488950',
+      updatedAt: '2018-05-29T00:00:00.000Z',
+      updatedBy: 'userId_1zezghozzge'
     }
   })
 }
@@ -47,7 +47,7 @@ export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
 export const addNewBillet = dispatch(actions.addNewBillet)
 export function saveProject(blockId) {
-  let block = store.getState().blocks.filter((block) => block._id === blockId);
+  let block = store.getState().blocks.filter((block) => block._id === blockId)
   block = block[0]
   console.log(blockId)
   console.log(block)
@@ -58,7 +58,7 @@ export function saveProject(blockId) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
+      }
     }
     )
   )

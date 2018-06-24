@@ -22,16 +22,16 @@ class App extends Component {
       .then(loadComments)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.unsubscribe()
   }
 
-  render() {
+  render () {
     const state = store.getState()
 
     return (
