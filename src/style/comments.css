@@ -1,0 +1,21 @@
+.comments{
+    height : 100%
+}
+.element_active {
+    margin-bottom: 30px;
+    border : 1px solid #D8D8D8;
+    padding: 5px;
+}
+.comment{
+    margin: 20px;
+}
+
+.segment .ui.comments .comment .avatar{
+    margin: 0 10px 0 0; 
+}
+.segment .ui.comments .comment .metadata{
+    margin-left:0px;
+}
+.segment {
+    height : 100%;
+}

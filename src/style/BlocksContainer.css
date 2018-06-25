@@ -1,0 +1,21 @@
+body {
+    background-color: #efefef;
+}
+
+.block{
+    padding : 5px 10px;
+}
+.block.billets, 
+.block.ressources{
+    padding-right: 5px;
+}
+.block.todos{
+    padding-left: 5px;
+}
+.all-elements {
+    padding: 7px;
+    font-size: 16px;
+}
+.all-elements .column{
+    padding : 0 8px;
+}

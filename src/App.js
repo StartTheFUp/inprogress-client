@@ -1,25 +1,52 @@
-import React, {Component} from 'react'
-import { store } from './store'
-import 'semantic-ui-css/semantic.min.css'
-import DisplayBlocks from './components/DisplayBlocks'
+import React, { Component } from 'react'
+import BlocksContainer from './containers/BlocksContainer.js'
+import ProjectHeader from './components/ProjectHeader'
+import DisplayComments from './components/DisplayComments'
+import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
+import { store } from './store.js'
+import api from './api.js'
 
-import HeaderDashboard from './components/HeaderDashboard'
+import { Grid } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
+import './style/App.css'
 
 class App extends Component {
-  constructor () {
-    super()
-    this.state = store.getState()
+  syncDatas = () => {
+    api.getProjectById(1)
+      .then(loadHeaderData)
 
-    store.subscribe(() => {
-      this.setState(store.getState())
-    })
+    api.getBlocks()
+      .then(loadBlocks)
+
+    api.getComments()
+      .then(loadComments)
+  }
+
+  componentDidMount () {
+    this.unsubscribe = store.subscribe(() => this.forceUpdate())
+    this.syncDatas()
+  }
+
+  componentWillUnmount () {
+    this.unsubscribe()
   }
 
   render () {
+    const state = store.getState()
+
     return (
       <div className="App">
-        <HeaderDashboard />
-        <DisplayBlocks blocks={this.state.blocks}/>
+        <Grid>
+          <Grid.Row columns={2}>
+            <Grid.Column width={11} className="main-column">
+              <ProjectHeader data={state.dataHeader} />
+              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} />
+            </Grid.Column>
+            <Grid.Column width={5} className="main-column">
+              <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     )
   }
