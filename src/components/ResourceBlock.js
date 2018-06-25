@@ -20,7 +20,7 @@ const ResourceBlock = ({ block, addSectionActive }) => {
   return (
     <Segment key={block._id}>
       <h1>{block.title}</h1>
-      <ButtonAddSection blockId={block._id}  showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
+      <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
       <Divider section />
       {sections}
     </Segment>

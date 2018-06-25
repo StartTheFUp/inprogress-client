@@ -6,7 +6,6 @@ import TodoElement from './TodoElement'
 import ButtonAddSection from './ButtonAddSection.js'
 
 const TodoBlock = ({ block, showCheck, addSectionActive }) => {
-
   let testShowCheck = false
   showCheck.forEach(object => {
     if (object.blockId === block._id && object.show) {
@@ -40,7 +39,7 @@ const TodoBlock = ({ block, showCheck, addSectionActive }) => {
     <Segment key={block._id}>
       <h1>{block.title}</h1>
       <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
-      <ButtonAddSection blockId={block._id}  showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
+      <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
       <Divider section />
       {sections}
     </Segment>

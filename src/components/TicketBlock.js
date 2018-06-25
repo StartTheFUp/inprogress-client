@@ -28,7 +28,7 @@ const TicketBlock = ({ block, shouldDisplayArchivedTickets, addSectionActive }) 
     <Segment key={block._id}>
       <h1 className={shouldDisplayArchivedTickets ? 'processed-ticket' : 'unprocessed-ticket'} onClick={() => showUnprocessedTickets()}>{block.title}</h1>
       <div className={(shouldDisplayArchivedTickets ? 'unprocessed-ticket' : 'processed-ticket')} onClick={() => showProcessedTickets()} >Billets traité</div>
-      <ButtonAddSection blockId={block._id}  showAddSection = {showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
+      <ButtonAddSection blockId={block._id} showAddSection = {showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
       <Divider section />
       {sections}
     </Segment>

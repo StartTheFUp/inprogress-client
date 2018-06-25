@@ -33,5 +33,3 @@ export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
 export const addSection = dispatch(actions.addSection)
 export const showAddSection = dispatch(actions.showAddSection)
-
-
