@@ -223,8 +223,8 @@ export const reducer = (state, action) => {
       return {
         ...block,
         sections: [
-          ...block.sections,
-          newSection
+          newSection,
+          ...block.sections
         ]
       }
     })

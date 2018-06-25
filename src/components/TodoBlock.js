@@ -42,9 +42,9 @@ const TodoBlock = ({ block, showCheck, addSectionActive }) => {
       <div className="titles-segment">
         <h2 className="todos-unchecked-title">{block.title}</h2>
         <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
-        <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
       </div>
       <Divider section />
+      <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
       {sections}
     </Segment>
   )

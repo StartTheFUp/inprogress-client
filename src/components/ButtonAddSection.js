@@ -1,19 +1,25 @@
 import React from 'react'
+import '../style/ButtonAddSection.css'
+import { Input, Button } from 'semantic-ui-react'
 
 const ButtonAddSection = ({ blockId, showAddSection, addSection, addSectionActive }) => {
   // console.log('BUTTON SECTION : ', addSectionActive, blockId)
   // probleme si on ajout une section et qu'on veut en ajouter une autre sans changer le nom
+
   let title = ''
 
   return (
     <div className="addSection">
-      <button onClick={() => showAddSection(blockId)} style={{display: (addSectionActive !== blockId ? 'block' : 'none')}}>
+      <div className="show-form-add-section" onClick={() => showAddSection(blockId)} style={{display: (addSectionActive !== blockId ? 'block' : 'none')}}>
           ajouter une section
-      </button>
+      </div>
       <div className="add-section-form" style={{display: (addSectionActive === blockId ? 'block' : 'none')}}>
-        <div onClick = {() => showAddSection(blockId) }> X </div>
-        <input id="add-bloc-title-form" type="text" placeholder="titre" name="title" onChange={(event) => (title = event.target.value)} />
-        <input type="submit" value = "Ajouter la section" onClick={() => addSection(blockId, title)} />
+        <Input className="add-title-form" placeholder="titre" name="title" onChange={(event) => (title = event.target.value)} />
+        <Button.Group className="button-group-section">
+          <Button className="button-add-section" value = "Ajouter la section" onClick={() => addSection(blockId, title)}>Ajouter</Button>
+          <Button.Or />
+          <Button className="close-section-form" onClick = {() => showAddSection(blockId) }>Annuler </Button>
+        </Button.Group>
       </div>
     </div>
   )
