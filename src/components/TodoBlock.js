@@ -4,6 +4,7 @@ import { changeDisplayCheck, showAddSection, addSection } from '../actions/file.
 import { Segment, Divider } from 'semantic-ui-react'
 import TodoElement from './TodoElement'
 import ButtonAddSection from './ButtonAddSection.js'
+import '../style/TodosBlock.css'
 
 const TodoBlock = ({ block, showCheck, addSectionActive }) => {
   let testShowCheck = false
@@ -26,7 +27,7 @@ const TodoBlock = ({ block, showCheck, addSectionActive }) => {
       .map(element => <TodoElement key={element.id} element={element} blockId={block._id} sectionId={section.id} />)
     return (
       <div key={section.id}>
-        <h2>{section.title}</h2>
+        <h3>{section.title}</h3>
         {elements}
       </div>
     )
@@ -37,9 +38,12 @@ const TodoBlock = ({ block, showCheck, addSectionActive }) => {
 
   return (
     <Segment key={block._id}>
-      <h1>{block.title}</h1>
-      <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
-      <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
+
+      <div className="titles-segment">
+        <h2 className="todos-unchecked-title">{block.title}</h2>
+        <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
+        <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
+      </div>
       <Divider section />
       {sections}
     </Segment>

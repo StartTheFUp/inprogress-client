@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import TicketBlock from '../components/TicketBlock'
 import ResourceBlock from '../components/ResourceBlock'
 import TodoBlock from '../components/TodoBlock'
-
+import '../style/BlocksContainer.css'
 const filterByType = (blocks, type) => blocks.filter(block => block.type === type)
 
 const BlocksContainer = ({ blocks, comments, shouldDisplayArchivedTickets, showCheck, addSectionActive }) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ButtonAddSection = ({ blockId, showAddSection, addSection, addSectionActive }) => {
-  // console.log("BUTTON SECTION : " , showAddSection)
+  // console.log('BUTTON SECTION : ', addSectionActive, blockId)
   // probleme si on ajout une section et qu'on veut en ajouter une autre sans changer le nom
   let title = ''
 

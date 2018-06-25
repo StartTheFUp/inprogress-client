@@ -1,10 +1,11 @@
 import React from 'react'
 import EditorElement from './EditorElement.js'
+import '../style/TodoElement.css'
 import { updateTodo, showComments, changeElementContent, showActiveElement } from '../actions/file.js'
 
 const TodoElement = ({ element, blockId, sectionId }) => {
   return (
-    <div key={element.id} className="element todo">
+    <div key={element.id} className="element_todo">
       <div className="ui checkbox">
         <input className="checkBoxTodo" type="checkbox" defaultChecked={element.properties.checked} onChange={() => updateTodo({ type: element.type, blockId, sectionId, elementId: element.id })}/>
         <label>

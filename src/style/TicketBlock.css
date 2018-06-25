@@ -1,13 +1,19 @@
 .block .ui.segment{
     padding : 1.5em;
 }
+
+.titles-segment{
+    display: flex;
+    justify-content: space-between;
+}
+.titles-segment h2{
+    margin : 0
+}
 .unprocessed-ticket{
-    font-size: 30px;
     cursor: pointer;
     font-weight: bold;
 }
 .processed-ticket{
-    font-size: 20px;
     cursor: pointer;
     font-weight: normal;
 }

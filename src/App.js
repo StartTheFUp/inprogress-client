@@ -33,7 +33,7 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-
+    console.log('block app', state.addSectionActive)
     return (
       <div className="App">
         <Grid>

@@ -4,7 +4,7 @@ import EditorElement from './EditorElement.js'
 
 const ResourceElement = ({ element, blockId, sectionId }) => {
   return (
-    <div key={element.id} className="element resource">
+    <div key={element.id} className="element_resource">
       <div onClick={() => showComments(element.threadId)}>
         <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />
       </div>
