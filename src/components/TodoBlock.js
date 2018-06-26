@@ -1,6 +1,6 @@
 import React from 'react'
 import ButtonCheck from './ButtonCheck.js'
-import { changeDisplayCheck, showAddSection, addSection } from '../actions/file.js'
+import { changeDisplayCheck, showAddSection, addSection, addNewElement } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'
 import TodoElement from './TodoElement'
 import ButtonAddSection from './ButtonAddSection.js'
@@ -28,6 +28,7 @@ const TodoBlock = ({ block, showCheck, activeElement, comments, addSectionActive
     return (
       <div key={section.id}>
         <h3>{section.title}</h3>
+        <p className= 'new_element' onClick={() => addNewElement({ sectionId: section.id, blockType: block.type })}>Ajouter un element</p>
         {elements}
       </div>
     )
