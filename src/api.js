@@ -12,11 +12,12 @@ const getProjectById = id => fetch(path(`/projects/${id}`))
   .then(res => res.json())
 
 const updateBlocks = blocks => fetch(path(`/blocks`), {
-  method: 'PUT',
+  method: 'POST',
   headers: {
-    'Accept': 'application/json',
-    'content-type': 'application/json'
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
   },
+
   body: JSON.stringify(blocks)
 })
 
