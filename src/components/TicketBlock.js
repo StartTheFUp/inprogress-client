@@ -8,8 +8,7 @@ import '../style/TicketBlock.css'
 const archived = element => element.properties.archive
 const notArchived = element => !element.properties.archive
 
-const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comments, addSectionActive  }) => {
-
+const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comments, addSectionActive }) => {
   const sections = block.sections.map(section => {
     const processedTicketsElements = section.elements.filter(archived)
     const unprocessedTicketsElements = section.elements.filter(notArchived)

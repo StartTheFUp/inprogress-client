@@ -7,7 +7,6 @@ import ButtonAddSection from './ButtonAddSection.js'
 import '../style/TodosBlock.css'
 
 const TodoBlock = ({ block, showCheck, activeElement, comments, addSectionActive }) => {
-
   let testShowCheck = false
   showCheck.forEach(object => {
     if (object.blockId === block._id && object.show) {
