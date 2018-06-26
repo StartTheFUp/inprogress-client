@@ -1,0 +1,13 @@
+
+.connect{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.title_compagny{
+    font-size: 40px;
+}
+

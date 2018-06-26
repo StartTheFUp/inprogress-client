@@ -37,9 +37,9 @@ class App extends Component {
     console.log('block app', state.addSectionActive)
     if (!state.statusUser) {
       return (
-      <div className="App">
-      <HomePage />
-      </div>)
+        <div className="App">
+          <HomePage />
+        </div>)
     }
     return (
       <div className="App">

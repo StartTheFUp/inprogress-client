@@ -20,9 +20,19 @@ const updateBlocks = blocks => fetch(path(`/blocks`), {
   body: JSON.stringify(blocks)
 })
 
+const userMatch = user => fetch(path(`/signin`), {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify(user)
+})
+
 export default {
   getBlocks,
   getComments,
   getProjectById,
-  updateBlocks
+  updateBlocks,
+  userMatch
 }

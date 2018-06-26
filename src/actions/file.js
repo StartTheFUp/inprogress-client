@@ -14,7 +14,8 @@ const actions = {
   changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
   addSection: (blockId, title) => ({ type: 'ADD_SECTION', blockId, title }),
   showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
-  showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement })
+  showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement }),
+  verifyUser: (email, password) => ({ type: 'VERIFY_USER', email, password })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -33,3 +34,4 @@ export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
 export const addSection = dispatch(actions.addSection)
 export const showAddSection = dispatch(actions.showAddSection)
+export const verifyUser = dispatch(actions.verifyUser)

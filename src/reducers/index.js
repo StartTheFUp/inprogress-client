@@ -259,5 +259,12 @@ export const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'VERIFY_USER') {
+    return {
+      ...state,
+      userActiv: 'coucou'
+    }
+  }
+
   return state
 }

@@ -10,7 +10,10 @@ const initialState = {
   threadId: '',
   activeElement: '',
   addSectionActive: '',
-  statusUser: false
+  userStatus: false,
+  userEmail: '',
+  userPassword: '',
+  userActiv: []
 }
 
 export const store = createStore(reducer, initialState,
