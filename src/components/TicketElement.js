@@ -4,8 +4,6 @@ import EditorElement from './EditorElement.js'
 import '../style/TicketElement.css'
 
 const TicketElement = ({ element, blockId, sectionId, activeElement, comments }) => {
-  console.log('alors', comments)
-
   return (
     <div key={element.id} className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_ticket' : 'element_ticket') : 'element_ticket' } >
       <div onClick={() => showComments(element.threadId)}>
