@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BlocksContainer from './containers/BlocksContainer.js'
 import ProjectHeader from './components/ProjectHeader'
+import HomePage from './components/HomePage.js'
 import DisplayComments from './components/DisplayComments'
 import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
 import { store } from './store.js'
@@ -34,6 +35,12 @@ class App extends Component {
   render () {
     const state = store.getState()
     console.log('block app', state.addSectionActive)
+    if (!state.statusUser) {
+      return (
+      <div className="App">
+      <HomePage />
+      </div>)
+    }
     return (
       <div className="App">
         <Grid>

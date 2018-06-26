@@ -9,7 +9,8 @@ const initialState = {
   showCheck: [],
   threadId: '',
   activeElement: '',
-  addSectionActive: ''
+  addSectionActive: '',
+  statusUser: false
 }
 
 export const store = createStore(reducer, initialState,
