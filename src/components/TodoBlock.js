@@ -1,11 +1,13 @@
 import React from 'react'
 import ButtonCheck from './ButtonCheck.js'
-import { changeDisplayCheck } from '../actions/file.js'
+import { changeDisplayCheck, showAddSection, addSection } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'
 import TodoElement from './TodoElement'
+import ButtonAddSection from './ButtonAddSection.js'
 import '../style/TodosBlock.css'
 
-const TodoBlock = ({ block, showCheck, activeElement, comments }) => {
+const TodoBlock = ({ block, showCheck, activeElement, comments, addSectionActive }) => {
+
   let testShowCheck = false
   showCheck.forEach(object => {
     if (object.blockId === block._id && object.show) {
@@ -37,11 +39,13 @@ const TodoBlock = ({ block, showCheck, activeElement, comments }) => {
 
   return (
     <Segment key={block._id}>
+
       <div className="titles-segment">
         <h2 className="todos-unchecked-title">{block.title}</h2>
         <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
       </div>
       <Divider section />
+      <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive}/>
       {sections}
     </Segment>
   )

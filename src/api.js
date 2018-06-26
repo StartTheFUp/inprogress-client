@@ -11,8 +11,18 @@ const getComments = () => fetch(path('/comments'))
 const getProjectById = id => fetch(path(`/projects/${id}`))
   .then(res => res.json())
 
+const updateBlocks = blocks => fetch(path(`/blocks`), {
+  method: 'PUT',
+  headers: {
+    'Accept': 'application/json',
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify(blocks)
+})
+
 export default {
   getBlocks,
   getComments,
-  getProjectById
+  getProjectById,
+  updateBlocks
 }

@@ -33,14 +33,19 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-
+    console.log('block app', state.addSectionActive)
     return (
       <div className="App">
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <ProjectHeader data={state.dataHeader} />
-              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} activeElement={state.activeElement} comments={state.comments} />
+              <BlocksContainer blocks={state.blocks}
+                shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
+                showCheck={state.showCheck}
+                addSectionActive={state.addSectionActive}
+                activeElement={state.activeElement}
+                comments={state.comments}/>
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />

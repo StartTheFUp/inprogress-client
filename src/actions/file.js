@@ -12,6 +12,8 @@ const actions = {
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
   showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
   changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
+  addSection: (blockId, title) => ({ type: 'ADD_SECTION', blockId, title }),
+  showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement })
 }
 
@@ -29,3 +31,5 @@ export const showComments = dispatch(actions.showComments)
 export const archiveElement = dispatch(actions.archiveElement)
 export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
+export const addSection = dispatch(actions.addSection)
+export const showAddSection = dispatch(actions.showAddSection)
