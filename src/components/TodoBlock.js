@@ -5,7 +5,7 @@ import { Segment, Divider } from 'semantic-ui-react'
 import TodoElement from './TodoElement'
 import '../style/TodosBlock.css'
 
-const TodoBlock = ({ block, showCheck }) => {
+const TodoBlock = ({ block, showCheck, activeElement }) => {
   let testShowCheck = false
   showCheck.forEach(object => {
     if (object.blockId === block._id && object.show) {
@@ -23,7 +23,7 @@ const TodoBlock = ({ block, showCheck }) => {
 
   const sections = block.sections.map(section => {
     const elements = section.elements.filter(elt => testFilter(elt))
-      .map(element => <TodoElement key={element.id} element={element} blockId={block._id} sectionId={section.id} />)
+      .map(element => <TodoElement key={element.id} element={element} blockId={block._id} sectionId={section.id} activeElement={activeElement}/>)
     return (
       <div key={section.id}>
         <h3>{section.title}</h3>

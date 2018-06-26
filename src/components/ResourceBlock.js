@@ -2,10 +2,10 @@ import React from 'react'
 import { Segment, Divider } from 'semantic-ui-react'
 import ResourceElement from './ResourceElement'
 
-const ResourceBlock = ({ block }) => {
+const ResourceBlock = ({ block, activeElement }) => {
   const sections = block.sections.map(section => {
     const elements = section.elements
-      .map(element => <ResourceElement key={element.id} element={element} blockId={block._id} sectionId={section.id} />)
+      .map(element => <ResourceElement key={element.id} element={element} blockId={block._id} sectionId={section.id} activeElement={activeElement}/>)
 
     return (
       <div key={section.id}>

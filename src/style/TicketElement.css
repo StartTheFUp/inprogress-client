@@ -9,3 +9,9 @@
 .element_activ {
     margin-bottom: 30px;
 }
+.active_ticket{
+    background-color: rgba(31, 56, 100,0.03);
+    cursor: pointer;
+    margin-bottom : 15px;
+}
+

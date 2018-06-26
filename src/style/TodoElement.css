@@ -1,9 +1,17 @@
 .element_todo{
-margin-bottom : 15px;    
+margin-bottom : 15px;   
+cursor: pointer; 
 }
 .checked{
     color: grey;
+    cursor: pointer;
 }
 .notchecked{
     color: black;
+    cursor: pointer;
+}
+.active_todo{
+    background-color: rgba(31, 56, 100,0.03);
+    cursor: pointer;
+    margin-bottom : 15px; 
 }

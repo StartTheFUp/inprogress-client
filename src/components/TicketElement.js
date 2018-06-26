@@ -3,11 +3,11 @@ import React from 'react'
 import EditorElement from './EditorElement.js'
 import '../style/TicketElement.css'
 
-const TicketElement = ({ element, blockId, sectionId }) => {
+const TicketElement = ({ element, blockId, sectionId, activeElement }) => {
   return (
-    <div key={element.id} className="element_ticket">
+    <div key={element.id} className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_ticket' : 'element_ticket') : 'element_ticket' } >
       <div onClick={() => showComments(element.threadId)}>
-        <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />
+        <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} activeElement={activeElement}/>
       </div>
       <p className='archive' onClick={() => archiveElement(blockId, sectionId, element.id)}>{element.properties.archive ? 'Desarchiver' : 'Archiver'}</p>
     </div>

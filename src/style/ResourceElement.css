@@ -1,3 +1,8 @@
 .element_resource {
     cursor: pointer;
 }
+.active_resource{
+    background-color: rgba(31, 56, 100,0.03);
+    cursor: pointer;
+    
+}

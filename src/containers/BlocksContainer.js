@@ -6,15 +6,15 @@ import TodoBlock from '../components/TodoBlock'
 import '../style/BlocksContainer.css'
 const filterByType = (blocks, type) => blocks.filter(block => block.type === type)
 
-const BlocksContainer = ({ blocks, comments, shouldDisplayArchivedTickets, showCheck }) => {
+const BlocksContainer = ({ blocks, comments, shouldDisplayArchivedTickets, showCheck, activeElement }) => {
   const ticketBlocks = filterByType(blocks, 'billets')
-    .map(block => <TicketBlock key={block._id} block={block} shouldDisplayArchivedTickets={shouldDisplayArchivedTickets} />)
+    .map(block => <TicketBlock key={block._id} block={block} activeElement={activeElement} shouldDisplayArchivedTickets={shouldDisplayArchivedTickets} />)
 
   const resourceBlocks = filterByType(blocks, 'ressources')
-    .map(block => <ResourceBlock key={block._id} block={block} />)
+    .map(block => <ResourceBlock key={block._id} block={block} activeElement={activeElement} />)
 
   const todoBlocks = filterByType(blocks, 'todos')
-    .map(block => <TodoBlock key={block._id} block={block} showCheck={showCheck} />)
+    .map(block => <TodoBlock key={block._id} block={block} showCheck={showCheck} activeElement={activeElement} />)
 
   return (
     <Grid divided='vertically' className="all-elements">
