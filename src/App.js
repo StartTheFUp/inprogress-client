@@ -15,11 +15,11 @@ class App extends Component {
     api.getProjectById(1)
       .then(loadHeaderData)
 
-    api.getBlocks()
-      .then(loadBlocks)
-
     api.getComments()
       .then(loadComments)
+
+    api.getBlocks()
+      .then(loadBlocks)
   }
 
   componentDidMount () {
@@ -40,7 +40,7 @@ class App extends Component {
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <ProjectHeader data={state.dataHeader} />
-              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} activeElement={state.activeElement}  />
+              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} activeElement={state.activeElement} comments={state.comments} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />

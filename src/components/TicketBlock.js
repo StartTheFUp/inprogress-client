@@ -7,13 +7,13 @@ import '../style/TicketBlock.css'
 const archived = element => element.properties.archive
 const notArchived = element => !element.properties.archive
 
-const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement }) => {
+const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comments }) => {
   const sections = block.sections.map(section => {
     const processedTicketsElements = section.elements.filter(archived)
     const unprocessedTicketsElements = section.elements.filter(notArchived)
 
     const elements = (shouldDisplayArchivedTickets ? processedTicketsElements : unprocessedTicketsElements)
-      .map(element => <TicketElement key={element.id} element={element} blockId={block._id} sectionId={section.id} activeElement={activeElement}/>)
+      .map(element => <TicketElement comments={comments} key={element.id} element={element} blockId={block._id} sectionId={section.id} activeElement={activeElement}/>)
 
     return (
       <div key={section.id}>

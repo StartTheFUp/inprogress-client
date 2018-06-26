@@ -14,3 +14,15 @@
 .ui.segments .segment span{
     font-size : 1.1rem;
 }
+.element_components{
+    display: flex;
+   
+}
+.count_reponses{
+color: #C0C0C0;
+margin-right: 20px;
+}
+.active_count_reponses{
+    color:blue;
+    margin-right: 20px;
+}
