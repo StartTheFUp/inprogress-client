@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import BlocksContainer from './containers/BlocksContainer.js'
-import ProjectHeader from './components/ProjectHeader'
 import HomePage from './components/HomePage.js'
-import DisplayComments from './components/DisplayComments'
 import Dashboard from './containers/Dashboard.js'
 import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
 import { Router, Link } from '@reach/router'
 import { store } from './store.js'
 import api from './api.js'
 
-import { Grid } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import './style/App.css'
 
@@ -52,7 +48,6 @@ class App extends Component {
             activeElement={state.activeElement}
             comments={state.comments}
             threadId={state.threadId}
-            activeElement={state.activeElement}
             dataHeader={state.dataHeader}
           />
         </Router>
