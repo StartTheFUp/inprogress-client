@@ -1,5 +1,4 @@
 .element_todo{
-margin-bottom : 15px;   
 cursor: pointer; 
 }
 .checked{
@@ -13,5 +12,11 @@ cursor: pointer;
 .active_todo{
     background-color: rgba(31, 56, 100,0.03);
     cursor: pointer;
+
+}
+
+.element_todo,
+.active_todo{
     margin-bottom : 15px; 
+    padding : 10px;
 }

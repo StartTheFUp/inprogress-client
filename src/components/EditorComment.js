@@ -4,6 +4,7 @@ import { createEditorStateWithText } from 'draft-js-plugins-editor'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 // import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin'
 import '../style/EditorElement.css'
+import 'draft-js/dist/Draft.css';
 
 const linkifyPlugin = createLinkifyPlugin()
 const plugins = [
@@ -28,7 +29,6 @@ class EditorComment extends React.Component {
     return (
       <div onClick={this.handleFocus} className='editor'>
         <Editor
-          placeholder='Votre texte'
           editorState={this.state.editorState}
           onChange={this.handleChange}
           plugins={plugins}
