@@ -8,7 +8,8 @@ const initialState = {
   shouldDisplayArchivedTickets: false,
   showCheck: [],
   threadId: '',
-  activeElement: ''
+  activeElement: '',
+  addSectionActive: ''
 }
 
 export const store = createStore(reducer, initialState,

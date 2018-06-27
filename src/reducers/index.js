@@ -1,6 +1,6 @@
-export const reducer = (state, action) => {
-  console.log(action.type, {state, action})
+import api from '../api.js'
 
+export const reducer = (state, action) => {
   if (action.type === 'LOAD_BLOCKS') {
     return {
       ...state,
@@ -75,11 +75,26 @@ export const reducer = (state, action) => {
     }
   }
 
-  if (action.type === 'ADD_NEW_BILLET') {
+  if (action.type === 'ADD_NEW_ELEMENT') {
+    const randomElementId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
+    const newElement = {
+      type: action.idParams.blockType,
+      content: '',
+      createdAt: new Date(),
+      createdBy: 'bogdan',
+      id: randomElementId,
+      properties: {
+        checked: false,
+        archive: false
+      },
+      threadId: 'commentID_7488950',
+      updatedAt: '2018-05-29T00:00:00.000Z',
+      updatedBy: 'Bogdan'
+    }
     return {
       ...state,
       blocks: [...state.blocks.map((block) => {
-        if (block.type !== 'billets') {
+        if (block.type !== action.idParams.blockType) {
           return block
         }
         return {
@@ -91,7 +106,7 @@ export const reducer = (state, action) => {
 
             return {
               ...section,
-              elements: [...section.elements, action.billet]
+              elements: [newElement, ...section.elements]
             }
           })]
         }
@@ -120,7 +135,7 @@ export const reducer = (state, action) => {
         }
         return stateBlock
       })
-    } else updateState = [...state.showCheck, {blockId: action.params.blockId, show: true}]
+    } else updateState = [...state.showCheck, { blockId: action.params.blockId, show: true }]
 
     return {
       ...state,
@@ -208,6 +223,47 @@ export const reducer = (state, action) => {
     return {
       ...state,
       blocks: newBlocks
+    }
+  }
+
+  if (action.type === 'ADD_SECTION') {
+    // generer un id aleatoire
+    const randomId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
+    const newSection = { id: randomId, title: action.title, elements: [], createdBy: 'gaelle' }
+    console.log('ADD section', action, 'state : ', state)
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.blockId) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          newSection,
+          ...block.sections
+        ]
+      }
+    })
+    api.updateBlocks(newBlocks)
+      .then(res => console.log('updateBlock api :', res))
+      .catch(err => console.log('err', err))
+    return {
+      ...state,
+      addSectionActive: '',
+      blocks: newBlocks
+    }
+  }
+
+  if (action.type === 'SHOW_ADD_SECTION') {
+    console.log('SHOW AD', state.addSectionActive)
+    if (action.blockId === state.addSectionActive) {
+      return {
+        ...state,
+        addSectionActive: ''
+      }
+    }
+    return {
+      ...state,
+      addSectionActive: action.blockId
     }
   }
 

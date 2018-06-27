@@ -15,16 +15,18 @@ class App extends Component {
     api.getProjectById(1)
       .then(loadHeaderData)
 
-    api.getBlocks()
-      .then(loadBlocks)
-
     api.getComments()
       .then(loadComments)
+
+    api.getBlocks()
+      .then(loadBlocks)
   }
 
   componentDidMount () {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
+
+    setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
   }
 
   componentWillUnmount () {
@@ -33,14 +35,19 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-
+    console.log('block app', state.addSectionActive)
     return (
       <div className="App">
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
               <ProjectHeader data={state.dataHeader} />
-              <BlocksContainer blocks={state.blocks} shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets} showCheck={state.showCheck} />
+              <BlocksContainer blocks={state.blocks}
+                shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
+                showCheck={state.showCheck}
+                addSectionActive={state.addSectionActive}
+                activeElement={state.activeElement}
+                comments={state.comments}/>
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
               <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />

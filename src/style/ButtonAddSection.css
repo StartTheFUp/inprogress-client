@@ -1,0 +1,33 @@
+.show-form-add-section {
+    color: grey;
+    padding-bottom: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.add-title-form {
+    padding-right: 10px;
+}
+
+.add-section-form {
+    margin: 5px;
+    padding-bottom: 15px;
+    text-align: left;
+}
+
+.action-add-section {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+.button-add-section {
+  background-color: whitesmoke !important;
+  padding-left :5px;
+}
+.button-add-section:hover {
+    background-color: #E9EBEE !important;
+  }
+
+.button-group-section {
+    padding: 10px;
+}
