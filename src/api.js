@@ -30,10 +30,16 @@ const userMatch = user => fetch(path(`/signin`), {
   body: JSON.stringify(user)
 })
 
+const getClientsProject = projectId => fetch(path(`/clients/${projectId}`))
+  .then(res=> res.json())
+
+
+
 export default {
   getBlocks,
   getComments,
   getProjectById,
   updateBlocks,
-  userMatch
+  userMatch,
+  getClientsProject
 }

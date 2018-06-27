@@ -4,13 +4,14 @@ import ProjectHeader from '../components/ProjectHeader'
 //import HomePage from './components/HomePage.js'
 import DisplayComments from '../components/DisplayComments'
 import Modal from 'react-responsive-modal'
-import { updateModal } from '../actions/file.js'
+import { loadBlocks, updateModal , loadHeaderData} from '../actions/file.js'
 //import { Router, Link } from '@reach/router'
 //import { store } from '../store.js'
-
+import api from '../api.js'
 import { Grid } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
-//import './style/App.css'
+import '../style/Dashboard.css'
+
 
 class Dashboard extends Component {
 /*= ({ blocks, dataHeader, shouldDisplayArchivedTickets, showCheck, addSectionActive, activeElement, comments, threadId, open }) => {*/
@@ -20,23 +21,37 @@ class Dashboard extends Component {
  /*state = {
    open:true
  }*/
+componentDidMount() {
+   api.getProjectById(this.props.projectId)
+    .then(loadHeaderData)
+}
+
 
 
   onOpenModal = () => updateModal({ open:true })
-  // this.setState({ open: true });
+
 
   onCloseModal = () => updateModal({ open:false })
-    //this.setState({ open: false });
+
 
   render() {
-    //const { open } = this.state.open
+    let clientMap = ""
+    if (this.props.dataHeader.client !== undefined) {
+      clientMap=this.props.dataHeader.client.map(client => {
+        {return (<option> {client.name} </option>)}
+      })}
+
+
     console.log('PROPS ProjectID', this.props.projectId)
-    console.log('MODAL', this.props.open)
+    console.log('MODAL', this.props.dataHeader)
   return (
     <div className="dashboard">
 
-    <Modal open={this.props.open} onClose={()=> updateModal( false )} center>
-     <h2> Qui est tu ? </h2>
+    <Modal className="modalClients" open={this.props.open} onClose={()=> updateModal( false )} center>
+      <h2> Qui est tu ? </h2>
+      <select name="client">
+        {clientMap}
+      </select>
 
     </Modal>
       <Grid>

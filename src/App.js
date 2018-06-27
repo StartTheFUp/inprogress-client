@@ -11,8 +11,7 @@ import './style/App.css'
 
 class App extends Component {
   syncDatas = () => {
-    api.getProjectById(1)
-      .then(loadHeaderData)
+
 
     api.getComments()
       .then(loadComments)
@@ -25,7 +24,7 @@ class App extends Component {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
 
-    setInterval(() => api.updateBlocks(store.getState().blocks), 5*1000 * 1000)
+    // setInterval(() => api.updateBlocks(store.getState().blocks), 5*1000 * 1000)
   }
 
   componentWillUnmount () {
