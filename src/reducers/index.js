@@ -274,6 +274,14 @@ export const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'UPDATE_MODAL') {
+    console.log('updateModal', action.open)
+    return {
+      ...state,
+      open: action.open
+    }
+  }
+
   if (action.type === 'VERIFY_USER') {
     return {
       ...state,
