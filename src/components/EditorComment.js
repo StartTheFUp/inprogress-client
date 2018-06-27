@@ -9,7 +9,7 @@ const linkifyPlugin = createLinkifyPlugin()
 const plugins = [
   linkifyPlugin
 ]
-class EditorElement extends React.Component {
+class EditorComment extends React.Component {
   state = {
     editorState: typeof this.props.rawContent === 'string'
       ? createEditorStateWithText(this.props.rawContent)
@@ -19,9 +19,8 @@ class EditorElement extends React.Component {
   handleChange = (editorState) => {
     const currentContent = editorState.getCurrentContent()
     const rawData = convertToRaw(currentContent)
-    this.props.changeElementContent(this.props.blockId, this.props.sectionId, this.props.elementId, rawData)
+    this.props.editComment(this.props.threadId, this.props.commentId, rawData)
     this.setState({editorState})
-    this.props.showActiveElement(rawData.blocks[0].text)
   }
 
   handleFocus = () => this.refs.editor.focus()
@@ -40,4 +39,4 @@ class EditorElement extends React.Component {
   }
 }
 
-export default EditorElement
+export default EditorComment
