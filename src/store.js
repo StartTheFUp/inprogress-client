@@ -10,7 +10,7 @@ const initialState = {
   threadId: '',
   activeElement: '',
   addSectionActive: '',
-  userStatus: false,
+  statusUser: true,
   userEmail: '',
   userPassword: '',
   userActiv: []
