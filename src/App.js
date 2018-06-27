@@ -3,7 +3,9 @@ import BlocksContainer from './containers/BlocksContainer.js'
 import ProjectHeader from './components/ProjectHeader'
 import HomePage from './components/HomePage.js'
 import DisplayComments from './components/DisplayComments'
+import Dashboard from './containers/Dashboard.js'
 import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
+import { Router, Link } from '@reach/router'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -35,30 +37,24 @@ class App extends Component {
   render () {
     const state = store.getState()
     console.log('block app', state.addSectionActive)
-    if (!state.statusUser) {
-      return (
-        <div className="App">
-          <HomePage />
-        </div>)
-    }
+
     return (
       <div className="App">
-        <Grid>
-          <Grid.Row columns={2}>
-            <Grid.Column width={11} className="main-column">
-              <ProjectHeader data={state.dataHeader} />
-              <BlocksContainer blocks={state.blocks}
-                shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
-                showCheck={state.showCheck}
-                addSectionActive={state.addSectionActive}
-                activeElement={state.activeElement}
-                comments={state.comments}/>
-            </Grid.Column>
-            <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Router>
+          <HomePage path='/' />
+          <Dashboard path='project/:projectName'
+            blocks={state.blocks}
+            shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
+            showCheck={state.showCheck}
+            addSectionActive={state.addSectionActive}
+            activeElement={state.activeElement}
+            comments={state.comments}
+            threadId={state.threadId}
+            activeElement={state.activeElement}
+            dataHeader={state.dataHeader}
+          />
+        </Router>
+
       </div>
     )
   }
