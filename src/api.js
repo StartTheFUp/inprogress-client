@@ -17,7 +17,6 @@ const updateBlocks = blocks => fetch(path(`/blocks`), {
     'Accept': 'application/json, text/plain, */*',
     'Content-Type': 'application/json'
   },
-
   body: JSON.stringify(blocks)
 })
 
