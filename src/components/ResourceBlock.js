@@ -2,7 +2,7 @@ import React from 'react'
 import { Segment, Divider } from 'semantic-ui-react'
 import ResourceElement from './ResourceElement'
 import ButtonAddSection from './ButtonAddSection.js'
-import { showAddSection, addSection } from '../actions/file.js'
+import { showAddSection, addSection, addNewElement } from '../actions/file.js'
 
 const ResourceBlock = ({ block, activeElement, comments, addSectionActive }) => {
   const sections = block.sections.map(section => {
@@ -12,6 +12,7 @@ const ResourceBlock = ({ block, activeElement, comments, addSectionActive }) => 
     return (
       <div key={section.id}>
         <h2>{section.title}</h2>
+        <p className='new_element' onClick={() => addNewElement({ sectionId: section.id, blockType: block.type })}>Ajouter un element</p>
         {elements}
       </div>
     )

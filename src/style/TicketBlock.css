@@ -17,3 +17,12 @@
     cursor: pointer;
     font-weight: normal;
 }
+.hidden{
+    display:none;
+}
+.new_element{
+    font-size: 20px;
+    color:gray;
+    cursor: pointer;
+    margin-bottom: 10px;
+}

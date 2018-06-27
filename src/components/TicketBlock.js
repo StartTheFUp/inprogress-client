@@ -1,6 +1,6 @@
 import React from 'react'
 import TicketElement from './TicketElement'
-import { addNewBillet, showProcessedTickets, showUnprocessedTickets, showAddSection, addSection } from '../actions/file.js'
+import { addNewElement, showProcessedTickets, showUnprocessedTickets, showAddSection, addSection } from '../actions/file.js'
 import { Segment, Divider } from 'semantic-ui-react'
 import ButtonAddSection from './ButtonAddSection.js'
 import '../style/TicketBlock.css'
@@ -18,8 +18,9 @@ const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comme
 
     return (
       <div key={section.id}>
-        <button className={shouldDisplayArchivedTickets ? 'hidden' : ''} onClick={() => addNewBillet({ sectionId: section.id })}>Nouveau</button>
+
         <h2>{section.title}</h2>
+        <p className={shouldDisplayArchivedTickets ? 'hidden' : 'new_element'} onClick={() => addNewElement({ sectionId: section.id, blockType: block.type })}>Ajouter un element</p>
         {elements}
       </div>
     )
