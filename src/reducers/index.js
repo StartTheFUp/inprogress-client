@@ -87,12 +87,17 @@ export const reducer = (state, action) => {
         checked: false,
         archive: false
       },
-      threadId: 'commentID_7488950',
+      threadId: randomElementId,
       updatedAt: '2018-05-29T00:00:00.000Z',
       updatedBy: 'Bogdan'
     }
+    const newThreadComment = {
+      id: newElement.threadId,
+      comments: []
+    }
     return {
       ...state,
+      comments: [...state.comments, newThreadComment],
       blocks: [...state.blocks.map((block) => {
         if (block.type !== action.idParams.blockType) {
           return block
