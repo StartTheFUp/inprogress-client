@@ -1,10 +1,9 @@
 import React from 'react'
-import { Form, Segment } from 'semantic-ui-react'
+import { Form, Segment, Button } from 'semantic-ui-react'
 import '../style/HomePage.css'
 import { store } from '../store.js'
 import api from '../api.js'
 import { Link } from '@reach/router'
-import { Button } from 'semantic-ui-react'
 
 class HomePage extends React.Component {
   fetchProjects = () => {
