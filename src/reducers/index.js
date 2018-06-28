@@ -173,8 +173,26 @@ export const reducer = (state, action) => {
     }
   }
   if (action.type === 'EDIT_COMMENT') {
-    console.log('contentComment', action.rawContent)
-    return
+    return {
+      ...state,
+      comments: [...state.comments.map((threadComment) => {
+        if (threadComment.id !== action.threadId) {
+          return threadComment
+        }
+        return {
+          ...threadComment,
+          comments: [...threadComment.comments.map(comment => {
+            if (comment.id !== action.commentId) {
+              return comment
+            }
+            return {
+              ...comment,
+              content: action.rawContent
+            }
+          })]
+        }
+      })]
+    }
   }
 
   if (action.type === 'ARCHIVE_TICKET') {
