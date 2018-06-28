@@ -25,7 +25,7 @@ class App extends Component {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
 
-    setInterval(() => api.updateBlocks(store.getState().blocks), 1000 * 1000)
+    setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
   }
 
   componentWillUnmount () {
@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <HomePage path='/' />
+          <HomePage path='/' projectsAdmin={state.projectsAdmin}/>
           <Dashboard path='project/:projectId'
             blocks={state.blocks}
             shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}

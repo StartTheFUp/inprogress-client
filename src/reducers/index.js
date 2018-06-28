@@ -291,10 +291,19 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'SAVE_USER') {
-    console.log("SAVEUSER", action)
+    console.log('SAVEUSER', action)
     return {
       ...state,
       userName: action.name,
+      open: false
+    }
+  }
+
+  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+    console.log('SAVEUSER', action)
+    return {
+      ...state,
+      projectsAdmin: action.infoProjects,
       open: false
     }
   }

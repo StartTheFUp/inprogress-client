@@ -11,3 +11,13 @@
     font-size: 40px;
 }
 
+.displayProjects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80%;
+}
+.buttonProject{
+    margin: 10% !important;
+}

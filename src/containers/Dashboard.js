@@ -3,75 +3,64 @@ import BlocksContainer from './BlocksContainer.js'
 import ProjectHeader from '../components/ProjectHeader'
 import DisplayComments from '../components/DisplayComments'
 import Modal from 'react-responsive-modal'
-import { loadBlocks, updateModal , loadHeaderData, saveUser} from '../actions/file.js'
-//import { Router, Link } from '@reach/router'
-//import { store } from '../store.js'
+import { updateModal, loadHeaderData, saveUser } from '../actions/file.js'
 import api from '../api.js'
 import { Grid, Button } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import '../style/Dashboard.css'
 
-
 class Dashboard extends Component {
-/*= ({ blocks, dataHeader, shouldDisplayArchivedTickets, showCheck, addSectionActive, activeElement, comments, threadId, open }) => {*/
+  componentDidMount () {
+    api.getProjectById(this.props.projectId)
+      .then(loadHeaderData)
+  }
 
- // state = store.getState()
- //console.log('Dashboard app', blocks)
- /*state = {
-   open:true
- }*/
-componentDidMount() {
-   api.getProjectById(this.props.projectId)
-    .then(loadHeaderData)
-}
+  colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
-colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
+  onOpenModal = () => updateModal({ open: true })
 
-  onOpenModal = () => updateModal({ open:true })
+  onCloseModal = () => updateModal({ open: false })
 
-
-  onCloseModal = () => updateModal({ open:false })
-
-
-  render() {
-    let clientMap = ""
+  render () {
+    let clientMap = ''
     if (this.props.dataHeader.client !== undefined) {
-      clientMap=this.props.dataHeader.client.map(client => {
-        {return (<Button basic color={this.colorRandom[Math.floor(Math.random()*this.colorRandom.length)]} onClick={()=>saveUser(client.name)}> {client.name} </Button>)}
-      })}
-
+      clientMap = this.props.dataHeader.client.map(client => {
+        return (
+          <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} onClick={() => saveUser(client.name)}> {client.name} </Button>)
+      })
+    }
 
     console.log('PROPS ProjectID', this.props.projectId)
     console.log('MODAL', this.props.userName)
-  return (
-    <div className="dashboard">
+    return (
+      <div className="dashboard">
 
-    <Modal className="modalClients" open={this.props.open} onClose={()=> updateModal( false )} center>
-      <h2> Qui est tu ? </h2>
-      <div className="client">
-        {clientMap}
+        <Modal className="modalClients" open={this.props.open} onClose={() => updateModal(false)} center>
+          <h2> Qui est tu ? </h2>
+          <div className="client">
+            {clientMap}
+          </div>
+
+        </Modal>
+        <Grid>
+          <Grid.Row columns={2}>
+            <Grid.Column width={11} className="main-column">
+              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName}/>
+              <BlocksContainer blocks={this.props.blocks}
+                shouldDisplayArchivedTickets={this.props.shouldDisplayArchivedTickets}
+                showCheck={this.props.showCheck}
+                addSectionActive={this.props.addSectionActive}
+                activeElement={this.props.activeElement}
+                comments={this.props.comments}/>
+            </Grid.Column>
+            <Grid.Column width={5} className="main-column">
+              <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
-
-    </Modal>
-      <Grid>
-        <Grid.Row columns={2}>
-          <Grid.Column width={11} className="main-column">
-            <ProjectHeader data={this.props.dataHeader} userName={this.props.userName}/>
-           <BlocksContainer blocks={this.props.blocks}
-              shouldDisplayArchivedTickets={this.props.shouldDisplayArchivedTickets}
-              showCheck={this.props.showCheck}
-              addSectionActive={this.props.addSectionActive}
-              activeElement={this.props.activeElement}
-              comments={this.props.comments}/>
-          </Grid.Column>
-          <Grid.Column width={5} className="main-column">
-            <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} />
-          </Grid.Column>
-        </Grid.Row>
-  </Grid>
-    </div>
-  )
-}
+    )
+  }
 }
 
 export default Dashboard

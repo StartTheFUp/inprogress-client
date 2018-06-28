@@ -31,9 +31,7 @@ const userMatch = (user) => fetch(path(`/signin`), {
 })
 
 const getClientsProject = projectId => fetch(path(`/clients/${projectId}`))
-  .then(res=> res.json())
-
-
+  .then(res => res.json())
 
 export default {
   getBlocks,

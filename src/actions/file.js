@@ -17,7 +17,7 @@ const actions = {
   verifyUser: (email, password) => ({ type: 'VERIFY_USER', email, password }),
   addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams }),
   updateModal: (open) => ({ type: 'UPDATE_MODAL', open }),
-  saveUser:(name) => ({ type: 'SAVE_USER', name }),
+  saveUser: (name) => ({ type: 'SAVE_USER', name }),
   updateState: (projets) => ({ type: 'UPDATE_STATE', projets })
 }
 
