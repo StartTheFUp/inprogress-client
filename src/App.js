@@ -26,7 +26,7 @@ class App extends Component {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
     setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
-    setInterval(() => api.updateComments(store.getState().comments), 20 * 1000)
+    setInterval(() => api.updateComments(store.getState().comments), 5 * 1000)
   }
 
   componentWillUnmount () {
