@@ -31,3 +31,6 @@
 .button-group-section {
     padding: 10px;
 }
+.add-section-form .ui.buttons .or:before{
+    content : 'ou'
+}

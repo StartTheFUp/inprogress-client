@@ -149,7 +149,12 @@ export const reducer = (state, action) => {
       threadId: action.threadId
     }
   }
-
+  if (action.type === 'ADD_NEW_COMMENT') {
+    return {
+      ...state,
+      addCommentActive: action.threadId
+    }
+  }
   if (action.type === 'EDIT_COMMENT') {
     console.log('contentComment', action.rawContent)
     return

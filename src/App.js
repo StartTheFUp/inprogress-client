@@ -50,7 +50,14 @@ class App extends Component {
                 comments={state.comments} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement}/>}
+              {state.activeElement === ''
+                ? null
+                : <DisplayComments
+                  comments={state.comments}
+                  threadId={state.threadId}
+                  activeElement={state.activeElement}
+                  addCommentActive={state.addCommentActive} />
+              }
             </Grid.Column>
           </Grid.Row>
         </Grid>

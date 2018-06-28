@@ -15,7 +15,6 @@ class EditorComment extends React.Component {
     editorState: typeof this.props.rawContent === 'string'
       ? createEditorStateWithText(this.props.rawContent)
       : EditorState.createWithContent(convertFromRaw(this.props.rawContent))
-
   }
   handleChange = (editorState) => {
     const currentContent = editorState.getCurrentContent()
