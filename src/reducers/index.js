@@ -293,6 +293,7 @@ export const reducer = (state, action) => {
     console.log("SAVEUSER", action)
     return {
       ...state,
+      userName: action.name,
       open: false
     }
   }

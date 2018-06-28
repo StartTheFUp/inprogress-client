@@ -43,7 +43,7 @@ colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink
 
 
     console.log('PROPS ProjectID', this.props.projectId)
-    console.log('MODAL', this.props.dataHeader)
+    console.log('MODAL', this.props.userName)
   return (
     <div className="dashboard">
 

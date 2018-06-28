@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 import '../style/ProjectHeader.css'
 
-const ProjectHeader = ({ data }) => {
+const ProjectHeader = ({ data, userName }) => {
   return (
     <Grid as="header" className="header-wrapper">
       <Grid.Row columns={2}>
@@ -14,6 +14,7 @@ const ProjectHeader = ({ data }) => {
           <a className="project-link" href={data.websiteURL}>{data.websiteURL}</a>
         </Grid.Column>
       </Grid.Row>
+      <div className="user-name-header"> {userName}</div>
     </Grid>
   )
 }
