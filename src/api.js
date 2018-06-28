@@ -32,6 +32,15 @@ const userMatch = (user) => fetch(path(`/signin`), {
 
 const getClientsProject = projectId => fetch(path(`/clients/${projectId}`))
   .then(res => res.json())
+const updateComments = comments => fetch(path(`/comments`), {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+
+  body: JSON.stringify(comments)
+})
 
 export default {
   getBlocks,
@@ -39,5 +48,6 @@ export default {
   getProjectById,
   updateBlocks,
   userMatch,
-  getClientsProject
+  getClientsProject,
+  updateComments
 }

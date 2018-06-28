@@ -87,12 +87,17 @@ export const reducer = (state, action) => {
         checked: false,
         archive: false
       },
-      threadId: 'commentID_7488950',
+      threadId: randomElementId,
       updatedAt: '2018-05-29T00:00:00.000Z',
       updatedBy: 'Bogdan'
     }
+    const newThreadComment = {
+      id: newElement.threadId,
+      comments: []
+    }
     return {
       ...state,
+      comments: [...state.comments, newThreadComment],
       blocks: [...state.blocks.map((block) => {
         if (block.type !== action.idParams.blockType) {
           return block
@@ -147,6 +152,51 @@ export const reducer = (state, action) => {
     return {
       ...state,
       threadId: action.threadId
+    }
+  }
+  if (action.type === 'ADD_NEW_COMMENT') {
+    console.log('nouveau commentaire dans ', action.threadId)
+    const randomCommentId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
+    const newComment = {
+      'id': randomCommentId,
+      'content': '',
+      'createdBy': 'userId_1zezghozzge',
+      'createdAt': new Date(),
+      'proprieties': ''
+    }
+    return {
+      ...state,
+      comments: [...state.comments.map((threadComment) => {
+        if (threadComment.id !== action.threadId) {
+          return threadComment
+        }
+        return {
+          ...threadComment,
+          comments: [...threadComment.comments, newComment]
+        }
+      })]
+    }
+  }
+  if (action.type === 'EDIT_COMMENT') {
+    return {
+      ...state,
+      comments: [...state.comments.map((threadComment) => {
+        if (threadComment.id !== action.threadId) {
+          return threadComment
+        }
+        return {
+          ...threadComment,
+          comments: [...threadComment.comments.map(comment => {
+            if (comment.id !== action.commentId) {
+              return comment
+            }
+            return {
+              ...comment,
+              content: action.rawContent
+            }
+          })]
+        }
+      })]
     }
   }
 

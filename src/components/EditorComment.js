@@ -2,27 +2,25 @@ import React from 'react'
 import { Editor, EditorState, convertToRaw, convertFromRaw } from 'draft-js'
 import { createEditorStateWithText } from 'draft-js-plugins-editor'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
-import 'draft-js/dist/Draft.css'
 // import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin'
 import '../style/EditorElement.css'
+import 'draft-js/dist/Draft.css'
 
 const linkifyPlugin = createLinkifyPlugin()
 const plugins = [
   linkifyPlugin
 ]
-class EditorElement extends React.Component {
+class EditorComment extends React.Component {
   state = {
-    editorState: typeof this.props.rawContent === 'string'
-      ? createEditorStateWithText(this.props.rawContent)
-      : EditorState.createWithContent(convertFromRaw(this.props.rawContent))
-
+    editorState: typeof this.props.rawContent2 === 'string'
+      ? createEditorStateWithText(this.props.rawContent2)
+      : EditorState.createWithContent(convertFromRaw(this.props.rawContent2))
   }
   handleChange = (editorState) => {
     const currentContent = editorState.getCurrentContent()
-    const rawData = convertToRaw(currentContent)
-    this.props.changeElementContent(this.props.blockId, this.props.sectionId, this.props.elementId, rawData)
+    const rawData2 = convertToRaw(currentContent)
+    this.props.editComment(this.props.threadId, this.props.commentId, rawData2)
     this.setState({editorState})
-    this.props.showActiveElement(rawData.blocks[0].text)
   }
 
   handleFocus = () => this.refs.editor.focus()
@@ -30,7 +28,6 @@ class EditorElement extends React.Component {
     return (
       <div onClick={this.handleFocus} className='editor'>
         <Editor
-          placeholder='Votre texte'
           editorState={this.state.editorState}
           onChange={this.handleChange}
           plugins={plugins}
@@ -41,4 +38,4 @@ class EditorElement extends React.Component {
   }
 }
 
-export default EditorElement
+export default EditorComment

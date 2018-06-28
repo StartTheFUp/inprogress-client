@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import HomePage from './containers/HomePage.js'
 import Dashboard from './containers/Dashboard.js'
-import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
 import { Router } from '@reach/router'
+import { loadBlocks, loadComments, loadHeaderData,  } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -24,8 +24,8 @@ class App extends Component {
   componentDidMount () {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
-
     setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
+    setInterval(() => api.updateComments(store.getState().comments), 20 * 1000)
   }
 
   componentWillUnmount () {

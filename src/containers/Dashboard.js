@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import BlocksContainer from './BlocksContainer.js'
 import ProjectHeader from '../components/ProjectHeader'
-import DisplayComments from '../components/DisplayComments'
+import DisplayComments from '../containers/DisplayComments'
 import Modal from 'react-responsive-modal'
-import { updateModal, loadHeaderData, saveUser } from '../actions/file.js'
+import { updateModal, loadHeaderData, saveUser, addNewComment } from '../actions/file.js'
 import api from '../api.js'
 import { Grid, Button } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
@@ -54,7 +54,9 @@ class Dashboard extends Component {
                 comments={this.props.comments}/>
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} />
+            {this.props.activeElement === ''
+                ? null
+                : <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment}/>}
             </Grid.Column>
           </Grid.Row>
         </Grid>
