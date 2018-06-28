@@ -289,5 +289,13 @@ export const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'SAVE_USER') {
+    console.log("SAVEUSER", action)
+    return {
+      ...state,
+      open: false
+    }
+  }
+
   return state
 }

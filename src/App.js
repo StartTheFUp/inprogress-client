@@ -49,6 +49,7 @@ class App extends Component {
             threadId={state.threadId}
             dataHeader={state.dataHeader}
             open={state.open}
+            userName={state.userName}
           />
         </Router>
 

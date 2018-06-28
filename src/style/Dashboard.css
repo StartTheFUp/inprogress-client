@@ -1,12 +1,21 @@
 .modalClients {
+    padding-top: 60px;
     width: 500px;
     height:400px;
     background-color: hotpink !important;
+    vertical-align: middle;
 }
 
 .styles_modal__gNwvD {
-    background-color: #bada55 ; 
+
     width: 500px;
     height:400px;
     text-align: center;
+    border-radius: 5%;
+
+}
+
+.clientName {
+    display:flex;
+    flex-direction: column;
 }

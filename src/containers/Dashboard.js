@@ -4,11 +4,11 @@ import ProjectHeader from '../components/ProjectHeader'
 //import HomePage from './components/HomePage.js'
 import DisplayComments from '../components/DisplayComments'
 import Modal from 'react-responsive-modal'
-import { loadBlocks, updateModal , loadHeaderData} from '../actions/file.js'
+import { loadBlocks, updateModal , loadHeaderData, saveUser} from '../actions/file.js'
 //import { Router, Link } from '@reach/router'
 //import { store } from '../store.js'
 import api from '../api.js'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Button } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import '../style/Dashboard.css'
 
@@ -26,7 +26,7 @@ componentDidMount() {
     .then(loadHeaderData)
 }
 
-
+colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
   onOpenModal = () => updateModal({ open:true })
 
@@ -38,7 +38,7 @@ componentDidMount() {
     let clientMap = ""
     if (this.props.dataHeader.client !== undefined) {
       clientMap=this.props.dataHeader.client.map(client => {
-        {return (<option> {client.name} </option>)}
+        {return (<Button basic color={this.colorRandom[Math.floor(Math.random()*this.colorRandom.length)]} onClick={()=>saveUser(client.name)}> {client.name} </Button>)}
       })}
 
 
@@ -49,15 +49,15 @@ componentDidMount() {
 
     <Modal className="modalClients" open={this.props.open} onClose={()=> updateModal( false )} center>
       <h2> Qui est tu ? </h2>
-      <select name="client">
+      <div className="client">
         {clientMap}
-      </select>
+      </div>
 
     </Modal>
       <Grid>
         <Grid.Row columns={2}>
           <Grid.Column width={11} className="main-column">
-            <ProjectHeader data={this.props.dataHeader} />
+            <ProjectHeader data={this.props.dataHeader} userName={this.props.userName}/>
            <BlocksContainer blocks={this.props.blocks}
               shouldDisplayArchivedTickets={this.props.shouldDisplayArchivedTickets}
               showCheck={this.props.showCheck}
