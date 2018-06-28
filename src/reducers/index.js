@@ -277,7 +277,8 @@ export const reducer = (state, action) => {
   if (action.type === 'VERIFY_USER') {
     return {
       ...state,
-      userActiv: 'coucou'
+      userEmail: action.email,
+      userPassword: action.password
     }
   }
 

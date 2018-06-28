@@ -21,7 +21,7 @@ const updateBlocks = blocks => fetch(path(`/blocks`), {
   body: JSON.stringify(blocks)
 })
 
-const userMatch = user => fetch(path(`/signin`), {
+const userMatch = (user) => fetch(path(`/signin`), {
   method: 'POST',
   headers: {
     'Accept': 'application/json',

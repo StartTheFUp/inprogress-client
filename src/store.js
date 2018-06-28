@@ -13,7 +13,8 @@ const initialState = {
   statusUser: true,
   userEmail: '',
   userPassword: '',
-  userActiv: []
+  userActiv: [],
+  reponse: []
 }
 
 export const store = createStore(reducer, initialState,
