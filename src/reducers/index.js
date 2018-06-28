@@ -150,9 +150,26 @@ export const reducer = (state, action) => {
     }
   }
   if (action.type === 'ADD_NEW_COMMENT') {
+    console.log('nouveau commentaire dans ', action.threadId)
+    const randomCommentId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
+    const newComment = {
+      'id': randomCommentId,
+      'content': '',
+      'createdBy': 'userId_1zezghozzge',
+      'createdAt': new Date(),
+      'proprieties': ''
+    }
     return {
       ...state,
-      addCommentActive: action.threadId
+      comments: [...state.comments.map((threadComment) => {
+        if (threadComment.id !== action.threadId) {
+          return threadComment
+        }
+        return {
+          ...threadComment,
+          comments: [...threadComment.comments, newComment]
+        }
+      })]
     }
   }
   if (action.type === 'EDIT_COMMENT') {

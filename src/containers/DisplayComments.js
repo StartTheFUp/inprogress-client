@@ -1,10 +1,9 @@
 /* Redux & librairies */
 import React from 'react'
 import { editComment } from '../actions/file.js'
-import { Segment, Comment } from 'semantic-ui-react'
+import { Comment } from 'semantic-ui-react'
 /* Components */
 import EditorComment from '../components/EditorComment.js'
-import AddComment from '../components/AddComment.js'
 /* CSS */
 import './../style/comments.css'
 
@@ -14,9 +13,9 @@ const convertToDate = dateComment => {
     .toLocaleString()
   return date
 }
-const DisplayComments = ({ comments, threadId, activeElement, addCommentActive }) => {
+const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) => {
   return (
-    <Segment >
+    <div className="comments-container">
       <div className='element_active'>{activeElement}</div>
       <Comment.Group>
         {comments.filter(threadComment => threadComment.id === threadId)
@@ -35,9 +34,11 @@ const DisplayComments = ({ comments, threadId, activeElement, addCommentActive }
                   <Comment.Metadata>{convertToDate(comment.createdAt)} </Comment.Metadata>
                 </Comment.Content>
               </Comment>))}
-        <AddComment />
       </Comment.Group>
-    </Segment>
+      <a onClick={() => addNewComment(threadId)}>
+        + Ajouter un commentaire
+      </a>
+    </div>
   )
 }
 

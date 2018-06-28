@@ -21,9 +21,20 @@ const updateBlocks = blocks => fetch(path(`/blocks`), {
   body: JSON.stringify(blocks)
 })
 
+const updateComments = comments => fetch(path(`/comments`), {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+
+  body: JSON.stringify(comments)
+})
+
 export default {
   getBlocks,
   getComments,
   getProjectById,
-  updateBlocks
+  updateBlocks,
+  updateComments
 }

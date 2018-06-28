@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BlocksContainer from './containers/BlocksContainer.js'
 import ProjectHeader from './components/ProjectHeader'
 import DisplayComments from './containers/DisplayComments'
-import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
+import { loadBlocks, loadComments, loadHeaderData, addNewComment } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -22,18 +22,18 @@ class App extends Component {
       .then(loadBlocks)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
-
     setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
+    setInterval(() => api.updateComments(store.getState().comments), 20 * 1000)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.unsubscribe()
   }
 
-  render() {
+  render () {
     const state = store.getState()
     console.log('block app', state.addSectionActive)
     return (
@@ -56,7 +56,7 @@ class App extends Component {
                   comments={state.comments}
                   threadId={state.threadId}
                   activeElement={state.activeElement}
-                  addCommentActive={state.addCommentActive} />
+                  addNewComment={addNewComment} />
               }
             </Grid.Column>
           </Grid.Row>
