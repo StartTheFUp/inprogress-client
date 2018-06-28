@@ -12,14 +12,14 @@ const plugins = [
 ]
 class EditorComment extends React.Component {
   state = {
-    editorState: typeof this.props.rawContent === 'string'
+    editorState: typeof this.props.rawContent2 === 'string'
       ? createEditorStateWithText(this.props.rawContent)
       : EditorState.createWithContent(convertFromRaw(this.props.rawContent))
   }
   handleChange = (editorState) => {
     const currentContent = editorState.getCurrentContent()
-    const rawData = convertToRaw(currentContent)
-    this.props.editComment(this.props.threadId, this.props.commentId, rawData)
+    const rawData2 = convertToRaw(currentContent)
+    this.props.editComment(this.props.threadId, this.props.commentId, rawData2)
     this.setState({editorState})
   }
 

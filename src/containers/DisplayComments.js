@@ -27,7 +27,7 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) =
                   <Comment.Text>
                     <EditorComment
                       editComment={editComment}
-                      rawContent={comment.content}
+                      rawContent2={comment.content}
                       threadId={threadId}
                       commentId={comment.id} />
                   </Comment.Text>
