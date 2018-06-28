@@ -22,18 +22,18 @@ class App extends Component {
       .then(loadBlocks)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
 
     setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.unsubscribe()
   }
 
-  render () {
+  render() {
     const state = store.getState()
     console.log('block app', state.addSectionActive)
     return (
@@ -47,10 +47,10 @@ class App extends Component {
                 showCheck={state.showCheck}
                 addSectionActive={state.addSectionActive}
                 activeElement={state.activeElement}
-                comments={state.comments}/>
+                comments={state.comments} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement} />
+              <DisplayComments comments={state.comments} threadId={state.threadId} activeElement={state.activeElement}/>}
             </Grid.Column>
           </Grid.Row>
         </Grid>
