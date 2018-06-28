@@ -17,10 +17,11 @@ const updateBlocks = blocks => fetch(path(`/blocks`), {
     'Accept': 'application/json, text/plain, */*',
     'Content-Type': 'application/json'
   },
+
   body: JSON.stringify(blocks)
 })
 
-const userMatch = user => fetch(path(`/signin`), {
+const userMatch = (user) => fetch(path(`/signin`), {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
