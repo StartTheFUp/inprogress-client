@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BlocksContainer from './containers/BlocksContainer.js'
 import ProjectHeader from './components/ProjectHeader'
-import DisplayComments from './components/DisplayComments'
+import DisplayComments from './containers/DisplayComments'
 import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'

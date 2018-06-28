@@ -10,6 +10,7 @@ const actions = {
   archiveElement: (blockId, sectionId, elementId) => ({ type: 'ARCHIVE_TICKET', blockId, sectionId, elementId }),
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
   showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
+  editComment: (threadId, commentId, rawContent) => ({ type: 'EDIT_COMMENT', threadId, commentId, rawContent }),
   changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
   addSection: (blockId, title) => ({ type: 'ADD_SECTION', blockId, title }),
   showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
@@ -33,7 +34,7 @@ export const showActiveElement = dispatch(actions.showActiveElement)
 export const addSection = dispatch(actions.addSection)
 export const showAddSection = dispatch(actions.showAddSection)
 export const addNewElement = dispatch(actions.addNewElement)
-
+export const editComment = dispatch(actions.editComment)
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)
   .map(fn)

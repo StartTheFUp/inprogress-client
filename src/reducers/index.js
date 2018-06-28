@@ -150,6 +150,11 @@ export const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'EDIT_COMMENT') {
+    console.log('contentComment', action.rawContent)
+    return
+  }
+
   if (action.type === 'ARCHIVE_TICKET') {
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
