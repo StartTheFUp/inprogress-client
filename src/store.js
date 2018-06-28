@@ -15,7 +15,8 @@ const initialState = {
   userPassword: '',
   userActiv: [],
   open: true,
-  userName: ''
+  userName: '',
+  reponse: []
 }
 
 export const store = createStore(reducer, initialState,

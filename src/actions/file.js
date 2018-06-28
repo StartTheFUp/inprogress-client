@@ -17,7 +17,8 @@ const actions = {
   verifyUser: (email, password) => ({ type: 'VERIFY_USER', email, password }),
   addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams }),
   updateModal: (open) => ({ type: 'UPDATE_MODAL', open }),
-  saveUser:(name) => ({ type: 'SAVE_USER', name })
+  saveUser:(name) => ({ type: 'SAVE_USER', name }),
+  updateState: (projets) => ({ type: 'UPDATE_STATE', projets })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -39,6 +40,7 @@ export const verifyUser = dispatch(actions.verifyUser)
 export const addNewElement = dispatch(actions.addNewElement)
 export const updateModal = dispatch(actions.updateModal)
 export const saveUser = dispatch(actions.saveUser)
+export const updateState = dispatch(actions.updateState)
 
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)

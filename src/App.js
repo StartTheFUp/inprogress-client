@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import HomePage from './components/HomePage.js'
+import HomePage from './containers/HomePage.js'
 import Dashboard from './containers/Dashboard.js'
 import { loadBlocks, loadComments, loadHeaderData } from './actions/file.js'
-import { Router, Link } from '@reach/router'
+import { Router } from '@reach/router'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -11,7 +11,8 @@ import './style/App.css'
 
 class App extends Component {
   syncDatas = () => {
-
+    api.getProjectById('projetId_65565')
+      .then(loadHeaderData)
 
     api.getComments()
       .then(loadComments)
@@ -24,7 +25,7 @@ class App extends Component {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
 
-    // setInterval(() => api.updateBlocks(store.getState().blocks), 5*1000 * 1000)
+    setInterval(() => api.updateBlocks(store.getState().blocks), 1000 * 1000)
   }
 
   componentWillUnmount () {
@@ -52,7 +53,6 @@ class App extends Component {
             userName={state.userName}
           />
         </Router>
-
       </div>
     )
   }

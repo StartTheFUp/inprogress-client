@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import BlocksContainer from './BlocksContainer.js'
 import ProjectHeader from '../components/ProjectHeader'
-//import HomePage from './components/HomePage.js'
 import DisplayComments from '../components/DisplayComments'
 import Modal from 'react-responsive-modal'
 import { loadBlocks, updateModal , loadHeaderData, saveUser} from '../actions/file.js'
@@ -75,49 +74,4 @@ colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink
 }
 }
 
-
-
-
 export default Dashboard
-
-/*
-
-const Dashboard = ({ blocks, dataHeader, shouldDisplayArchivedTickets, showCheck, addSectionActive, activeElement, comments, threadId, open }) => {
-
-  //const state = store.getState()
- //console.log('Dashboard app', blocks)
-  const onOpenModal = () => {
-    updateModal(true)
-  }
-
-  const onCloseModal = () => {
-    upadteModal(false)
-  }
-
-  const { open } = open
-
-  return (
-    <div className="dashboard">
-    <Modal open={open} onClose={oncloseModal()} center>
-      Super modale !
-    </Modal>
-      <Grid>
-        <Grid.Row columns={2}>
-          <Grid.Column width={11} className="main-column">
-            <ProjectHeader data={dataHeader} />
-           <BlocksContainer blocks={blocks}
-              shouldDisplayArchivedTickets={shouldDisplayArchivedTickets}
-              showCheck={showCheck}
-              addSectionActive={addSectionActive}
-              activeElement={activeElement}
-              comments={comments}/>
-          </Grid.Column>
-          <Grid.Column width={5} className="main-column">
-            <DisplayComments comments={comments} threadId={threadId} activeElement={activeElement} />
-          </Grid.Column>
-        </Grid.Row>
-  </Grid>
-    </div>
-  )
-}
-*/
