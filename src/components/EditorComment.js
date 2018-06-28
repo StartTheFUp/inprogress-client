@@ -13,8 +13,8 @@ const plugins = [
 class EditorComment extends React.Component {
   state = {
     editorState: typeof this.props.rawContent2 === 'string'
-      ? createEditorStateWithText(this.props.rawContent)
-      : EditorState.createWithContent(convertFromRaw(this.props.rawContent))
+      ? createEditorStateWithText(this.props.rawContent2)
+      : EditorState.createWithContent(convertFromRaw(this.props.rawContent2))
   }
   handleChange = (editorState) => {
     const currentContent = editorState.getCurrentContent()
