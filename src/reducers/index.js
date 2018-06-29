@@ -325,5 +325,39 @@ export const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'UPDATE_MODAL') {
+    console.log('updateModal', action.open)
+    return {
+      ...state,
+      open: action.open
+    }
+  }
+
+  if (action.type === 'VERIFY_USER') {
+    return {
+      ...state,
+      userEmail: action.email,
+      userPassword: action.password
+    }
+  }
+
+  if (action.type === 'SAVE_USER') {
+    console.log('SAVEUSER', action)
+    return {
+      ...state,
+      userName: action.name,
+      open: false
+    }
+  }
+
+  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+    console.log('SAVEUSER', action)
+    return {
+      ...state,
+      projectsAdmin: action.infoProjects,
+      open: false
+    }
+  }
+
   return state
 }

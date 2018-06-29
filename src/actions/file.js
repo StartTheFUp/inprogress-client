@@ -16,7 +16,11 @@ const actions = {
   addSection: (blockId, title) => ({ type: 'ADD_SECTION', blockId, title }),
   showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement }),
-  addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams })
+  verifyUser: (email, password) => ({ type: 'VERIFY_USER', email, password }),
+  addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams }),
+  updateModal: (open) => ({ type: 'UPDATE_MODAL', open }),
+  saveUser: (name) => ({ type: 'SAVE_USER', name }),
+  updateState: (projets) => ({ type: 'UPDATE_STATE', projets })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -34,7 +38,11 @@ export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
 export const addSection = dispatch(actions.addSection)
 export const showAddSection = dispatch(actions.showAddSection)
+export const verifyUser = dispatch(actions.verifyUser)
 export const addNewElement = dispatch(actions.addNewElement)
+export const updateModal = dispatch(actions.updateModal)
+export const saveUser = dispatch(actions.saveUser)
+export const updateState = dispatch(actions.updateState)
 export const editComment = dispatch(actions.editComment)
 export const addNewComment = dispatch(actions.addNewComment)
 /* on demande de l'aide a clement et ca tourne mal
