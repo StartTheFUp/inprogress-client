@@ -22,3 +22,6 @@
 .add_comment{
     cursor: pointer;
 }
+.comments-none{
+    display: none;
+}

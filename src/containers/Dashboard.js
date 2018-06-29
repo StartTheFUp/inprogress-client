@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import BlocksContainer from './BlocksContainer.js'
 import ProjectHeader from '../components/ProjectHeader'
 import DisplayComments from '../containers/DisplayComments'
@@ -10,18 +10,18 @@ import 'semantic-ui-css/semantic.min.css'
 import '../style/Dashboard.css'
 
 class Dashboard extends Component {
-  componentDidMount () {
+  componentDidMount() {
     api.getProjectById(this.props.projectId)
       .then(loadHeaderData)
   }
 
-  colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
+  colorRandom = ['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
   onOpenModal = () => updateModal({ open: true })
 
   onCloseModal = () => updateModal({ open: false })
 
-  render () {
+  render() {
     let clientMap = ''
     if (this.props.dataHeader.client !== undefined) {
       clientMap = this.props.dataHeader.client.map(client => {
@@ -45,18 +45,16 @@ class Dashboard extends Component {
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
-              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName}/>
+              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName} />
               <BlocksContainer blocks={this.props.blocks}
                 shouldDisplayArchivedTickets={this.props.shouldDisplayArchivedTickets}
                 showCheck={this.props.showCheck}
                 addSectionActive={this.props.addSectionActive}
                 activeElement={this.props.activeElement}
-                comments={this.props.comments}/>
+                comments={this.props.comments} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              {this.props.activeElement === ''
-                ? null
-                : <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment}/>}
+              <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment} />}
             </Grid.Column>
           </Grid.Row>
         </Grid>
