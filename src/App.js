@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HomePage from './containers/HomePage.js'
 import Dashboard from './containers/Dashboard.js'
 import { Router } from '@reach/router'
-import { loadBlocks, loadComments, loadHeaderData,  } from './actions/file.js'
+import { loadBlocks, loadComments } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -11,8 +11,8 @@ import './style/App.css'
 
 class App extends Component {
   syncDatas = () => {
-    api.getProjectById('projetId_65565')
-      .then(loadHeaderData)
+    /* api.getProjectById('projetId_65565')
+      .then(loadHeaderData) */
 
     api.getComments()
       .then(loadComments)

@@ -14,7 +14,7 @@ const ProjectHeader = ({ data, userName }) => {
           <a className="project-link" href={data.websiteURL}>{data.websiteURL}</a>
         </Grid.Column>
       </Grid.Row>
-      <div className="user-name-header"> {userName}</div>
+      <div className="user-name-header"> Bonjour {userName}</div>
     </Grid>
   )
 }

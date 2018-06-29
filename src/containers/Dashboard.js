@@ -26,7 +26,7 @@ class Dashboard extends Component {
     if (this.props.dataHeader.client !== undefined) {
       clientMap = this.props.dataHeader.client.map(client => {
         return (
-          <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} onClick={() => saveUser(client.name)}> {client.name} </Button>)
+          <Button key={client.name} basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} onClick={() => saveUser(client.name)}> {client.name} </Button>)
       })
     }
 
@@ -36,7 +36,7 @@ class Dashboard extends Component {
       <div className="dashboard">
 
         <Modal className="modalClients" open={this.props.open} onClose={() => updateModal(false)} center>
-          <h2> Qui est tu ? </h2>
+          <h2> Qui es tu ? </h2>
           <div className="client">
             {clientMap}
           </div>
@@ -54,7 +54,7 @@ class Dashboard extends Component {
                 comments={this.props.comments}/>
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-            {this.props.activeElement === ''
+              {this.props.activeElement === ''
                 ? null
                 : <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment}/>}
             </Grid.Column>
