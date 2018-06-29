@@ -35,7 +35,7 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) =
                 </Comment.Content>
               </Comment>))}
       </Comment.Group>
-      <a onClick={() => addNewComment(threadId)}>
+      <a className='add_comment' onClick={() => addNewComment(threadId)}>
         + Ajouter un commentaire
       </a>
     </div>

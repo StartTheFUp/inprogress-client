@@ -77,6 +77,7 @@ export const reducer = (state, action) => {
 
   if (action.type === 'ADD_NEW_ELEMENT') {
     const randomElementId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
+    const randomThreadId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
     const newElement = {
       type: action.idParams.blockType,
       content: '',
@@ -87,7 +88,7 @@ export const reducer = (state, action) => {
         checked: false,
         archive: false
       },
-      threadId: randomElementId,
+      threadId: randomThreadId,
       updatedAt: '2018-05-29T00:00:00.000Z',
       updatedBy: 'Bogdan'
     }

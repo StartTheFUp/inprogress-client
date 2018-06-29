@@ -19,3 +19,6 @@
 .segment {
     height : 100%;
 }
+.add_comment{
+    cursor: pointer;
+}
