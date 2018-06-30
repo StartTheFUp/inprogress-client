@@ -24,8 +24,8 @@ class App extends Component {
   componentDidMount () {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
-    setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
-    setInterval(() => api.updateComments(store.getState().comments), 5 * 1000)
+    setInterval(() => api.updateBlocks(store.getState().blocks), 5000 * 1000)
+    setInterval(() => api.updateComments(store.getState().comments), 5000 * 1000)
   }
 
   componentWillUnmount () {
@@ -34,7 +34,7 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-    console.log('block app', state.addSectionActive)
+    console.log('block app local storage!!!!', localStorage.getItem("userName"))
 
     return (
       <div className="App">

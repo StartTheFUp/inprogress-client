@@ -9,12 +9,16 @@ const ProjectHeader = ({ data, userName }) => {
         <Grid.Column width={2}>
           <Image className="project-image" src={data.pictureURL} />
         </Grid.Column>
-        <Grid.Column width={14}>
+        <Grid.Column width={10}>
           <h1 className="project-name">{data.name}</h1>
           <a className="project-link" href={data.websiteURL}>{data.websiteURL}</a>
         </Grid.Column>
+
+       <Grid.Column width={4}>
+        <div className="user-name-header"> Bonjour {userName}</div>
+        <button > Deconnexion </button>
+      </Grid.Column>
       </Grid.Row>
-      <div className="user-name-header"> Bonjour {userName}</div>
     </Grid>
   )
 }

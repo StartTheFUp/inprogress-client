@@ -30,6 +30,14 @@ const userMatch = (user) => fetch(path(`/signin`), {
   body: JSON.stringify(user)
 })
 
+const adminProjects = (token) => fetch(path(`/adminProjects`), {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+
+})
+//.then(res=> console.log(res))
+
 const getClientsProject = projectId => fetch(path(`/clients/${projectId}`))
   .then(res => res.json())
 const updateComments = comments => fetch(path(`/comments`), {
@@ -48,6 +56,7 @@ export default {
   getProjectById,
   updateBlocks,
   userMatch,
+  adminProjects,
   getClientsProject,
   updateComments
 }

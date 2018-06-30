@@ -4,13 +4,14 @@ import '../style/HomePage.css'
 import { store } from '../store.js'
 import api from '../api.js'
 import { Link } from '@reach/router'
+import DisplayProjects from './DisplayProjects.js'
 
 class HomePage extends React.Component {
-  fetchProjects = () => {
+ /* fetchProjects = () => {
     fetch('/projects')
       .then(res => res.json())
       .then(projects => store.dispatch({ type: 'LOAD_PROJECTS', projects }))
-  }
+  }*/
 
   colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
@@ -19,20 +20,20 @@ class HomePage extends React.Component {
       email: email,
       password: mdp
     }
-
+    console.log('SIGNIN HomePage')
     api.userMatch(user)
       .then(res => res.json())
-      .then(infoProjects => store.dispatch({ type: 'SAVE_ALL_PROJECT_ADMIN', infoProjects }))
+      .then(cred => store.dispatch({ type: 'SIGNIN_ADMIN', cred}))
   }
 
   render () {
-    const allProject = this.props.projectsAdmin.map(project => {
+   /* const allProject = this.props.projectsAdmin.map(project => {
       return (
         <Link to={`project/${project.id}`}>
           <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
         </Link>
       )
-    })
+    })*/
 
     return (
       <div>
@@ -49,7 +50,8 @@ class HomePage extends React.Component {
           </Segment>
         </div>
         <Segment>
-          <div className='displayProjects'>{allProject}</div>
+          <DisplayProjects />
+
         </Segment>
       </div>
     )
