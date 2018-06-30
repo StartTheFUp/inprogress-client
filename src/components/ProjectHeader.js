@@ -3,6 +3,9 @@ import { Grid, Image } from 'semantic-ui-react'
 import '../style/ProjectHeader.css'
 
 const ProjectHeader = ({ data, userName }) => {
+  const resetLocalStorage = () => {
+    localStorage.clear()
+  }
   return (
     <Grid as="header" className="header-wrapper">
       <Grid.Row columns={2}>
@@ -16,7 +19,7 @@ const ProjectHeader = ({ data, userName }) => {
 
         <Grid.Column width={4}>
           <div className="user-name-header"> Bonjour {userName}</div>
-          <button > Deconnexion </button>
+          <button onClick={resetLocalStorage}> Deconnexion </button>
         </Grid.Column>
       </Grid.Row>
     </Grid>

@@ -17,6 +17,15 @@ class HomePage extends React.Component {
     api.userMatch(user)
       .then(res => res.json())
       .then(cred => store.dispatch({ type: 'SIGNIN_ADMIN', cred }))
+      .then( () => {
+      const token = localStorage.getItem('token')
+      console.log('get token', token)
+      if (token !== null) {
+        api.adminProjects(token)
+          .then(res => res.json(res))
+          .then(infoProjects => store.dispatch({ type: 'SAVE_ALL_PROJECT_ADMIN', infoProjects }))
+      }
+    })
   }
 
   render () {
