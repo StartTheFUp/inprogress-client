@@ -5,7 +5,7 @@
   margin: 0;
 }
 
-.project-name, .project-link {
+.project-name, .project-link, .user-name-header {
   color: #fff;
 }
 
@@ -20,3 +20,4 @@
   object-fit: cover;
   margin: 0 auto;
 }
+

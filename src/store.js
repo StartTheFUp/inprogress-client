@@ -9,7 +9,15 @@ const initialState = {
   showCheck: [],
   threadId: '',
   activeElement: '',
-  addSectionActive: ''
+  addSectionActive: '',
+  statusUser: true,
+  userEmail: '',
+  userPassword: '',
+  userActiv: [],
+  open: true,
+  userName: '',
+  reponse: [],
+  projectsAdmin: []
 }
 
 export const store = createStore(reducer, initialState,

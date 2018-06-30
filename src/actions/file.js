@@ -10,11 +10,17 @@ const actions = {
   archiveElement: (blockId, sectionId, elementId) => ({ type: 'ARCHIVE_TICKET', blockId, sectionId, elementId }),
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
   showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
+  addNewComment: (threadId) => ({type: 'ADD_NEW_COMMENT', threadId}),
+  editComment: (threadId, commentId, rawContent) => ({ type: 'EDIT_COMMENT', threadId, commentId, rawContent }),
   changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
   addSection: (blockId, title) => ({ type: 'ADD_SECTION', blockId, title }),
   showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement }),
-  addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams })
+  verifyUser: (email, password) => ({ type: 'VERIFY_USER', email, password }),
+  addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams }),
+  updateModal: (open) => ({ type: 'UPDATE_MODAL', open }),
+  saveUser: (name) => ({ type: 'SAVE_USER', name }),
+  updateState: (projets) => ({ type: 'UPDATE_STATE', projets })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -32,8 +38,13 @@ export const changeElementContent = dispatch(actions.changeElementContent)
 export const showActiveElement = dispatch(actions.showActiveElement)
 export const addSection = dispatch(actions.addSection)
 export const showAddSection = dispatch(actions.showAddSection)
+export const verifyUser = dispatch(actions.verifyUser)
 export const addNewElement = dispatch(actions.addNewElement)
-
+export const updateModal = dispatch(actions.updateModal)
+export const saveUser = dispatch(actions.saveUser)
+export const updateState = dispatch(actions.updateState)
+export const editComment = dispatch(actions.editComment)
+export const addNewComment = dispatch(actions.addNewComment)
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)
   .map(fn)

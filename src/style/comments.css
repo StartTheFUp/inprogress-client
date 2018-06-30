@@ -1,5 +1,5 @@
-.comments{
-    height : 100%
+.comments-container {
+    padding:10px;
 }
 .element_active {
     margin-bottom: 30px;
@@ -10,12 +10,18 @@
     margin: 20px;
 }
 
-.segment .ui.comments .comment .avatar{
+.comments-container .ui.comments .comment .avatar{
     margin: 0 10px 0 0; 
 }
-.segment .ui.comments .comment .metadata{
+.comments-container .ui.comments .comment .metadata{
     margin-left:0px;
 }
 .segment {
     height : 100%;
+}
+.add_comment{
+    cursor: pointer;
+}
+.comments-none{
+    display: none;
 }
