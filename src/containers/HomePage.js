@@ -1,18 +1,11 @@
 import React from 'react'
-import { Form, Segment, Button } from 'semantic-ui-react'
+import { Form, Segment } from 'semantic-ui-react'
 import '../style/HomePage.css'
 import { store } from '../store.js'
 import api from '../api.js'
-import { Link } from '@reach/router'
 import DisplayProjects from './DisplayProjects.js'
 
 class HomePage extends React.Component {
- /* fetchProjects = () => {
-    fetch('/projects')
-      .then(res => res.json())
-      .then(projects => store.dispatch({ type: 'LOAD_PROJECTS', projects }))
-  }*/
-
   colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
   signin = (email, mdp) => {
@@ -23,17 +16,17 @@ class HomePage extends React.Component {
     console.log('SIGNIN HomePage')
     api.userMatch(user)
       .then(res => res.json())
-      .then(cred => store.dispatch({ type: 'SIGNIN_ADMIN', cred}))
+      .then(cred => store.dispatch({ type: 'SIGNIN_ADMIN', cred }))
   }
 
   render () {
-   /* const allProject = this.props.projectsAdmin.map(project => {
+    /* const allProject = this.props.projectsAdmin.map(project => {
       return (
         <Link to={`project/${project.id}`}>
           <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
         </Link>
       )
-    })*/
+    }) */
 
     return (
       <div>
@@ -50,8 +43,7 @@ class HomePage extends React.Component {
           </Segment>
         </div>
         <Segment>
-          <DisplayProjects />
-
+          <DisplayProjects adminProjects={this.props.adminProjects}/>
         </Segment>
       </div>
     )

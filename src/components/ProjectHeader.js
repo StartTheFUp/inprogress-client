@@ -14,10 +14,10 @@ const ProjectHeader = ({ data, userName }) => {
           <a className="project-link" href={data.websiteURL}>{data.websiteURL}</a>
         </Grid.Column>
 
-       <Grid.Column width={4}>
-        <div className="user-name-header"> Bonjour {userName}</div>
-        <button > Deconnexion </button>
-      </Grid.Column>
+        <Grid.Column width={4}>
+          <div className="user-name-header"> Bonjour {userName}</div>
+          <button > Deconnexion </button>
+        </Grid.Column>
       </Grid.Row>
     </Grid>
   )

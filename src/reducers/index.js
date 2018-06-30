@@ -343,7 +343,7 @@ export const reducer = (state, action) => {
 
   if (action.type === 'SAVE_USER') {
     console.log('SAVEUSER', action)
-    localStorage.setItem("userName", action.name)
+    localStorage.setItem('userName', action.name)
     return {
       ...state,
       userName: action.name,
@@ -353,11 +353,20 @@ export const reducer = (state, action) => {
 
   if (action.type === 'SIGNIN_ADMIN') {
     console.log('SAVEUSER', action)
-    localStorage.setItem("userName", action.cred.name)
-    localStorage.setItem("token", action.cred.token)
+    localStorage.setItem('userName', action.cred.name)
+    localStorage.setItem('token', action.cred.token)
     return {
       ...state,
       projectsAdmin: action.infoProjects,
+      open: false
+    }
+  }
+
+  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+    console.log('SAVE_ADMIN', action)
+    return {
+      ...state,
+      adminProjects: action.infoProjects,
       open: false
     }
   }

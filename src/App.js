@@ -34,12 +34,12 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-    console.log('block app local storage!!!!', localStorage.getItem("userName"))
+    console.log('block app local storage!!!!', localStorage.getItem('userName'))
 
     return (
       <div className="App">
         <Router>
-          <HomePage path='/' projectsAdmin={state.projectsAdmin}/>
+          <HomePage path='/' adminProjects={state.adminProjects}/>
           <Dashboard path='project/:projectId'
             blocks={state.blocks}
             shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}

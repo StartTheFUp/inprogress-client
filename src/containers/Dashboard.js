@@ -10,7 +10,7 @@ import 'semantic-ui-css/semantic.min.css'
 import '../style/Dashboard.css'
 
 class Dashboard extends Component {
-  componentDidMount() {
+  componentDidMount () {
     api.getProjectById(this.props.projectId)
       .then(loadHeaderData)
   }
@@ -21,7 +21,7 @@ class Dashboard extends Component {
 
   onCloseModal = () => updateModal({ open: false })
 
-  render() {
+  render () {
     let clientMap = ''
     if (this.props.dataHeader.client !== undefined) {
       clientMap = this.props.dataHeader.client.map(client => {
