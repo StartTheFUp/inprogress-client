@@ -2,7 +2,7 @@ const path = route => process.env.REACT_APP_MOCKS ? route + '.json' : route
 
 console.log('process env', process.env)
 
-const getBlocks = () => fetch(path('/blocks'))
+const getBlocks = id => fetch(path(`/blocks/${id}`))
   .then(res => res.json())
 
 const getComments = () => fetch(path('/comments'))

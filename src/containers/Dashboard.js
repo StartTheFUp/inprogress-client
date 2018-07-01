@@ -16,7 +16,7 @@ class Dashboard extends Component {
     api.getComments()
       .then(loadComments)
 
-    api.getBlocks()
+    api.getBlocks(this.props.projectId)
       .then(loadBlocks)
   }
 
