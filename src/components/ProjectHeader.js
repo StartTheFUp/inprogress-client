@@ -22,7 +22,7 @@ const ProjectHeader = ({ data, userName, action }) => {
         <Grid.Column width={4}>
           <div className="user-name-header"> Bonjour {userName}</div>
           <button onClick={resetLocalStorage}> Deconnexion </button>
-          <Link to={`/`}><button style={{display: localStorage.token ? 'block':'none'}}> liste des projets </button></Link>
+          <Link to={`/`}><button style={{display: localStorage.token ? 'block' : 'none'}}> liste des projets </button></Link>
         </Grid.Column>
       </Grid.Row>
     </Grid>

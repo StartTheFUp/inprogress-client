@@ -15,7 +15,7 @@ class DisplayProjects extends Component {
   componentDidMount () {
     const token = localStorage.getItem('token')
     console.log('get token', token)
-   if (token !== null) {
+    if (token !== null) {
       api.adminProjects(token)
         .then(res => res.json(res))
         .then(infoProjects => store.dispatch({ type: 'SAVE_ALL_PROJECT_ADMIN', infoProjects }))
@@ -24,7 +24,7 @@ class DisplayProjects extends Component {
 
   render () {
     let allProjects = 'identification necessaire'
-    if (localStorage.getItem('token') !== null ) {
+    if (localStorage.getItem('token') !== null) {
       allProjects = this.props.adminProjects.map(project => {
         return (
           <Link to={`project/${project.id}`}>

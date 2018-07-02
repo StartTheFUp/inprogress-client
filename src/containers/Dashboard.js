@@ -34,7 +34,7 @@ class Dashboard extends Component {
           <Button key={client.name} basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} onClick={() => saveUser(client.name)}> {client.name} </Button>)
       })
     }
-    const isConnect = localStorage.userName ? false : true /*this.props.open*/
+    const isConnect = !localStorage.userName /* this.props.open */
     console.log()
     console.log('PROPS ProjectID', isConnect)
     console.log('MODAL', this.props.userName)
