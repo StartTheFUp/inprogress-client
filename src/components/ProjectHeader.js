@@ -1,10 +1,12 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
+import { Link } from '@reach/router'
 import '../style/ProjectHeader.css'
 
-const ProjectHeader = ({ data, userName }) => {
+const ProjectHeader = ({ data, userName, action }) => {
   const resetLocalStorage = () => {
     localStorage.clear()
+    action(true)
   }
   return (
     <Grid as="header" className="header-wrapper">
@@ -20,6 +22,7 @@ const ProjectHeader = ({ data, userName }) => {
         <Grid.Column width={4}>
           <div className="user-name-header"> Bonjour {userName}</div>
           <button onClick={resetLocalStorage}> Deconnexion </button>
+          <Link to={`/`}><button style={{display: localStorage.token ? 'block':'none'}}> liste des projets </button></Link>
         </Grid.Column>
       </Grid.Row>
     </Grid>

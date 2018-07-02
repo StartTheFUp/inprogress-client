@@ -15,7 +15,7 @@ const initialState = {
   userPassword: '',
   userActiv: [],
   open: true,
-  userName: '',
+  userName: localStorage.userName,
   reponse: [],
   adminProjects: []
 }

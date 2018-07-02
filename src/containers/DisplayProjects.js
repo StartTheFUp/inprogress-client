@@ -12,10 +12,10 @@ class DisplayProjects extends Component {
 
   colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
-  componentWillMount () {
+  componentDidMount () {
     const token = localStorage.getItem('token')
     console.log('get token', token)
-    if (token !== null) {
+   if (token !== null) {
       api.adminProjects(token)
         .then(res => res.json(res))
         .then(infoProjects => store.dispatch({ type: 'SAVE_ALL_PROJECT_ADMIN', infoProjects }))
@@ -23,17 +23,21 @@ class DisplayProjects extends Component {
   }
 
   render () {
-    const allProjects = this.props.adminProjects.map(project => {
-      return (
-        <Link to={`project/${project.id}`}>
-          <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
-        </Link>
-      )
-    })
+    let allProjects = 'identification necessaire'
+    if (localStorage.getItem('token') !== null ) {
+      allProjects = this.props.adminProjects.map(project => {
+        return (
+          <Link to={`project/${project.id}`}>
+            <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
+          </Link>
+        )
+      })
+    }
+
     console.log('DP render', this.props.adminProjects)
 
     return (
-      <div className='display-projects'>identification necessaire
+      <div className='display-projects'>
         {allProjects}
       </div>
 

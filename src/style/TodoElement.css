@@ -1,26 +1,25 @@
 .element_todo{
-    cursor: pointer; 
+cursor: pointer; 
 }
 .checked{
     color: grey;
     cursor: pointer;
-    transition: 1s;
 }
 .notchecked{
     color: black;
     cursor: pointer;
-    transition: 1s;
 }
 .active_todo{
     background-color: rgba(31, 56, 100,0.03);
     cursor: pointer;
+    
+
 }
 
 .element_todo,
 .active_todo{
     margin-bottom : 15px; 
     padding : 10px;
-    opacity: 1;
 }
 
 .fade-in {
@@ -28,4 +27,4 @@
     transition: opacity 2s ease-out;
     -moz-transition: opacity 2s ease-out;
     -webkit-transition: opacity 2s ease-out;
-}
+    }

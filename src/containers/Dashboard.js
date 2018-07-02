@@ -34,13 +34,15 @@ class Dashboard extends Component {
           <Button key={client.name} basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} onClick={() => saveUser(client.name)}> {client.name} </Button>)
       })
     }
-
-    console.log('PROPS ProjectID', this.props.projectId)
+    const isConnect = localStorage.userName ? false : true /*this.props.open*/
+    console.log()
+    console.log('PROPS ProjectID', isConnect)
     console.log('MODAL', this.props.userName)
     return (
+
       <div className="dashboard">
 
-        <Modal className="modalClients" open={this.props.open} onClose={() => updateModal(false)} center>
+        <Modal className="modalClients" open={isConnect} onClose={() => updateModal(false)} center>
           <h2> Qui es tu ? </h2>
           <div className="client">
             {clientMap}
@@ -50,7 +52,7 @@ class Dashboard extends Component {
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
-              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName} />
+              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName} action={updateModal}/>
               <BlocksContainer blocks={this.props.blocks}
                 shouldDisplayArchivedTickets={this.props.shouldDisplayArchivedTickets}
                 showCheck={this.props.showCheck}

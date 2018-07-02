@@ -366,6 +366,7 @@ export const reducer = (state, action) => {
     return {
       ...state,
       projectsAdmin: action.infoProjects,
+      userName: action.cred.name,
       open: false
     }
   }
