@@ -4,10 +4,12 @@
 .checked{
     color: grey;
     cursor: pointer;
+    transition: 1s;
 }
 .notchecked{
     color: black;
     cursor: pointer;
+    transition: 1s;
 }
 .active_todo{
     background-color: rgba(31, 56, 100,0.03);

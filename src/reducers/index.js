@@ -288,7 +288,7 @@ export const reducer = (state, action) => {
   if (action.type === 'ADD_SECTION') {
     // generer un id aleatoire
     const randomId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
-    const newSection = { id: randomId, title: action.title, elements: [], createdBy: 'gaelle' }
+    const newSection = { id: randomId, title: action.title, elements: [], createdBy: state.userName }
     console.log('ADD section', action, 'state : ', state)
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
@@ -351,6 +351,7 @@ export const reducer = (state, action) => {
 
   if (action.type === 'SAVE_USER') {
     console.log('SAVEUSER', action)
+    localStorage.setItem('userName', action.name)
     return {
       ...state,
       userName: action.name,
@@ -358,11 +359,22 @@ export const reducer = (state, action) => {
     }
   }
 
-  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+  if (action.type === 'SIGNIN_ADMIN') {
     console.log('SAVEUSER', action)
+    localStorage.setItem('userName', action.cred.name)
+    localStorage.setItem('token', action.cred.token)
     return {
       ...state,
       projectsAdmin: action.infoProjects,
+      open: false
+    }
+  }
+
+  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+    console.log('SAVE_ADMIN', action)
+    return {
+      ...state,
+      adminProjects: action.infoProjects,
       open: false
     }
   }

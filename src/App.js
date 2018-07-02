@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HomePage from './containers/HomePage.js'
 import Dashboard from './containers/Dashboard.js'
 import { Router } from '@reach/router'
-import { loadBlocks, loadComments } from './actions/file.js'
+import { loadComments } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -11,14 +11,8 @@ import './style/App.css'
 
 class App extends Component {
   syncDatas = () => {
-    /* api.getProjectById('projetId_65565')
-      .then(loadHeaderData) */
-
     api.getComments()
       .then(loadComments)
-
-    api.getBlocks()
-      .then(loadBlocks)
   }
 
   componentDidMount () {
@@ -34,12 +28,12 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-    console.log('block app', state.addSectionActive)
+    console.log('block app local storage!!!!', localStorage.getItem('userName'))
 
     return (
       <div className="App">
         <Router>
-          <HomePage path='/' projectsAdmin={state.projectsAdmin}/>
+          <HomePage path='/' adminProjects={state.adminProjects}/>
           <Dashboard path='project/:projectId'
             blocks={state.blocks}
             shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}

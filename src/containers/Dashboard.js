@@ -3,16 +3,21 @@ import BlocksContainer from './BlocksContainer.js'
 import ProjectHeader from '../components/ProjectHeader'
 import DisplayComments from '../containers/DisplayComments'
 import Modal from 'react-responsive-modal'
-import { updateModal, loadHeaderData, saveUser, addNewComment } from '../actions/file.js'
+import { updateModal, loadHeaderData, loadComments, loadBlocks, saveUser, addNewComment } from '../actions/file.js'
 import api from '../api.js'
 import { Grid, Button } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import '../style/Dashboard.css'
 
 class Dashboard extends Component {
-  componentDidMount() {
+  componentDidMount () {
     api.getProjectById(this.props.projectId)
       .then(loadHeaderData)
+    api.getComments()
+      .then(loadComments)
+
+    api.getBlocks(this.props.projectId)
+      .then(loadBlocks)
   }
 
   colorRandom = ['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
@@ -21,7 +26,7 @@ class Dashboard extends Component {
 
   onCloseModal = () => updateModal({ open: false })
 
-  render() {
+  render () {
     let clientMap = ''
     if (this.props.dataHeader.client !== undefined) {
       clientMap = this.props.dataHeader.client.map(client => {

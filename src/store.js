@@ -17,7 +17,7 @@ const initialState = {
   open: true,
   userName: '',
   reponse: [],
-  projectsAdmin: []
+  adminProjects: []
 }
 
 export const store = createStore(reducer, initialState,
