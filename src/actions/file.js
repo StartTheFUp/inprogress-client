@@ -20,7 +20,8 @@ const actions = {
   addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams }),
   updateModal: (open) => ({ type: 'UPDATE_MODAL', open }),
   saveUser: (name) => ({ type: 'SAVE_USER', name }),
-  updateState: (projets) => ({ type: 'UPDATE_STATE', projets })
+  updateState: (projets) => ({ type: 'UPDATE_STATE', projets }),
+  startFadeIn: (idParams) => ({ type: 'FADE_TODOS', idParams })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -45,6 +46,7 @@ export const saveUser = dispatch(actions.saveUser)
 export const updateState = dispatch(actions.updateState)
 export const editComment = dispatch(actions.editComment)
 export const addNewComment = dispatch(actions.addNewComment)
+export const startFadeIn = dispatch(actions.startFadeIn)
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)
   .map(fn)

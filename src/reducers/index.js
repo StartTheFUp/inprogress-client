@@ -1,5 +1,20 @@
 import api from '../api.js'
 
+const updateElement = (state, { blockId, sectionId, elementId }, mapper) =>
+  state.blocks.map(block => block._id !== blockId
+    ? block
+    : {
+      ...block,
+      sections: block.sections.map(section => section.id !== sectionId
+        ? section
+        : {
+          ...section,
+          elements: section.elements.map(element => element.id !== elementId
+            ? element
+            : mapper(element))
+        })
+    })
+
 export const reducer = (state, action) => {
   if (action.type === 'LOAD_BLOCKS') {
     return {
@@ -8,42 +23,35 @@ export const reducer = (state, action) => {
     }
   }
 
-  if (action.type === 'UPDATE_TODOS') {
-    const newBlocks = state.blocks.map(block => {
-      if (block._id !== action.idParams.blockId) {
-        return block
-      }
-      return {
-        ...block,
-        sections: [
-          ...block.sections.map(section => {
-            if (section.id !== action.idParams.sectionId) {
-              return section
-            }
-            return {
-              ...section,
-              elements: [
-                ...section.elements.map(elt => {
-                  if (elt.id !== action.idParams.elementId) {
-                    return elt
-                  }
-                  return {
-                    ...elt,
-                    properties: {
-                      archive: false,
-                      checked: !elt.properties.checked
-                    }
-                  }
-                })
-              ]
-            }
-          })
-        ]
-      }
-    })
+  if (action.type === 'FADE_TODOS') {
+    const blockCheck = state.showCheck.find(check => check.blockId === action.idParams.blockId)
+    if (blockCheck && blockCheck.show) {
+      return state
+    }
+    console.log(action.type, { blockCheck })
     return {
       ...state,
-      blocks: newBlocks
+      blocks: updateElement(state, action.idParams, elt => ({
+        ...elt,
+        properties: {
+          ...elt.properties,
+          fadingStart: Date.now()
+        }
+      }))
+    }
+  }
+
+  if (action.type === 'UPDATE_TODOS') {
+    return {
+      ...state,
+      blocks: updateElement(state, action.idParams, elt => ({
+        ...elt,
+        properties: {
+          ...elt.properties,
+          archive: false,
+          checked: !elt.properties.checked
+        }
+      }))
     }
   }
 
