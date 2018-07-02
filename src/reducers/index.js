@@ -378,6 +378,31 @@ export const reducer = (state, action) => {
       open: false
     }
   }
+  if (action.type === 'DRAG_DROP_ELEMENTS') {
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.blockId) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          ...block.sections.map(section => {
+            if (section.id !== action.sectionId) {
+              return section
+            }
+            return {
+              ...section,
+              elements: action.elements
+            }
+          })
+        ]
+      }
+    })
+    return {
+      ...state,
+      blocks: newBlocks
+    }
+  }
 
   return state
 }
