@@ -16,6 +16,7 @@
 }
 .element_components{
     display: flex;
+    justify-content: space-between;
    
 }
 .count_reponses{

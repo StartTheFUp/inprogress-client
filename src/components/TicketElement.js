@@ -14,6 +14,7 @@ const TicketElement = ({ element, blockId, sectionId, activeElement, comments })
           {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
         </p>
         <p className='archive' onClick={() => archiveElement(blockId, sectionId, element.id)}>{element.properties.archive ? 'Desarchiver' : 'Archiver'}</p>
+        <p className='drag'>Drag & Drop</p>
       </div>
     </div>
   )
