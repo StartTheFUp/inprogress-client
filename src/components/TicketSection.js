@@ -72,7 +72,7 @@ class TicketSection extends React.Component {
       element={element}
       blockId={this.props.block._id}
       sectionId={this.props.section.id}
-      activeElement={this.activeElement} />)
+      activeElement={this.props.activeElement} />)
 
   render () {
     console.log('noulnoul', this.state.items)

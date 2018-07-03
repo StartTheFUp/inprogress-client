@@ -66,7 +66,7 @@ class TodoSection extends React.Component {
       element={element}
       blockId={this.props.block._id}
       sectionId={this.props.section.id}
-      activeElement={this.activeElement} />)
+      activeElement={this.props.activeElement} />)
 
   render () {
     return (
