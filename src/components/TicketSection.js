@@ -48,7 +48,6 @@ class TicketSection extends React.Component {
       let newStart = this.getIndexInParent(el)
 
       this.setState({ items2: this.props.processedTicketsElements, items: this.props.unprocessedTicketsElements, start: newStart })
-
     })
 
     drake.on('drop', (el, target, source, sibling) => {

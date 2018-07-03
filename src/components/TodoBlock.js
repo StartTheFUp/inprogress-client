@@ -21,9 +21,17 @@ const TodoBlock = ({ block, showCheck, activeElement, comments, addSectionActive
       return true
     }
   }
+  const testFilter2 = (elt) => {
+    if (testShowCheck === true) {
+      return (elt.properties.checked)
+    } else {
+      return false
+    }
+  }
 
   const sections = block.sections.map(section => {
     const filteredSection = section.elements.filter(elt => testFilter(elt))
+    const checkedSection = section.elements.filter(elt => testFilter2(elt))
     return (
       <TodoSection key={section.id}
         filteredSection={filteredSection}
@@ -31,7 +39,8 @@ const TodoBlock = ({ block, showCheck, activeElement, comments, addSectionActive
         activeElement={activeElement}
         section={section}
         block={block}
-
+        showCheck={showCheck}
+        checkedSection={checkedSection}
       />
     )
   })

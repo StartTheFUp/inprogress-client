@@ -43,14 +43,12 @@ class ResourceSection extends React.Component {
     const drake = Dragula([componentBackingInstance]) //, options)
 
     drake.on('drag', (el, target, source, sibling) => {
-
       let newStart = this.getIndexInParent(el)
       this.setState({items: this.props.section.elements, start: newStart})
       console.log('nouveau items', this.state.items)
     })
 
     drake.on('drop', (el, target, source, sibling) => {
-
       let droppedLocation = this.getIndexInParent(el)
       let result = this.moveItem(this.state.items, this.state.start, droppedLocation)
       this.setState({items: result})
@@ -68,12 +66,9 @@ class ResourceSection extends React.Component {
 
     />)
 
-
- // getIndexInParent = (el) => Array.from(el.parentNode.children).indexOf(el)
-
+  // getIndexInParent = (el) => Array.from(el.parentNode.children).indexOf(el)
 
   render () {
-
     return (
       <div key={this.props.section.id}>
         <h2>{this.props.section.title}</h2>

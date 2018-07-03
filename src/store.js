@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { reducer } from './reducers/index.js'
 
 const initialState = {
@@ -20,7 +20,8 @@ const initialState = {
   adminProjects: []
 }
 
-export const store = createStore(reducer, initialState,
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+export const store = createStore(reducer, initialState, composeEnhancers(
   applyMiddleware(store => next => action => {
     next(action)
     console.log('FROM MIDDLEWARE', action.type)
@@ -33,5 +34,5 @@ export const store = createStore(reducer, initialState,
       const delay = Date.now() - fadingStart < 2000 ? 2000 : 0
       setTimeout(() => store.dispatch({ ...action, type: 'UPDATE_TODOS' }), delay)
     }
-  }),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  })
+))
