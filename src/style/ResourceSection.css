@@ -7,8 +7,8 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
     filter: alpha(opacity=80);
     box-shadow: -5px 10px 143px 2px rgba(7,168,227,1);
-    background-color: grey;
-    color :white;
+    background-color: #00FF00;
+  
    
   }
     
@@ -21,6 +21,7 @@
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
+    border: 1px solid blue;
     
     
   }
@@ -35,8 +36,6 @@
     cursor: grab;
     cursor: move;
   }
-  .drag:activ{
-      cursor:grab;
-  }
+  
 
     
