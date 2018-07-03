@@ -362,7 +362,7 @@ export const reducer = (state, action) => {
   if (action.type === 'SIGNIN_ADMIN') {
     console.log('SAVEUSER', action)
 
- let name = state.userName
+    let name = state.userName
     let auth = ''
     if (action.cred !== 'user not defined' && action.cred !== 'auth failed' && action.cred !== 'wrong password') {
       localStorage.setItem('userName', action.cred.name)
