@@ -20,7 +20,7 @@ class HomePage extends React.Component {
       .then(() => {
         const token = localStorage.getItem('token')
         console.log('get token', token)
-        if (token !== null) {
+        if (token !== null && token !== undefined) {
           api.adminProjects(token)
             .then(res => res.json(res))
             .then(infoProjects => store.dispatch({ type: 'SAVE_ALL_PROJECT_ADMIN', infoProjects }))
@@ -52,7 +52,7 @@ class HomePage extends React.Component {
           </Segment>
         </div>
         <Segment>
-          <DisplayProjects adminProjects={this.props.adminProjects}/>
+          <DisplayProjects adminProjects={this.props.adminProjects} auth={this.props.auth}/>
         </Segment>
       </div>
     )
