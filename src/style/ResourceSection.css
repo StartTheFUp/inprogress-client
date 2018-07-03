@@ -6,10 +6,17 @@
     opacity: 0.8;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
     filter: alpha(opacity=80);
-    box-shadow: -5px 10px 143px 2px rgba(7,168,227,1);
-    background-color: #00FF00;
-  
+    box-shadow: -1px 0px 91px -1px rgba(14,145,245,1);
+    background-color: #DCDCDC;
+    transform: rotate(-15deg);
+    border-radius:10px;
+    padding-left:10px;
+    padding-right: 10px;
+    
    
+  }
+  .gu-mirror> .element_components>p{
+    color :black;
   }
     
   
@@ -37,5 +44,7 @@
     cursor: move;
   }
   
-
+.dragula{
+  transition: all 2s ease;
+}
     
