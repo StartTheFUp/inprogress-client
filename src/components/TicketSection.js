@@ -9,7 +9,8 @@ class TicketSection extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      items: this.props.section.elements,
+      items: this.props.unprocessedTicketsElements,
+      items2: this.props.processedTicketsElements,
       start: 0,
       end: 0
     }
@@ -43,18 +44,25 @@ class TicketSection extends React.Component {
     const drake = Dragula([componentBackingInstance]) //, options)
 
     drake.on('drag', (el, target, source, sibling) => {
-      console.log('drag')
+      console.log('drag', this.getIndexInParent(el))
       let newStart = this.getIndexInParent(el)
-      this.setState({ items: this.props.section.elements, start: newStart })
-      console.log('nouveau items', this.state.items)
+
+      this.setState({ items2: this.props.processedTicketsElements, items: this.props.unprocessedTicketsElements, start: newStart })
+
     })
 
     drake.on('drop', (el, target, source, sibling) => {
-      console.log('drop')
+      console.log('drop', this.getIndexInParent(el))
       let droppedLocation = this.getIndexInParent(el)
-      let result = this.moveItem(this.state.items, this.state.start, droppedLocation)
-      this.setState({ items: result })
-      dragDropElements(this.state.items, this.props.block._id, this.props.section.id)
+
+      let result = this.props.shouldDisplayArchivedTickets ? this.moveItem(this.state.items2, this.state.start, droppedLocation) : this.moveItem(this.state.items, this.state.start, droppedLocation)
+      if (this.props.shouldDisplayArchivedTickets) {
+        this.setState({ items2: result })
+      } else {
+        this.setState({ items: result })
+      }
+
+      dragDropElements(this.state.items.concat(this.state.items2), this.props.block._id, this.props.section.id)
     })
   }
 
