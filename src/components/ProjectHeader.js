@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Button } from 'semantic-ui-react'
 import { Link } from '@reach/router'
 import '../style/ProjectHeader.css'
 
@@ -14,15 +14,18 @@ const ProjectHeader = ({ data, userName, action }) => {
         <Grid.Column width={2}>
           <Image className="project-image" src={data.pictureURL} />
         </Grid.Column>
-        <Grid.Column width={10}>
+        <Grid.Column width={9}>
           <h1 className="project-name">{data.name}</h1>
           <a className="project-link" href={data.websiteURL}>{data.websiteURL}</a>
         </Grid.Column>
 
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
           <div className="user-name-header"> Bonjour {userName}</div>
-          <button onClick={resetLocalStorage}> Deconnexion </button>
-          <Link to={`/`}><button style={{display: localStorage.token ? 'block' : 'none'}}> liste des projets </button></Link>
+          <div className='user-option'>
+            <Button className='btn-head' onClick={resetLocalStorage} compact>Deconnexion</Button>
+            <Link to={`/`}><Button className='btn-head' compact style={{display: localStorage.token ? 'block' : 'none'}}>Liste des projets</Button></Link>
+          </div>
+
         </Grid.Column>
       </Grid.Row>
     </Grid>

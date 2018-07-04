@@ -21,3 +21,22 @@
   margin: 0 auto;
 }
 
+.btn-head{
+  background-color: #f1f0e5 !important;
+}
+
+.user-name-header{
+  display: flex;
+  justify-content: center;
+  align-content: flex-end;
+  font-size: 25px;
+  height: 30%;
+  margin-top: 10px;
+}
+
+.user-option{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 80%;
+}
