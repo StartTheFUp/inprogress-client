@@ -22,6 +22,7 @@ const TodoElement = ({ element, blockId, sectionId, activeElement, comments }) =
             <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses' }>
               {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
             </p>
+            <p className='drag'>Drag & Drop</p>
           </div>
         </label>
       </div>
