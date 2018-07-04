@@ -14,7 +14,7 @@ const ResourceElement = ({ element, blockId, sectionId, activeElement, comments 
 
       <div className='element_components'>
         <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses'}>
-          {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
+          {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponse'}
         </p>
         <p className='drag'><Icon name='arrows alternate' /></p>
       </div>

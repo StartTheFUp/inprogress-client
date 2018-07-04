@@ -1,8 +1,9 @@
 .ui.grid.header-wrapper {
-  background: #000;
+  background : linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('../images/bg-header.png');
   height: 100px;
   align-items: center;
   margin: 0;
+  background-position : right center;
 }
 
 .project-name, .project-link, .user-name-header {
