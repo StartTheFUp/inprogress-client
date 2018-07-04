@@ -4,10 +4,11 @@ import EditorElement from './EditorElement.js'
 import '../style/ResourceElement.css'
 import { Icon } from 'semantic-ui-react'
 const ResourceElement = ({ element, blockId, sectionId, activeElement, comments }) => {
+  const elementContent = typeof element.content !== 'string' ? element.content.blocks[0].text : element.content
   return (
 
     <div key={element.id} className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_resource' : 'element_resource') : 'element_resource'}>
-      <div onClick={() => showComments(element.threadId)}>
+      <div onClick={() => showComments(element.threadId, elementContent)}>
 
         <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} activeElement={activeElement} />
       </div>

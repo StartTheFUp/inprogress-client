@@ -8,7 +8,7 @@ const TodoElement = ({ element, blockId, sectionId, activeElement, comments }) =
   const elementClass = ((typeof element.content !== 'string' && element.content.blocks[0].text === activeElement)
     ? 'active_todo'
     : 'element_todo') + (Date.now() - element.properties.fadingStart < 2000 ? ' fade-in' : '')
-
+  const elementContent = typeof element.content !== 'string' ? element.content.blocks[0].text : element.content
   return (
     <div key={element.id} className={elementClass}>
       <div className="ui checkbox">
@@ -16,7 +16,7 @@ const TodoElement = ({ element, blockId, sectionId, activeElement, comments }) =
           startFadeIn({ type: element.type, blockId, sectionId, elementId: element.id })
         }}/>
         <label>
-          <div className={element.properties.checked ? 'checked' : 'notchecked'} onClick={() => showComments(element.threadId)}>
+          <div className={element.properties.checked ? 'checked' : 'notchecked'} onClick={() => showComments(element.threadId, elementContent)}>
             <EditorElement activeElement={activeElement }rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />
           </div>
           <div className='element_components'>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {store} from '../store.js'
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js'
 import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
@@ -23,7 +24,9 @@ class EditorElement extends React.Component {
     const rawData = convertToRaw(currentContent)
     this.props.changeElementContent(this.props.blockId, this.props.sectionId, this.props.elementId, rawData)
     this.setState({editorState})
-    this.props.showActiveElement(rawData.blocks[0].text)
+    if (store.getState().showComment) {
+      this.props.showActiveElement(rawData.blocks[0].text)
+    }
   }
 
   handleFocus = () => this.refs.editor.focus()
