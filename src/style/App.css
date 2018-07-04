@@ -86,3 +86,6 @@ body{
 .dragula{
   transition: all 2s ease;
 }
+.public-DraftEditorPlaceholder-root{
+    position: absolute
+}

@@ -28,6 +28,7 @@ class EditorComment extends React.Component {
     return (
       <div onClick={this.handleFocus} className='editor'>
         <Editor
+          placeholder='Votre text ici'
           editorState={this.state.editorState}
           onChange={this.handleChange}
           plugins={plugins}
