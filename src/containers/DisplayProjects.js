@@ -23,13 +23,15 @@ class DisplayProjects extends Component {
   }
 
   render () {
-    let allProjects = 'identification necessaire'
+    let allProjects = this.props.auth === '' ? 'identification nécessaire' : 'identifiant ou mot de passe incorrect'
     if (localStorage.getItem('token') !== null) {
       allProjects = this.props.adminProjects.map(project => {
         return (
-          <Link to={`project/${project.id}`}>
-            <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
-          </Link>
+          <div key={project.id} >
+            <Link to={`project/${project.id}`}>
+              <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
+            </Link>
+          </div>
         )
       })
     }

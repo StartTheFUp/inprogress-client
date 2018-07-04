@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <HomePage path='/' adminProjects={state.adminProjects}/>
+          <HomePage path='/' adminProjects={state.adminProjects} auth={state.authentification}/>
           <Dashboard path='project/:projectId'
             blocks={state.blocks}
             shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
