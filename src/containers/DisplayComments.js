@@ -2,6 +2,7 @@
 import React from 'react'
 import { editComment } from '../actions/file.js'
 import { Comment, Segment } from 'semantic-ui-react'
+import Avatar from 'react-avatar'
 /* Components */
 import EditorComment from '../components/EditorComment.js'
 /* CSS */
@@ -24,7 +25,7 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) =
               .map(comment =>
                 <Comment key={comment.id} className='comment'>
                   <Comment.Content>
-                    <Comment.Avatar src='http://placeskull.com/50/50' />
+                    <Avatar size='40' round name={comment.createdBy} />
                     <Comment.Text>
                       <EditorComment
                         editComment={editComment}
