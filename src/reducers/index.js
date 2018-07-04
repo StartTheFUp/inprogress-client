@@ -107,6 +107,7 @@ export const reducer = (state, action) => {
     return {
       ...state,
       comments: [...state.comments, newThreadComment],
+      showComment: false,
       blocks: [...state.blocks.map((block) => {
         if (block.type !== action.idParams.blockType) {
           return block
@@ -160,7 +161,8 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_COMMENTS') {
     return {
       ...state,
-      threadId: action.threadId
+      threadId: action.threadId,
+      showComment: true
     }
   }
   if (action.type === 'ADD_NEW_COMMENT') {

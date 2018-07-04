@@ -45,6 +45,7 @@ class App extends Component {
             dataHeader={state.dataHeader}
             open={state.open}
             userName={state.userName}
+            showComment={state.showComment}
           />
         </Router>
       </div>

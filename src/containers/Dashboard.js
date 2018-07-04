@@ -61,7 +61,7 @@ class Dashboard extends Component {
                 comments={this.props.comments} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment} />
+              <DisplayComments showComment={this.props.showComment} comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment} />
             </Grid.Column>
           </Grid.Row>
         </Grid>

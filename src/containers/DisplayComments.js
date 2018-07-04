@@ -14,10 +14,10 @@ const convertToDate = dateComment => {
     .toLocaleString()
   return date
 }
-const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) => {
+const DisplayComments = ({ comments, threadId, activeElement, addNewComment, showComment }) => {
   return (
     <Segment>
-      <div className={activeElement ? 'comments-container fixed' : 'comments-none fixed'}>
+      <div className={showComment ? 'comments-container fixed' : 'comments-none fixed'}>
         <div className='element_active'>{activeElement}</div>
         <Comment.Group>
           {comments.filter(threadComment => threadComment.id === threadId)

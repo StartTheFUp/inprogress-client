@@ -18,7 +18,8 @@ const initialState = {
   userName: localStorage.userName,
   reponse: [],
   adminProjects: [],
-  authentification: ''
+  authentification: '',
+  showComment: false
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

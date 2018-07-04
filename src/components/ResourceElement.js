@@ -9,7 +9,7 @@ const ResourceElement = ({ element, blockId, sectionId, activeElement, comments 
     <div key={element.id} className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_resource' : 'element_resource') : 'element_resource'}>
       <div onClick={() => showComments(element.threadId)}>
 
-        <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />
+        <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} activeElement={activeElement} />
       </div>
 
       <div className='element_components'>
