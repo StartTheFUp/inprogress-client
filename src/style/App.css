@@ -21,7 +21,6 @@
 }
 .count_reponses{
 color: #C0C0C0;
-margin-right: 20px;
 }
 .active_count_reponses{
     color:blue;
@@ -45,7 +44,7 @@ body{
     filter: alpha(opacity=80);
     box-shadow: -1px 0px 91px -1px rgba(14,145,245,1);
     background-color: #DCDCDC;
-    transform: rotate(-15deg);
+    transform: rotate(-10deg);
     border-radius:10px;
     padding-left:10px;
     padding-right: 10px;
