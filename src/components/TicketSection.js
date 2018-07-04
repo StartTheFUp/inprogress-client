@@ -77,7 +77,7 @@ class TicketSection extends React.Component {
   render () {
     console.log('noulnoul', this.state.items)
     return (
-      <div key={this.props.section.id}>
+      <div key={this.props.section.id} className='section'>
         <h2>{this.props.section.title}</h2>
         <p className={this.props.shouldDisplayArchivedTickets ? 'hidden' : 'new_element'} onClick={() => addNewElement({ sectionId: this.props.section.id, blockType: this.props.block.type })}>+ Ajouter un élément</p>
         <div className="dragula" ref={this.dragulaDecorator} >

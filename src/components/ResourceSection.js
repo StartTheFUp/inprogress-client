@@ -70,7 +70,7 @@ class ResourceSection extends React.Component {
 
   render () {
     return (
-      <div key={this.props.section.id}>
+      <div key={this.props.section.id} className='section'>
         <h2>{this.props.section.title}</h2>
         <p className='new_element' onClick={() => addNewElement({ sectionId: this.props.section.id, blockType: this.props.block.type })}>+ Ajouter un élément</p>
         <div className="dragula" ref={this.dragulaDecorator} >
