@@ -10,10 +10,10 @@ const ButtonAddSection = ({ blockId, showAddSection, addSection, addSectionActiv
 
   return (
     <div className="addSection">
-      <div className="show-form-add-section" onClick={() => showAddSection(blockId)} style={{display: (addSectionActive !== blockId ? 'block' : 'none')}}>
-          Ajouter une section
+      <div className="show-form-add-section" onClick={() => showAddSection(blockId)} style={{display: (addSectionActive !== blockId ? 'inline-block' : 'none')}}>
+          + Ajouter une section
       </div>
-      <div className="add-section-form" style={{display: (addSectionActive === blockId ? 'block' : 'none')}}>
+      <div className="add-section-form" style={{display: (addSectionActive === blockId ? 'inline-block' : 'none')}}>
         <Input className="add-title-form" placeholder="titre" name="title" onChange={(event) => (title = event.target.value)} />
         <Button.Group className="button-group-section">
           <Button className="button-add-section" value = "Ajouter la section" onClick={() => addSection(blockId, title)}>Ajouter</Button>

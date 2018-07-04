@@ -5,6 +5,7 @@
 .titles-segment{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .titles-segment h2{
     margin : 0
@@ -21,10 +22,14 @@
     display:none;
 }
 .new_element{
-    font-size: 20px;
-    color:gray;
+    font-size: 1rem;
+    color:#1e70bf;
     cursor: pointer;
     margin-bottom: 10px;
 }
 
+h2.processed-ticket {
+    color: #757575;
+    font-size: 1.5rem;
+}
 

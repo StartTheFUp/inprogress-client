@@ -72,7 +72,7 @@ class TodoSection extends React.Component {
     return (
       <div key={this.props.section.id}>
         <h2>{this.props.section.title}</h2>
-        <p className='new_element' onClick={() => addNewElement({ sectionId: this.props.section.id, blockType: this.props.block.type })}>Ajouter un element</p>
+        <p className='new_element' onClick={() => addNewElement({ sectionId: this.props.section.id, blockType: this.props.block.type })}>+ Ajouter un élément</p>
         <div className="dragula" ref={this.dragulaDecorator} >
           {this.getElements()}
         </div>

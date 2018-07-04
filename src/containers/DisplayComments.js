@@ -27,10 +27,10 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment, sho
                   <Comment.Content>
                     <Grid divided='vertically'>
                       <Grid.Row columns={2}>
-                        <Grid.Column width='3'>
-                          <Avatar size='40' round name={comment.createdBy} />
+                        <Grid.Column width={2}>
+                          <Avatar size={40} round name={comment.createdBy} />
                         </Grid.Column>
-                        <Grid.Column width='13'>
+                        <Grid.Column width={14}>
                           <Comment.Text>
                             <EditorComment
                               editComment={editComment}
@@ -38,7 +38,6 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment, sho
                               threadId={threadId}
                               commentId={comment.id} />
                           </Comment.Text>
-
                           <Comment.Metadata>{convertToDate(comment.createdAt)} </Comment.Metadata>
                         </Grid.Column>
                       </Grid.Row>

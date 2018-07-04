@@ -1,25 +1,30 @@
-.element_todo{
-cursor: pointer; 
+.element_todo {
+    cursor: pointer;
 }
-.checked{
+
+.checked {
     color: grey;
     cursor: pointer;
 }
-.notchecked{
+
+.archive,
+.count_reponses, 
+.drag i{
+    color: #757575;
+}
+.notchecked {
     color: black;
     cursor: pointer;
 }
-.active_todo{
-    background-color: rgba(31, 56, 100,0.03);
-    cursor: pointer;
-    
 
+.active_todo {
+    background-color: rgba(31, 56, 100, 0.03);
+    cursor: pointer;
 }
 
-.element_todo,
-.active_todo{
-    margin-bottom : 15px; 
-    padding : 10px;
+.element_todo, .active_todo {
+    margin-bottom: 15px;
+    padding: 10px;
 }
 
 .fade-in {
@@ -27,5 +32,5 @@ cursor: pointer;
     transition: opacity 2s ease-out;
     -moz-transition: opacity 2s ease-out;
     -webkit-transition: opacity 2s ease-out;
-    }
+}
 

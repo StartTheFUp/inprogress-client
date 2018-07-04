@@ -2,9 +2,15 @@
     cursor: pointer;
     margin-bottom: 15px;
 }
-.active_resource{
-    background-color: rgba(31, 56, 100,0.03);
+
+.active_resource {
+    background-color: rgba(31, 56, 100, 0.03);
     cursor: pointer;
     margin-bottom: 15px;
-    
+}
+
+.archive,
+.count_reponses, 
+.drag i{
+    color: #757575;
 }

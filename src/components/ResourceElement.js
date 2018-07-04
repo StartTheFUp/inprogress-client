@@ -2,7 +2,7 @@ import { showComments, changeElementContent, showActiveElement } from '../action
 import React from 'react'
 import EditorElement from './EditorElement.js'
 import '../style/ResourceElement.css'
-
+import { Icon } from 'semantic-ui-react'
 const ResourceElement = ({ element, blockId, sectionId, activeElement, comments }) => {
   return (
 
@@ -16,7 +16,7 @@ const ResourceElement = ({ element, blockId, sectionId, activeElement, comments 
         <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses'}>
           {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
         </p>
-        <p className='drag'>Drag & Drop</p>
+        <p className='drag'><Icon name='arrows alternate' /></p>
       </div>
     </div>
 
