@@ -42,8 +42,8 @@ class Dashboard extends Component {
 
       <div className="dashboard">
 
-        <Modal className="modalClients" open={isConnect} onClose={() => updateModal(false)} center>
-          <h2> Qui es tu ? </h2>
+        <Modal className="modalClients modal-style" open={isConnect} onClose={() => updateModal(false)} center>
+          <h2 className='title-choice' > Qui es tu ? </h2>
           <div className="client">
             {clientMap}
           </div>
@@ -61,7 +61,7 @@ class Dashboard extends Component {
                 comments={this.props.comments} />
             </Grid.Column>
             <Grid.Column width={5} className="main-column">
-              <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment} />}
+              <DisplayComments comments={this.props.comments} threadId={this.props.threadId} activeElement={this.props.activeElement} addNewComment={addNewComment} />
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -17,7 +17,7 @@ const convertToDate = dateComment => {
 const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) => {
   return (
     <Segment>
-      <div className={activeElement ? 'comments-container' : 'comments-none'}>
+      <div className={activeElement ? 'comments-container fixed' : 'comments-none fixed'}>
         <div className='element_active'>{activeElement}</div>
         <Comment.Group>
           {comments.filter(threadComment => threadComment.id === threadId)

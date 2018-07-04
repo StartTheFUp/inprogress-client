@@ -25,3 +25,7 @@
 .comments-none{
     display: none;
 }
+.fixed{
+    position: sticky;
+    top: 0;
+}
