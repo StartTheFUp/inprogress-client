@@ -1,7 +1,7 @@
 /* Redux & librairies */
 import React from 'react'
 import { editComment } from '../actions/file.js'
-import { Comment, Segment } from 'semantic-ui-react'
+import { Comment, Segment, Grid } from 'semantic-ui-react'
 import Avatar from 'react-avatar'
 /* Components */
 import EditorComment from '../components/EditorComment.js'
@@ -25,21 +25,30 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment }) =
               .map(comment =>
                 <Comment key={comment.id} className='comment'>
                   <Comment.Content>
-                    <Avatar size='40' round name={comment.createdBy} />
-                    <Comment.Text>
-                      <EditorComment
-                        editComment={editComment}
-                        rawContent2={comment.content}
-                        threadId={threadId}
-                        commentId={comment.id} />
-                    </Comment.Text>
-                    <Comment.Metadata>{convertToDate(comment.createdAt)} </Comment.Metadata>
+                    <Grid divided='vertically'>
+                      <Grid.Row columns={2}>
+                        <Grid.Column width='3'>
+                          <Avatar size='40' round name={comment.createdBy} />
+                        </Grid.Column>
+                        <Grid.Column width='13'>
+                          <Comment.Text>
+                            <EditorComment
+                              editComment={editComment}
+                              rawContent2={comment.content}
+                              threadId={threadId}
+                              commentId={comment.id} />
+                          </Comment.Text>
+
+                          <Comment.Metadata>{convertToDate(comment.createdAt)} </Comment.Metadata>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
                   </Comment.Content>
                 </Comment>))}
         </Comment.Group>
         <a className='add_comment' onClick={() => addNewComment(threadId)}>
 
-        + Ajouter un commentaire
+          + Ajouter un commentaire
         </a>
       </div>
     </Segment>
