@@ -9,7 +9,7 @@ const actions = {
   showUnprocessedTickets: () => ({ type: 'SHOW_UNPROCESSED_TICKETS' }),
   archiveElement: (blockId, sectionId, elementId) => ({ type: 'ARCHIVE_TICKET', blockId, sectionId, elementId }),
   changeDisplayCheck: (params) => ({ type: 'CHANGE_DISPLAY_CHECK', params }),
-  showComments: (threadId) => ({ type: 'SHOW_COMMENTS', threadId }),
+  showComments: (threadId, activeElement) => ({ type: 'SHOW_COMMENTS', threadId, activeElement }),
   addNewComment: (threadId) => ({type: 'ADD_NEW_COMMENT', threadId}),
   editComment: (threadId, commentId, rawContent) => ({ type: 'EDIT_COMMENT', threadId, commentId, rawContent }),
   changeElementContent: (blockId, sectionId, elementId, rawContent) => ({ type: 'CHANGE_ELEMENT_CONTENT', blockId, sectionId, elementId, rawContent }),
@@ -17,10 +17,12 @@ const actions = {
   showAddSection: (blockId) => ({ type: 'SHOW_ADD_SECTION', blockId }),
   showActiveElement: (activeElement) => ({ type: 'SHOW_ACTIVE_ELEMENT', activeElement }),
   verifyUser: (email, password) => ({ type: 'VERIFY_USER', email, password }),
-  addNewElement: (idParams) => ({ type: 'ADD_NEW_ELEMENT', idParams }),
+  addNewElement: (idParams, showComment) => ({ type: 'ADD_NEW_ELEMENT', idParams, showComment }),
   updateModal: (open) => ({ type: 'UPDATE_MODAL', open }),
   saveUser: (name) => ({ type: 'SAVE_USER', name }),
-  updateState: (projets) => ({ type: 'UPDATE_STATE', projets })
+  updateState: (projets) => ({ type: 'UPDATE_STATE', projets }),
+  startFadeIn: (idParams) => ({ type: 'FADE_TODOS', idParams }),
+  dragDropElements: (elements, blockId, sectionId) => ({ type: 'DRAG_DROP_ELEMENTS', elements, blockId, sectionId })
 }
 
 const dispatch = action => (...arg) => store.dispatch(action(...arg))
@@ -45,6 +47,8 @@ export const saveUser = dispatch(actions.saveUser)
 export const updateState = dispatch(actions.updateState)
 export const editComment = dispatch(actions.editComment)
 export const addNewComment = dispatch(actions.addNewComment)
+export const startFadeIn = dispatch(actions.startFadeIn)
+export const dragDropElements = dispatch(actions.dragDropElements)
 /* on demande de l'aide a clement et ca tourne mal
 const map = (src, fn) => Object.entries(src)
   .map(fn)

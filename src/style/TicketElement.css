@@ -1,22 +1,29 @@
 .archive {
-    color: #C0C0C0;
     cursor: pointer;
+}
+.archive,
+.count_reponses, 
+.drag i{
+    color: #757575;
 }
 .element_ticket {
     cursor: pointer;
-    margin-bottom : 15px;
+    margin-bottom: 15px;
 }
+
 .element_activ {
     margin-bottom: 30px;
 }
-.active_ticket{
-    background-color: rgba(31, 56, 100,0.03);
+
+.active_ticket {
+    background-color: rgba(31, 56, 100, 0.03);
     cursor: pointer;
-    margin-bottom : 15px;
+    margin-bottom: 15px;
 }
-.element_ticket,
-.active_ticket{
-    margin-bottom : 15px; 
-    padding : 10px;
+
+.element_ticket, .active_ticket {
+    margin-bottom: 15px;
+    padding: 10px;
 }
+
 

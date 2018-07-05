@@ -1,6 +1,6 @@
 import React from 'react'
-import { Editor, EditorState, convertToRaw, convertFromRaw } from 'draft-js'
-import { createEditorStateWithText } from 'draft-js-plugins-editor'
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js'
+import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 // import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin'
 import '../style/EditorElement.css'
@@ -28,6 +28,7 @@ class EditorComment extends React.Component {
     return (
       <div onClick={this.handleFocus} className='editor'>
         <Editor
+          placeholder='Votre text ici'
           editorState={this.state.editorState}
           onChange={this.handleChange}
           plugins={plugins}

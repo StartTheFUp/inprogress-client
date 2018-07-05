@@ -12,8 +12,11 @@
 }
 .todos-unchecked-title{
     font-weight: bold;
+    cursor:default;
 }
 .todos-checked-title{
     cursor: pointer;
     font-weight: normal;
+    color: #757575;
+    font-size: 1.5rem;
 }

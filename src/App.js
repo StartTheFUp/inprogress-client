@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HomePage from './containers/HomePage.js'
 import Dashboard from './containers/Dashboard.js'
 import { Router } from '@reach/router'
-import { loadBlocks, loadComments } from './actions/file.js'
+import { loadComments } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -11,21 +11,15 @@ import './style/App.css'
 
 class App extends Component {
   syncDatas = () => {
-    /* api.getProjectById('projetId_65565')
-      .then(loadHeaderData) */
-
     api.getComments()
       .then(loadComments)
-
-    api.getBlocks()
-      .then(loadBlocks)
   }
 
   componentDidMount () {
     this.unsubscribe = store.subscribe(() => this.forceUpdate())
     this.syncDatas()
-    setInterval(() => api.updateBlocks(store.getState().blocks), 5 * 1000)
-    setInterval(() => api.updateComments(store.getState().comments), 5 * 1000)
+    setInterval(() => api.updateBlocks(store.getState().blocks), 3 * 1000)
+    setInterval(() => api.updateComments(store.getState().comments), 3 * 1000)
   }
 
   componentWillUnmount () {
@@ -34,12 +28,12 @@ class App extends Component {
 
   render () {
     const state = store.getState()
-    console.log('block app', state.addSectionActive)
+    console.log('block app local storage!!!!', localStorage.getItem('userName'))
 
     return (
       <div className="App">
         <Router>
-          <HomePage path='/' projectsAdmin={state.projectsAdmin}/>
+          <HomePage path='/' adminProjects={state.adminProjects} auth={state.authentification}/>
           <Dashboard path='project/:projectId'
             blocks={state.blocks}
             shouldDisplayArchivedTickets={state.shouldDisplayArchivedTickets}
@@ -51,6 +45,7 @@ class App extends Component {
             dataHeader={state.dataHeader}
             open={state.open}
             userName={state.userName}
+            showComment={state.showComment}
           />
         </Router>
       </div>

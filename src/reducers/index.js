@@ -1,5 +1,20 @@
 import api from '../api.js'
 
+const updateElement = (state, { blockId, sectionId, elementId }, mapper) =>
+  state.blocks.map(block => block._id !== blockId
+    ? block
+    : {
+      ...block,
+      sections: block.sections.map(section => section.id !== sectionId
+        ? section
+        : {
+          ...section,
+          elements: section.elements.map(element => element.id !== elementId
+            ? element
+            : mapper(element))
+        })
+    })
+
 export const reducer = (state, action) => {
   if (action.type === 'LOAD_BLOCKS') {
     return {
@@ -8,42 +23,35 @@ export const reducer = (state, action) => {
     }
   }
 
-  if (action.type === 'UPDATE_TODOS') {
-    const newBlocks = state.blocks.map(block => {
-      if (block._id !== action.idParams.blockId) {
-        return block
-      }
-      return {
-        ...block,
-        sections: [
-          ...block.sections.map(section => {
-            if (section.id !== action.idParams.sectionId) {
-              return section
-            }
-            return {
-              ...section,
-              elements: [
-                ...section.elements.map(elt => {
-                  if (elt.id !== action.idParams.elementId) {
-                    return elt
-                  }
-                  return {
-                    ...elt,
-                    properties: {
-                      archive: false,
-                      checked: !elt.properties.checked
-                    }
-                  }
-                })
-              ]
-            }
-          })
-        ]
-      }
-    })
+  if (action.type === 'FADE_TODOS') {
+    const blockCheck = state.showCheck.find(check => check.blockId === action.idParams.blockId)
+    if (blockCheck && blockCheck.show) {
+      return state
+    }
+    console.log(action.type, { blockCheck })
     return {
       ...state,
-      blocks: newBlocks
+      blocks: updateElement(state, action.idParams, elt => ({
+        ...elt,
+        properties: {
+          ...elt.properties,
+          fadingStart: Date.now()
+        }
+      }))
+    }
+  }
+
+  if (action.type === 'UPDATE_TODOS') {
+    return {
+      ...state,
+      blocks: updateElement(state, action.idParams, elt => ({
+        ...elt,
+        properties: {
+          ...elt.properties,
+          archive: false,
+          checked: !elt.properties.checked
+        }
+      }))
     }
   }
 
@@ -64,14 +72,16 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_PROCESSED_TICKETS') {
     return {
       ...state,
-      shouldDisplayArchivedTickets: true
+      shouldDisplayArchivedTickets: true,
+      showComment: false
     }
   }
 
   if (action.type === 'SHOW_UNPROCESSED_TICKETS') {
     return {
       ...state,
-      shouldDisplayArchivedTickets: false
+      shouldDisplayArchivedTickets: false,
+      showComment: false
     }
   }
 
@@ -82,15 +92,15 @@ export const reducer = (state, action) => {
       type: action.idParams.blockType,
       content: '',
       createdAt: new Date(),
-      createdBy: 'bogdan',
+      createdBy: state.userName,
       id: randomElementId,
       properties: {
         checked: false,
         archive: false
       },
       threadId: randomThreadId,
-      updatedAt: '2018-05-29T00:00:00.000Z',
-      updatedBy: 'Bogdan'
+      updatedAt: new Date(),
+      updatedBy: state.userName
     }
     const newThreadComment = {
       id: newElement.threadId,
@@ -99,6 +109,7 @@ export const reducer = (state, action) => {
     return {
       ...state,
       comments: [...state.comments, newThreadComment],
+      showComment: false,
       blocks: [...state.blocks.map((block) => {
         if (block.type !== action.idParams.blockType) {
           return block
@@ -145,14 +156,17 @@ export const reducer = (state, action) => {
 
     return {
       ...state,
-      showCheck: updateState
+      showCheck: updateState,
+      showComment: false
     }
   }
 
   if (action.type === 'SHOW_COMMENTS') {
     return {
       ...state,
-      threadId: action.threadId
+      threadId: action.threadId,
+      showComment: true,
+      activeElement: action.activeElement
     }
   }
   if (action.type === 'ADD_NEW_COMMENT') {
@@ -161,7 +175,7 @@ export const reducer = (state, action) => {
     const newComment = {
       'id': randomCommentId,
       'content': '',
-      'createdBy': 'userId_1zezghozzge',
+      'createdBy': state.userName,
       'createdAt': new Date(),
       'proprieties': ''
     }
@@ -193,7 +207,9 @@ export const reducer = (state, action) => {
             }
             return {
               ...comment,
-              content: action.rawContent
+              content: action.rawContent,
+              updatedAt: new Date(),
+              updatedBy: state.userName
             }
           })]
         }
@@ -261,7 +277,10 @@ export const reducer = (state, action) => {
                   }
                   return {
                     ...elt,
-                    content: action.rawContent
+                    content: action.rawContent,
+                    updatedAt: new Date(),
+                    updatedBy: state.userName
+
                   }
                 })
               ]
@@ -280,7 +299,7 @@ export const reducer = (state, action) => {
   if (action.type === 'ADD_SECTION') {
     // generer un id aleatoire
     const randomId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
-    const newSection = { id: randomId, title: action.title, elements: [], createdBy: 'gaelle' }
+    const newSection = { id: randomId, title: action.title, elements: [], createdBy: state.userName }
     console.log('ADD section', action, 'state : ', state)
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
@@ -343,6 +362,7 @@ export const reducer = (state, action) => {
 
   if (action.type === 'SAVE_USER') {
     console.log('SAVEUSER', action)
+    localStorage.setItem('userName', action.name)
     return {
       ...state,
       userName: action.name,
@@ -350,12 +370,56 @@ export const reducer = (state, action) => {
     }
   }
 
-  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+  if (action.type === 'SIGNIN_ADMIN') {
     console.log('SAVEUSER', action)
+
+    let name = state.userName
+    let auth = ''
+    if (action.cred !== 'user not defined' && action.cred !== 'auth failed' && action.cred !== 'wrong password') {
+      localStorage.setItem('userName', action.cred.name)
+      localStorage.setItem('token', action.cred.token)
+      name = action.cred.name
+    } else auth = action.cred
+
     return {
       ...state,
-      projectsAdmin: action.infoProjects,
+      authentification: auth,
+      userName: name,
       open: false
+    }
+  }
+
+  if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
+    console.log('SAVE_ADMIN', action)
+    return {
+      ...state,
+      adminProjects: action.infoProjects,
+      open: false
+    }
+  }
+  if (action.type === 'DRAG_DROP_ELEMENTS') {
+    const newBlocks = state.blocks.map(block => {
+      if (block._id !== action.blockId) {
+        return block
+      }
+      return {
+        ...block,
+        sections: [
+          ...block.sections.map(section => {
+            if (section.id !== action.sectionId) {
+              return section
+            }
+            return {
+              ...section,
+              elements: action.elements
+            }
+          })
+        ]
+      }
+    })
+    return {
+      ...state,
+      blocks: newBlocks
     }
   }
 
