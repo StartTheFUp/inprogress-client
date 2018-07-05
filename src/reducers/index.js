@@ -72,14 +72,16 @@ export const reducer = (state, action) => {
   if (action.type === 'SHOW_PROCESSED_TICKETS') {
     return {
       ...state,
-      shouldDisplayArchivedTickets: true
+      shouldDisplayArchivedTickets: true,
+      showComment: false
     }
   }
 
   if (action.type === 'SHOW_UNPROCESSED_TICKETS') {
     return {
       ...state,
-      shouldDisplayArchivedTickets: false
+      shouldDisplayArchivedTickets: false,
+      showComment: false
     }
   }
 
@@ -154,7 +156,8 @@ export const reducer = (state, action) => {
 
     return {
       ...state,
-      showCheck: updateState
+      showCheck: updateState,
+      showComment: false
     }
   }
 
@@ -162,7 +165,8 @@ export const reducer = (state, action) => {
     return {
       ...state,
       threadId: action.threadId,
-      showComment: true
+      showComment: true,
+      activeElement: action.activeElement
     }
   }
   if (action.type === 'ADD_NEW_COMMENT') {

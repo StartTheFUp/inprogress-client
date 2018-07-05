@@ -50,4 +50,12 @@
     
 .section>h2{
   font-size: 1.3rem;
+  cursor:default;
+}
+.resource-title{
+  cursor:default;
+}
+
+.nb-todos-check {
+  color: #757575
 }

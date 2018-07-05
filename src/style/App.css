@@ -22,9 +22,8 @@
     display: flex;
     justify-content: space-between;
 }
-element_components p {
-    color : #757575;
-}
+
+
 .count_responses{
     color : #757575;
 }

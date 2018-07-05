@@ -3,6 +3,7 @@ import React from 'react'
 import { addNewElement, dragDropElements } from '../actions/file.js'
 import { store } from '../store.js'
 import Dragula from 'react-dragula'
+import { Divider } from 'semantic-ui-react'
 import '../style/ResourceSection.css'
 
 class TodoSection extends React.Component {
@@ -69,9 +70,12 @@ class TodoSection extends React.Component {
       activeElement={this.props.activeElement} />)
 
   render () {
+    const todosElements = this.props.block.sections.filter(section => section.id === this.props.section.id).map(section => section.elements.length).reduce((a, b) => a + b, 0)
+    const todosElementsCheck = this.props.block.sections.filter(section => section.id === this.props.section.id).map(section => section.elements.filter(elt => elt.properties.checked === true).length).reduce((a, b) => a + b, 0)
     return (
       <div key={this.props.section.id} className='section'>
-        <h2>{this.props.section.title}</h2>
+        <Divider section />
+        <h2>{this.props.section.title} <span className='nb-todos-check'> ({todosElementsCheck}/{todosElements})</span></h2>
         <p className='new_element' onClick={() => addNewElement({ sectionId: this.props.section.id, blockType: this.props.block.type })}>+ Ajouter un élément</p>
         <div className="dragula" ref={this.dragulaDecorator} >
           {this.getElements()}
