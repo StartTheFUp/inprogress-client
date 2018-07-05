@@ -4,7 +4,7 @@
 }
 
 .active_resource {
-    background-color: rgba(31, 56, 100, 0.03);
+    background-color: rgba(31, 56, 100, 0.1);
     cursor: pointer;
     margin-bottom: 15px;
 }
