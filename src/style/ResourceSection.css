@@ -51,3 +51,7 @@
 .section>h2{
   font-size: 1.3rem;
 }
+
+.nb-todos-check {
+  color: #757575
+}
