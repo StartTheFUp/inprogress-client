@@ -52,7 +52,7 @@ const TodoBlock = ({ block, showCheck, activeElement, comments, addSectionActive
     <Segment key={block._id}>
 
       <div className="titles-segment">
-        <h2 className="todos-unchecked-title">{block.title}</h2>
+        <h2 className="todos-unchecked-title">{block.title} </h2>
         <ButtonCheck typeBlock={block.type} blockId={block._id} showCheck={showCheck} changeDisplayCheck={changeDisplayCheck} />
       </div>
       <Divider section />

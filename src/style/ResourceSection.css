@@ -55,3 +55,7 @@
 .resource-title{
   cursor:default;
 }
+
+.nb-todos-check {
+  color: #757575
+}
