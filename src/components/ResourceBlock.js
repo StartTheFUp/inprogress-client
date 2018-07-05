@@ -9,7 +9,7 @@ const ResourceBlock = ({ block, activeElement, comments, addSectionActive }) => 
   const sections = block.sections.map(section => <ResourceSection key={section.id} block={block} section={section} comments={comments} activeElement={activeElement} />)
   return (
     <Segment key={block._id}>
-      <h2>{block.title}</h2>
+      <h2 className='resource-title'>{block.title}</h2>
       <Divider section />
       <ButtonAddSection blockId={block._id} showAddSection={showAddSection} addSection={addSection} addSectionActive={addSectionActive} />
       {sections}

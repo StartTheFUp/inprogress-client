@@ -12,6 +12,7 @@
 }
 .todos-unchecked-title{
     font-weight: bold;
+    cursor:default;
 }
 .todos-checked-title{
     cursor: pointer;
