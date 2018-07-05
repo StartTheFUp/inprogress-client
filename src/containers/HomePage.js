@@ -6,8 +6,6 @@ import api from '../api.js'
 import DisplayProjects from './DisplayProjects.js'
 
 class HomePage extends React.Component {
-  colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
-
   signin = (email, mdp) => {
     const user = {
       email: email,

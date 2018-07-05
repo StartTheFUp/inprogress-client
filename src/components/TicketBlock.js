@@ -10,10 +10,12 @@ const archived = element => element.properties.archive
 const notArchived = element => !element.properties.archive
 
 const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comments, addSectionActive }) => {
+  const countElement = block.sections.map(section => section.elements.filter(notArchived).length).reduce((acc, value) => acc + value)
   const sections = block.sections.map(section => {
     const processedTicketsElements = section.elements.filter(archived)
     const unprocessedTicketsElements = section.elements.filter(notArchived)
 
+    console.log('archive', processedTicketsElements, 'notarchived', unprocessedTicketsElements)
     return (
       <TicketSection section={section}
         block={block}
@@ -29,7 +31,7 @@ const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comme
     <Segment key={block._id}>
 
       <div className="titles-segment">
-        <h2 className={shouldDisplayArchivedTickets ? 'processed-ticket' : 'unprocessed-ticket'} onClick={() => showUnprocessedTickets()}>{block.title}</h2>
+        <h2 className={shouldDisplayArchivedTickets ? 'processed-ticket' : 'unprocessed-ticket'} onClick={() => showUnprocessedTickets()}>{block.title}({countElement})</h2>
         <h2 className={(shouldDisplayArchivedTickets ? 'unprocessed-ticket' : 'processed-ticket')} onClick={() => showProcessedTickets()} >Billets traités</h2>
       </div>
       <Divider section />

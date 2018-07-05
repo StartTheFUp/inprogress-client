@@ -7,6 +7,7 @@ import Avatar from 'react-avatar'
 import EditorComment from '../components/EditorComment.js'
 /* CSS */
 import './../style/comments.css'
+import { getColor } from '../murmur.js'
 
 const convertToDate = dateComment => {
   const date = new Date(dateComment)
@@ -28,7 +29,7 @@ const DisplayComments = ({ comments, threadId, activeElement, addNewComment, sho
                     <Grid divided='vertically'>
                       <Grid.Row columns={2}>
                         <Grid.Column width={2}>
-                          <Avatar size={40} round name={comment.createdBy} />
+                          <Avatar size={40} color={getColor(comment.createdBy, 0.4, 0.7)} round name={comment.createdBy} />
                         </Grid.Column>
                         <Grid.Column width={14}>
                           <Comment.Text>

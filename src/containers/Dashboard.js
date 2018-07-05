@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import BlocksContainer from './BlocksContainer.js'
 import ProjectHeader from '../components/ProjectHeader'
 import DisplayComments from '../containers/DisplayComments'
-import Modal from 'react-responsive-modal'
 import { updateModal, loadHeaderData, loadComments, loadBlocks, saveUser, addNewComment } from '../actions/file.js'
 import api from '../api.js'
-import { Grid, Button } from 'semantic-ui-react'
+import { Grid, Button, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import '../style/Dashboard.css'
+import { getColor } from '../murmur.js'
 
 class Dashboard extends Component {
   componentDidMount () {
@@ -20,8 +20,6 @@ class Dashboard extends Component {
       .then(loadBlocks)
   }
 
-  colorRandom = ['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
-
   onOpenModal = () => updateModal({ open: true })
 
   onCloseModal = () => updateModal({ open: false })
@@ -31,7 +29,14 @@ class Dashboard extends Component {
     if (this.props.dataHeader.client !== undefined) {
       clientMap = this.props.dataHeader.client.map(client => {
         return (
-          <Button key={client.name} basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} onClick={() => saveUser(client.name)}> {client.name} </Button>)
+          <Button key={client.name} style={{
+            color: getColor(client.name, 0.7, 0.9),
+            margin: 10,
+            borderSize: 1,
+            borderStyle: 'solid',
+            borderRadius: 100,
+            background: 'transparent'
+          }} onClick={() => saveUser(client.name)}> {client.name} </Button>)
       })
     }
     const isConnect = !localStorage.userName /* this.props.open */
@@ -42,7 +47,7 @@ class Dashboard extends Component {
 
       <div className="dashboard">
 
-        <Modal className="modalClients modal-style" open={isConnect} onClose={() => updateModal(false)} center>
+        <Modal basic open={isConnect} onClose={() => updateModal(false)} center>
           <h2 className='title-choice' > Qui es tu ? </h2>
           <div className="client">
             {clientMap}

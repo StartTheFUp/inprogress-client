@@ -4,13 +4,12 @@ import '../style/HomePage.css'
 import { store } from '../store.js'
 import api from '../api.js'
 import { Link } from '@reach/router'
+import { getColor } from '../murmur'
 
 class DisplayProjects extends Component {
   state = {
     login: false
   }
-
-  colorRandom=['red', 'orange', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
 
   componentDidMount () {
     const token = localStorage.getItem('token')
@@ -29,7 +28,14 @@ class DisplayProjects extends Component {
         return (
           <div key={project.id} >
             <Link to={`project/${project.id}`}>
-              <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
+              <Button style={{
+                color: getColor(project.id + project.name, 0.45, 0.8),
+                margin: 10,
+                borderSize: 1,
+                borderStyle: 'solid',
+                borderRadius: 100,
+                background: 'transparent'
+              }} className='buttonProject' id={project.id}>{project.name}</Button>
             </Link>
           </div>
         )
