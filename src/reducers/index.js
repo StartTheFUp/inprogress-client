@@ -73,7 +73,8 @@ export const reducer = (state, action) => {
     return {
       ...state,
       shouldDisplayArchivedTickets: true,
-      showComment: false
+      showComment: false,
+      activeElement: ''
     }
   }
 
@@ -81,7 +82,8 @@ export const reducer = (state, action) => {
     return {
       ...state,
       shouldDisplayArchivedTickets: false,
-      showComment: false
+      showComment: false,
+      activeElement: ''
     }
   }
 
@@ -157,7 +159,8 @@ export const reducer = (state, action) => {
     return {
       ...state,
       showCheck: updateState,
-      showComment: false
+      showComment: false,
+      activeElement: ''
     }
   }
 
