@@ -34,7 +34,8 @@ class DisplayProjects extends Component {
                 borderSize: 1,
                 borderStyle: 'solid',
                 borderRadius: 100,
-                background: 'transparent'
+                background: 'transparent',
+                width: 150
               }} className='buttonProject' id={project.id}>{project.name}</Button>
             </Link>
           </div>
