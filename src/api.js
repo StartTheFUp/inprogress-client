@@ -1,6 +1,10 @@
-const path = route => process.env.REACT_APP_MOCKS ? route + '.json' : route
+const { hostname } = window.location
 
-console.log('process env', process.env)
+export const apiHost = hostname === '127.0.0.1' || hostname === 'localhost'
+  ? 'http://localhost:5000'
+  : 'https://wcs-inprogress-api.herokuapp.com'
+
+const path = route => `${apiHost}${route}` + (process.env.REACT_APP_MOCKS ? '.json' : '')
 
 const getBlocks = id => fetch(path(`/blocks/${id}`))
   .then(res => res.json())
