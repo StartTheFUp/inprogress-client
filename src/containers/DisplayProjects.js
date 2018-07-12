@@ -13,7 +13,6 @@ class DisplayProjects extends Component {
 
   componentDidMount () {
     const token = localStorage.getItem('token')
-    console.log('get token', token)
     if (token !== null) {
       api.adminProjects(token)
         .then(res => res.json(res))
@@ -42,8 +41,6 @@ class DisplayProjects extends Component {
         )
       })
     }
-
-    console.log('DP render', this.props.adminProjects)
 
     return (
       <div className='display-projects'>

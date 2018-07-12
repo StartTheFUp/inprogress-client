@@ -1,6 +1,5 @@
 import React from 'react'
 const DisplaySection = ({ addNewBilletAndSave, blockId, sectionId, section, children, blockType, processedTickets, showCheck }) => {
-  console.log('DISPLAY SECTION showCheck', showCheck)
   // test si blockId est present dans showCheck et egal à true
   let testShowCheck = false
   showCheck.forEach(object => {

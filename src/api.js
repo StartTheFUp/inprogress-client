@@ -36,7 +36,6 @@ const adminProjects = (token) => fetch(path(`/adminProjects`), {
   }
 
 })
-// .then(res=> console.log(res))
 
 const getClientsProject = projectId => fetch(path(`/clients/${projectId}`))
   .then(res => res.json())

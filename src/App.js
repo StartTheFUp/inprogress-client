@@ -16,18 +16,12 @@ class App extends Component {
 
   syncDatas = () => {
     setInterval(() => {
-      //db mise à jour si dernier MaJ state est sup au dernier envoi en db ET (pas de chgt du state pdt 2s. OU le dernier envoi en db date de + de 10s)
-      if ((store.getState().dateUpdateState > this.state.lastSyncTime )
-          && ((Date.now()-store.getState().dateUpdateState > 2000) || (Date.now()-this.state.lastSyncTime > 10000))) {
-        console.log('lancement api',Date.now(), store.getState().dateUpdateState  )
-        //date envoi requete
+      // db mise à jour si dernier MaJ state est sup au dernier envoi en db ET (pas de chgt du state pdt 2s. OU le dernier envoi en db date de + de 10s)
+      if ((store.getState().dateUpdateState > this.state.lastSyncTime) &&
+          ((Date.now() - store.getState().dateUpdateState > 2000) || (Date.now() - this.state.lastSyncTime > 10000))) {
         this.setState({ lastSyncTime: Date.now() })
-        console.log('SYNC<HRO last :', this.state.lastSyncTime)
         api.updateBlocks(store.getState().blocks)
-        .then(res => console.log("API blocks", res))
-
         api.updateComments(store.getState().comments)
-        .then(res => console.log("API comments", res))
       }
     }, 1 * 1000)
   }
@@ -49,8 +43,6 @@ class App extends Component {
 
   render () {
     const _state = store.getState()
-    console.log('block app local storage!!!!', localStorage.getItem('userName'))
-
     return (
       <div className="App">
         <Router>

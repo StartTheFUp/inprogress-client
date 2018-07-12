@@ -11,13 +11,11 @@ class HomePage extends React.Component {
       email: email,
       password: mdp
     }
-    console.log('SIGNIN HomePage')
     api.userMatch(user)
       .then(res => res.json())
       .then(cred => store.dispatch({ type: 'SIGNIN_ADMIN', cred }))
       .then(() => {
         const token = localStorage.getItem('token')
-        console.log('get token', token)
         if (token !== null && token !== undefined) {
           api.adminProjects(token)
             .then(res => res.json(res))
@@ -27,14 +25,6 @@ class HomePage extends React.Component {
   }
 
   render () {
-    /* const allProject = this.props.projectsAdmin.map(project => {
-      return (
-        <Link to={`project/${project.id}`}>
-          <Button basic color={this.colorRandom[Math.floor(Math.random() * this.colorRandom.length)]} className='buttonProject' id={project.id}>{project.name}</Button>
-        </Link>
-      )
-    }) */
-
     return (
       <div>
         <div className='connect'>

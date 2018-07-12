@@ -15,7 +15,6 @@ const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comme
     const processedTicketsElements = section.elements.filter(archived)
     const unprocessedTicketsElements = section.elements.filter(notArchived)
 
-    console.log('archive', processedTicketsElements, 'notarchived', unprocessedTicketsElements)
     return (
       <TicketSection section={section}
         block={block}
@@ -29,7 +28,6 @@ const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comme
   })
   return (
     <Segment key={block._id}>
-
       <div className="titles-segment">
         <h2 className={shouldDisplayArchivedTickets ? 'processed-ticket' : 'unprocessed-ticket'} onClick={() => showUnprocessedTickets()}>{block.title}({countElement})</h2>
         <h2 className={(shouldDisplayArchivedTickets ? 'unprocessed-ticket' : 'processed-ticket')} onClick={() => showProcessedTickets()} >Billets traités</h2>
