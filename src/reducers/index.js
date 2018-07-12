@@ -44,6 +44,7 @@ export const reducer = (state, action) => {
   if (action.type === 'UPDATE_TODOS') {
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: updateElement(state, action.idParams, elt => ({
         ...elt,
         properties: {
@@ -110,6 +111,7 @@ export const reducer = (state, action) => {
     }
     return {
       ...state,
+      dateUpdateState: Date.now(),
       comments: [...state.comments, newThreadComment],
       showComment: false,
       blocks: [...state.blocks.map((block) => {
@@ -184,6 +186,7 @@ export const reducer = (state, action) => {
     }
     return {
       ...state,
+      dateUpdateState: Date.now(),
       comments: [...state.comments.map((threadComment) => {
         if (threadComment.id !== action.threadId) {
           return threadComment
@@ -198,6 +201,7 @@ export const reducer = (state, action) => {
   if (action.type === 'EDIT_COMMENT') {
     return {
       ...state,
+      dateUpdateState: Date.now(),
       comments: [...state.comments.map((threadComment) => {
         if (threadComment.id !== action.threadId) {
           return threadComment
@@ -255,6 +259,7 @@ export const reducer = (state, action) => {
     })
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: newBlocks
     }
   }
@@ -295,6 +300,7 @@ export const reducer = (state, action) => {
 
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: newBlocks
     }
   }
@@ -321,6 +327,7 @@ export const reducer = (state, action) => {
       .catch(err => console.log('err', err))
     return {
       ...state,
+      dateUpdateState: Date.now(),
       addSectionActive: '',
       blocks: newBlocks
     }
@@ -422,6 +429,7 @@ export const reducer = (state, action) => {
     })
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: newBlocks
     }
   }

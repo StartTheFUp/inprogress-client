@@ -19,6 +19,7 @@ const initialState = {
   reponse: [],
   adminProjects: [],
   authentification: '',
+  dateUpdateState: '',
   showComment: false
 }
 
