@@ -10,7 +10,7 @@ const archived = element => element.properties.archive
 const notArchived = element => !element.properties.archive
 
 const TicketBlock = ({ block, shouldDisplayArchivedTickets, activeElement, comments, addSectionActive }) => {
-  const countElement = block.sections.map(section => section.elements.filter(notArchived).length).reduce((acc, value) => acc + value)
+  const countElement = block.sections.length !== 0 ? block.sections.map(section => section.elements.filter(notArchived).length).reduce((acc, value) => acc + value) : 0
   const sections = block.sections.map(section => {
     const processedTicketsElements = section.elements.filter(archived)
     const unprocessedTicketsElements = section.elements.filter(notArchived)
