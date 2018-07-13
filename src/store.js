@@ -19,6 +19,7 @@ const initialState = {
   reponse: [],
   adminProjects: [],
   authentification: '',
+  dateUpdateState: '',
   showComment: false
 }
 
@@ -28,7 +29,6 @@ export const store = createStore(reducer, initialState,
   composeEnhancers(
     applyMiddleware(store => next => action => {
       next(action)
-      console.log('FROM MIDDLEWARE', action.type)
       if (action.type === 'FADE_TODOS') {
         const { fadingStart } = store.getState().blocks.find(block => block._id === action.idParams.blockId)
           .sections.find(section => section.id === action.idParams.sectionId)
@@ -39,4 +39,3 @@ export const store = createStore(reducer, initialState,
         setTimeout(() => store.dispatch({ ...action, type: 'UPDATE_TODOS' }), delay)
       }
     })))
-// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

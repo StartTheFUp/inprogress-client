@@ -15,7 +15,6 @@ class Dashboard extends Component {
       .then(loadHeaderData)
     api.getComments()
       .then(loadComments)
-
     api.getBlocks(this.props.projectId)
       .then(loadBlocks)
   }
@@ -39,21 +38,17 @@ class Dashboard extends Component {
           }} onClick={() => saveUser(client.name)}> {client.name} </Button>)
       })
     }
-    const isConnect = !localStorage.userName /* this.props.open */
-    console.log()
-    console.log('PROPS ProjectID', isConnect)
-    console.log('MODAL', this.props.userName)
+    const isConnect = !localStorage.userName
+
     return (
-
       <div className="dashboard">
-
         <Modal basic open={isConnect} onClose={() => updateModal(false)} center>
           <h2 className='title-choice' > Qui es tu ? </h2>
           <div className="client">
             {clientMap}
           </div>
-
         </Modal>
+
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">

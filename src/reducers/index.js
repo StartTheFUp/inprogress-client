@@ -1,4 +1,3 @@
-import api from '../api.js'
 
 const updateElement = (state, { blockId, sectionId, elementId }, mapper) =>
   state.blocks.map(block => block._id !== blockId
@@ -28,7 +27,6 @@ export const reducer = (state, action) => {
     if (blockCheck && blockCheck.show) {
       return state
     }
-    console.log(action.type, { blockCheck })
     return {
       ...state,
       blocks: updateElement(state, action.idParams, elt => ({
@@ -44,6 +42,7 @@ export const reducer = (state, action) => {
   if (action.type === 'UPDATE_TODOS') {
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: updateElement(state, action.idParams, elt => ({
         ...elt,
         properties: {
@@ -110,6 +109,7 @@ export const reducer = (state, action) => {
     }
     return {
       ...state,
+      dateUpdateState: Date.now(),
       comments: [...state.comments, newThreadComment],
       showComment: false,
       blocks: [...state.blocks.map((block) => {
@@ -173,7 +173,6 @@ export const reducer = (state, action) => {
     }
   }
   if (action.type === 'ADD_NEW_COMMENT') {
-    console.log('nouveau commentaire dans ', action.threadId)
     const randomCommentId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
     const newComment = {
       'id': randomCommentId,
@@ -184,6 +183,7 @@ export const reducer = (state, action) => {
     }
     return {
       ...state,
+      dateUpdateState: Date.now(),
       comments: [...state.comments.map((threadComment) => {
         if (threadComment.id !== action.threadId) {
           return threadComment
@@ -198,6 +198,7 @@ export const reducer = (state, action) => {
   if (action.type === 'EDIT_COMMENT') {
     return {
       ...state,
+      dateUpdateState: Date.now(),
       comments: [...state.comments.map((threadComment) => {
         if (threadComment.id !== action.threadId) {
           return threadComment
@@ -255,6 +256,7 @@ export const reducer = (state, action) => {
     })
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: newBlocks
     }
   }
@@ -295,6 +297,7 @@ export const reducer = (state, action) => {
 
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: newBlocks
     }
   }
@@ -303,7 +306,6 @@ export const reducer = (state, action) => {
     // generer un id aleatoire
     const randomId = Math.random().toString(32).slice(2).padEnd(11, '0').slice(0, 8)
     const newSection = { id: randomId, title: action.title, elements: [], createdBy: state.userName }
-    console.log('ADD section', action, 'state : ', state)
     const newBlocks = state.blocks.map(block => {
       if (block._id !== action.blockId) {
         return block
@@ -316,18 +318,15 @@ export const reducer = (state, action) => {
         ]
       }
     })
-    api.updateBlocks(newBlocks)
-      .then(res => console.log('updateBlock api :', res))
-      .catch(err => console.log('err', err))
     return {
       ...state,
+      dateUpdateState: Date.now(),
       addSectionActive: '',
       blocks: newBlocks
     }
   }
 
   if (action.type === 'SHOW_ADD_SECTION') {
-    console.log('SHOW AD', state.addSectionActive)
     if (action.blockId === state.addSectionActive) {
       return {
         ...state,
@@ -348,7 +347,6 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'UPDATE_MODAL') {
-    console.log('updateModal', action.open)
     return {
       ...state,
       open: action.open
@@ -364,7 +362,6 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'SAVE_USER') {
-    console.log('SAVEUSER', action)
     localStorage.setItem('userName', action.name)
     return {
       ...state,
@@ -374,8 +371,6 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'SIGNIN_ADMIN') {
-    console.log('SAVEUSER', action)
-
     let name = state.userName
     let auth = ''
     if (action.cred !== 'user not defined' && action.cred !== 'auth failed' && action.cred !== 'wrong password') {
@@ -393,7 +388,6 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === 'SAVE_ALL_PROJECT_ADMIN') {
-    console.log('SAVE_ADMIN', action)
     return {
       ...state,
       adminProjects: action.infoProjects,
@@ -422,6 +416,7 @@ export const reducer = (state, action) => {
     })
     return {
       ...state,
+      dateUpdateState: Date.now(),
       blocks: newBlocks
     }
   }

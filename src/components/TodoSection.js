@@ -33,29 +33,20 @@ class TodoSection extends React.Component {
 
   getIndexInParent = (el) => {
     const i = Array.from(el.parentNode.children).indexOf(el)
-    console.log({ i })
     return i
   }
 
   dragulaDecorator = (componentBackingInstance) => {
-    // if (componentBackingInstance) {
-    //   let options = {}
-    // }
     const drake = Dragula([componentBackingInstance]) //, options)
-
     drake.on('drag', (el, target, source, sibling) => {
       let newStart = this.getIndexInParent(el)
       this.setState({ items: this.props.section.elements, start: newStart })
-      console.log('nouveau items todos AAAAA', this.state.items)
     })
 
     drake.on('drop', (el, target, source, sibling) => {
       let droppedLocation = this.getIndexInParent(el)
-
       let result = this.moveItem(this.state.items, this.state.start, droppedLocation)
-
       this.setState({ items: result })
-
       dragDropElements(this.state.items, this.props.block._id, this.props.section.id)
     })
   }

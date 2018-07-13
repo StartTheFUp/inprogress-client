@@ -33,7 +33,6 @@ class ResourceSection extends React.Component {
 
   getIndexInParent = (el) => {
     const i = Array.from(el.parentNode.children).indexOf(el)
-    console.log({i})
     return i
   }
 
@@ -46,7 +45,6 @@ class ResourceSection extends React.Component {
     drake.on('drag', (el, target, source, sibling) => {
       let newStart = this.getIndexInParent(el)
       this.setState({items: this.props.section.elements, start: newStart})
-      console.log('nouveau items', this.state.items)
     })
 
     drake.on('drop', (el, target, source, sibling) => {

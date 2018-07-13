@@ -34,25 +34,17 @@ class TicketSection extends React.Component {
 
   getIndexInParent = (el) => {
     const i = Array.from(el.parentNode.children).indexOf(el)
-    console.log({ i })
     return i
   }
 
   dragulaDecorator = (componentBackingInstance) => {
-    // if (componentBackingInstance) {
-    //   let options = {}
-    // }
     const drake = Dragula([componentBackingInstance]) //, options)
-
     drake.on('drag', (el, target, source, sibling) => {
-      console.log('drag', this.getIndexInParent(el))
       let newStart = this.getIndexInParent(el)
-
       this.setState({ items2: this.props.processedTicketsElements, items: this.props.unprocessedTicketsElements, start: newStart })
     })
 
     drake.on('drop', (el, target, source, sibling) => {
-      console.log('drop', this.getIndexInParent(el))
       let droppedLocation = this.getIndexInParent(el)
 
       let result = this.props.shouldDisplayArchivedTickets ? this.moveItem(this.state.items2, this.state.start, droppedLocation) : this.moveItem(this.state.items, this.state.start, droppedLocation)
@@ -76,7 +68,6 @@ class TicketSection extends React.Component {
       activeElement={this.props.activeElement} />)
 
   render () {
-    console.log('noulnoul', this.state.items)
     return (
       <div key={this.props.section.id} className='section'>
         <Divider section />
