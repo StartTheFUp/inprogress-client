@@ -85,7 +85,10 @@ body {
 .drag {
     cursor: grab;
     cursor: move;
+    display:none;
+
 }
+
 
 .dragula {
     transition: all 2s ease;
