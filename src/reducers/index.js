@@ -420,6 +420,16 @@ export const reducer = (state, action) => {
       blocks: newBlocks
     }
   }
+  if (action.type === 'UPDATE_LAST_SAVE_TIME') {
+    let date = state.lastSaveTime
+    if (action.status === 200) {
+      date = Date.now()
+    }
+    return {
+      ...state,
+      lastSaveTime: date
+    }
+  }
 
   return state
 }
