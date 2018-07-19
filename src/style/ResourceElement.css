@@ -14,3 +14,10 @@
 .drag i{
     color: #757575;
 }
+.element_resource:hover .drag{
+    display:block;
+}
+
+.active_resource:hover .drag{
+    display:block;
+}

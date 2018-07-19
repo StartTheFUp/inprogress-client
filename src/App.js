@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HomePage from './containers/HomePage.js'
 import Dashboard from './containers/Dashboard.js'
 import { Router } from '@reach/router'
-import { loadComments } from './actions/file.js'
+import { loadComments, updateLastSaveTime } from './actions/file.js'
 import { store } from './store.js'
 import api from './api.js'
 
@@ -21,6 +21,7 @@ class App extends Component {
           ((Date.now() - store.getState().dateUpdateState > 2000) || (Date.now() - this.state.lastSyncTime > 10000))) {
         this.setState({ lastSyncTime: Date.now() })
         api.updateBlocks(store.getState().blocks)
+          .then(res => updateLastSaveTime(res.status))
         api.updateComments(store.getState().comments)
       }
     }, 1 * 1000)
@@ -59,6 +60,7 @@ class App extends Component {
             open={_state.open}
             userName={_state.userName}
             showComment={_state.showComment}
+            lastSaveTime={_state.lastSaveTime}
           />
         </Router>
       </div>

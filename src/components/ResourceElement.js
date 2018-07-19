@@ -14,10 +14,10 @@ const ResourceElement = ({ element, blockId, sectionId, activeElement, comments 
       </div>
 
       <div className='element_components'>
-        <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses'}>
+        <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses'} onClick={() => showComments(element.threadId, elementContent)}>
           {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponse'}
         </p>
-        <p className='drag'><Icon name='arrows alternate' /></p>
+        <p className='drag'><Icon name='ellipsis vertical' /></p>
       </div>
     </div>
 

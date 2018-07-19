@@ -52,7 +52,7 @@ class Dashboard extends Component {
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column width={11} className="main-column">
-              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName} action={updateModal}/>
+              <ProjectHeader data={this.props.dataHeader} userName={this.props.userName} action={updateModal} lastSaveTime={this.props.lastSaveTime}/>
               <BlocksContainer blocks={this.props.blocks}
                 shouldDisplayArchivedTickets={this.props.shouldDisplayArchivedTickets}
                 showCheck={this.props.showCheck}

@@ -20,7 +20,8 @@ const initialState = {
   adminProjects: [],
   authentification: '',
   dateUpdateState: '',
-  showComment: false
+  showComment: false,
+  lastSaveTime: ''
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

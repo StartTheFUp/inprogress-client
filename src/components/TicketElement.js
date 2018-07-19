@@ -12,11 +12,13 @@ const TicketElement = ({ element, blockId, sectionId, activeElement, comments })
         <EditorElement rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} activeElement={activeElement}/>
       </div>
       <div className='element_components'>
-        <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses' }>
-          {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
-        </p>
-        <p className='archive' onClick={() => archiveElement(blockId, sectionId, element.id)}><Icon name='archive' /> {element.properties.archive ? 'Desarchiver' : 'Archiver'}</p>
-        <p className='drag'><Icon name='arrows alternate' /></p>
+        <div className='response_archive'>
+          <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses' } onClick={() => showComments(element.threadId, elementContent)}>
+            {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
+          </p>
+          <p className='archive' onClick={() => archiveElement(blockId, sectionId, element.id)}><Icon name='archive' /> {element.properties.archive ? 'Desarchiver' : 'Archiver'}</p>
+        </div>
+        <p className='drag'><Icon name='ellipsis vertical' /></p>
       </div>
     </div>
   )

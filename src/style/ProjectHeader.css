@@ -39,5 +39,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 80%;
+  height: 68%;
+}
+.last-update-header {
+  color: lightgray;
 }
