@@ -24,9 +24,14 @@ class EditorComment extends React.Component {
   }
 
   handleFocus = () => this.refs.editor.focus()
+  handleAutoFocus = () => {
+    if (this.props.rawContent2.blocks[0].text === '') {
+      this.refs.editor.focus()
+    }
+  }
   render () {
     return (
-      <div onClick={this.handleFocus} className='editor'>
+      <div onPointerOver={this.handleAutoFocus} onClick={this.handleFocus} className='editor'>
         <Editor
           placeholder='Votre text ici'
           editorState={this.state.editorState}

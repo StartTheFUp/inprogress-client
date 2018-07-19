@@ -34,3 +34,10 @@
     -webkit-transition: opacity 2s ease-out;
 }
 
+.element_todo:hover .drag{
+    display:block;
+}
+
+.active_todo:hover .drag{
+    display:block;
+}

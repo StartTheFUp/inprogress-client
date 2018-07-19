@@ -1,5 +1,6 @@
 .archive {
     cursor: pointer;
+    margin-left: 20px;
 }
 .archive,
 .count_reponses, 
@@ -24,6 +25,16 @@
 .element_ticket, .active_ticket {
     margin-bottom: 15px;
     padding: 10px;
+
+}
+.element_ticket:hover .drag{
+    display:block;
 }
 
+.active_ticket:hover .drag{
+    display:block;
+}
+.response_archive{
+    display:flex;
+}
 

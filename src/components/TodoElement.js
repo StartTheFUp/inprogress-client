@@ -20,10 +20,10 @@ const TodoElement = ({ element, blockId, sectionId, activeElement, comments }) =
             <EditorElement activeElement={activeElement }rawContent={element.content} showActiveElement={showActiveElement} changeElementContent={changeElementContent} blockId={blockId} sectionId={sectionId} elementId={element.id} />
           </div>
           <div className='element_components'>
-            <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses' }>
+            <p className={typeof element.content !== 'string' ? (element.content.blocks[0].text === activeElement ? 'active_count_reponses' : 'count_reponses') : 'count_reponses' } onClick={() => showComments(element.threadId, elementContent)} >
               {comments.find(threadComment => threadComment.id === element.threadId) ? comments.find(threadComment => threadComment.id === element.threadId).comments.length + ' réponses' : '0 réponses'}
             </p>
-            <p className='drag'><Icon name='arrows alternate' /></p>
+            <p className='drag'><Icon name='ellipsis vertical' /></p>
           </div>
         </label>
       </div>
