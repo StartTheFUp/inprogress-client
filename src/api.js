@@ -2,7 +2,7 @@ const { hostname } = window.location
 
 export const apiHost = hostname === '127.0.0.1' || hostname === 'localhost'
   ? 'http://localhost:5000'
-  : 'https://wcs-inprogress-api.herokuapp.com'
+  : process.env.REACT_APP_API_URL
 
 const path = route => `${apiHost}${route}` + (process.env.REACT_APP_MOCKS ? '.json' : '')
 
