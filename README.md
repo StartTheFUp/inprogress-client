@@ -18,6 +18,9 @@ So we decided to think about what would be our ideal project management design..
 
 > "The young baby of Trello and Google Docs"
 
+
+### Features
+
   🥞 Real actions are messy and need space. The stacked columns dashboard view will give you plenty.
 
   ✅ Resources, Tickets and tasks categories only. Focus on what's left.
@@ -34,7 +37,8 @@ So we decided to think about what would be our ideal project management design..
 
 
 
-A Project by ⚡️Start the F Up ([www.startthefup.co](https://www.startthefup.co)), a commando innovation agency in Paris.
+### A Project by ⚡️Start the F Up ([www.startthefup.co](https://www.startthefup.co)) 
+A Commando innovation agency in Paris.
 
 
 * **V0** built for STFU by Wild Code School. Thanks to them and more personally to [@bogdanceu](https://github.com/bogdanceu) [@GaelleF](https://github.com/GaelleF) [@SophieMdl](https://github.com/SophieMdl) [@Ofdev12](https://github.com/Ofdev12) [@paradoux](https://github.com/paradoux) et leur formateur Yoann [@akabab](https://github.com/akabab) 🙌
